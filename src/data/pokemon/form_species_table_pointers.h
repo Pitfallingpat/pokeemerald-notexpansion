@@ -1,5 +1,35 @@
 const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
 {
+	[SPECIES_TANGELA] = sTangelaFormSpeciesIdTable,
+	[SPECIES_TANGELA_REGIONAL] = sTangelaFormSpeciesIdTable,
+	
+	[SPECIES_TANGROWTH] = sTangrowthFormSpeciesIdTable,
+	[SPECIES_TANGROWTH_REGIONAL] = sTangrowthFormSpeciesIdTable,
+	
+	[SPECIES_FABULA] = sFabulaFormSpeciesIdTable,
+	[SPECIES_FABULA_MESSY] = sFabulaFormSpeciesIdTable,
+	
+	
+	[SPECIES_RALTS] = sRaltsFormSpeciesIdTable,
+	[SPECIES_RALTS_REGIONAL] = sRaltsFormSpeciesIdTable,
+	
+	[SPECIES_KIRLIA] = sKirliaFormSpeciesIdTable,
+	[SPECIES_KIRLIA_REGIONAL] = sKirliaFormSpeciesIdTable,
+	
+	[SPECIES_GARDEVOIR_REGIONAL] = sGardevoirFormSpeciesIdTable,
+	[SPECIES_GARDEVOIR_REGIONAL_MEGA] = sGardevoirFormSpeciesIdTable,
+	
+	[SPECIES_GALLADE_REGIONAL] = sGalladeFormSpeciesIdTable,
+	[SPECIES_GALLADE_REGIONAL_MEGA] sGalladeFormSpeciesIdTable,
+	
+	[SPECIES_SHELLOS_REGIONAL] = sShellosFormSpeciesIdTable,
+	[SPECIES_GASTRODON_REGIONAL] = sGastrodonFormSpeciesIdTable,
+	
+	[SPECIES_REGIGIGAS] = sRegigigasFormSpeciesIdTable, 
+	[SPECIES_REGIGIGAS_PRIMAL] = sRegigigasFormSpeciesIdTable,
+	
+	
+	
     [SPECIES_VENUSAUR] = sVenusaurFormSpeciesIdTable,
     [SPECIES_CHARIZARD] = sCharizardFormSpeciesIdTable,
     [SPECIES_BLASTOISE] = sBlastoiseFormSpeciesIdTable,

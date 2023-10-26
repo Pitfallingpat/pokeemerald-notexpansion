@@ -1,4 +1,188 @@
-﻿static const union AnimCmd sAnim_None_1[] =
+﻿
+static const union AnimCmd sAnim_TangelaRegional_1[] =
+{
+	ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Coyula_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Wilyote_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Dreayola_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Campear_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Reblrizz_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Smokarch_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Botofin_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sonarin_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Gladiphon_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Geoboi_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Gravloon_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Golaeder_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fabula_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_FabulaMessy_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fabula_Messy_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Crabominate_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Regipyre_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RaltsRegional_1[] =
+{    
+	ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 25),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KirliaRegional_1[] =
+{
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(1, 39),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GardevoirRegional_1[] =
+{    
+	ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 20),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GardevoirRegionalMega_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+
+static const union AnimCmd sAnim_GalladeRegional_1[] =
+{
+    ANIMCMD_FRAME(1, 20),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GalladeRegionalMega_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+static const union AnimCmd sAnim_ShellosRegional_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 36),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_GastrodonRegional_1[] =
+{    
+	ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+};
+static const union AnimCmd sAnim_TangrowthRegional_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_RegigigasPrimal_1[] =
+{
+	ANIMCMD_FRAME(0, 1),
+	ANIMCMD_END,
+};
+
+
+////
+
+static const union AnimCmd sAnim_None_1[] =
 {
     ANIMCMD_FRAME(0, 30),
     ANIMCMD_FRAME(1, 30),
@@ -11637,6 +11821,35 @@ SINGLE_ANIMATION(LycanrocDusk);
 SINGLE_ANIMATION(EnamorusTherian);
 #endif
 
+//ANIMATION JUMP
+SINGLE_ANIMATION(TangelaRegional);
+SINGLE_ANIMATION(Coyula);
+SINGLE_ANIMATION(Wilyote);
+SINGLE_ANIMATION(Dreayola);
+SINGLE_ANIMATION(Campear);
+SINGLE_ANIMATION(Reblrizz);
+SINGLE_ANIMATION(Smokarch);
+SINGLE_ANIMATION(Botofin);
+SINGLE_ANIMATION(Sonarin);
+SINGLE_ANIMATION(Gladiphon);
+SINGLE_ANIMATION(Geoboi);
+SINGLE_ANIMATION(Gravloon);
+SINGLE_ANIMATION(Golaeder);
+SINGLE_ANIMATION(Fabula);
+SINGLE_ANIMATION(FabulaMessy);
+SINGLE_ANIMATION(Crabominate);
+SINGLE_ANIMATION(Regipyre);
+SINGLE_ANIMATION(RaltsRegional);
+SINGLE_ANIMATION(KirliaRegional);
+SINGLE_ANIMATION(GardevoirRegional);
+SINGLE_ANIMATION(GardevoirRegionalMega);
+SINGLE_ANIMATION(GalladeRegional);
+SINGLE_ANIMATION(GalladeRegionalMega);
+SINGLE_ANIMATION(ShellosRegional);
+SINGLE_ANIMATION(GastrodonRegional);
+SINGLE_ANIMATION(TangrowthRegional);
+SINGLE_ANIMATION(RegigigasPrimal);
+
 const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
 {
     [SPECIES_NONE]        = sAnims_None,
@@ -12909,4 +13122,32 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     [SPECIES_BASCULEGION_FEMALE] = sAnims_Basculegion,
 #endif
     [SPECIES_EGG]         = sAnims_Egg,
+	//JUMP LINK TABLE
+	[SPECIES_TANGELA_REGIONAL] = sAnims_TangelaRegional,
+	[SPECIES_COYULA] = sAnims_Coyula,
+	[SPECIES_WILYOTE] = sAnims_Wilyote,
+	[SPECIES_DREAYOLA] = sAnims_Dreayola,
+	[SPECIES_CAMPEAR] = sAnims_Campear,
+	[SPECIES_REBLRIZZ] = sAnims_Reblrizz,
+	[SPECIES_SMOKARCH] = sAnims_Smokarch,
+	[SPECIES_BOTOFIN] = sAnims_Botofin,
+	[SPECIES_SONARIN] = sAnims_Sonarin,
+	[SPECIES_GLADIPHON] = sAnims_Gladiphon,
+	[SPECIES_GEOBOI] = sAnims_Geoboi,
+	[SPECIES_GRAVLOON] = sAnims_Gravloon,
+	[SPECIES_GOLAEDER] = sAnims_Golaeder,
+	[SPECIES_FABULA] = sAnims_Fabula,
+	[SPECIES_FABULA_MESSY] = sAnims_FabulaMessy,
+	[SPECIES_CRABOMINATE] = sAnims_Crabominate,
+	[SPECIES_REGIPYRE] = sAnims_Regipyre,
+	[SPECIES_RALTS_REGIONAL] = sAnims_RaltsRegional,
+	[SPECIES_KIRLIA_REGIONAL] = sAnims_KirliaRegional,
+	[SPECIES_GARDEVOIR_REGIONAL] = sAnims_GardevoirRegional,
+	[SPECIES_GARDEVOIR_REGIONAL_MEGA] = sAnims_GardevoirRegionalMega,
+	[SPECIES_GALLADE_REGIONAL] = sAnims_GalladeRegional,
+	[SPECIES_GALLADE_REGIONAL_MEGA] = sAnims_GalladeRegionalMega,
+	[SPECIES_SHELLOS_REGIONAL] = sAnims_ShellosRegional,
+	[SPECIES_GASTRODON_REGIONAL] = sAnims_GastrodonRegional,
+	[SPECIES_TANGROWTH_REGIONAL] = sAnims_TangrowthRegional,
+	[SPECIES_REGIGIGAS_PRIMAL] = sAnims_RegigigasPrimal,
 };

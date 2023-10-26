@@ -1,5 +1,5 @@
 InsideOfTruck_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, InsideOfTruck_OnLoad
+	//map_script MAP_SCRIPT_ON_LOAD, InsideOfTruck_OnLoad
 	map_script MAP_SCRIPT_ON_RESUME, InsideOfTruck_OnResume
 	.byte 0
 

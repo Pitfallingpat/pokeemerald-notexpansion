@@ -48,6 +48,7 @@ struct OamDimensions
     s8 height;
 };
 
+static void AnimCmd_palette(struct Sprite *sprite);
 static void UpdateOamCoords(void);
 static void BuildSpritePriorities(void);
 static void SortSprites(void);
@@ -205,6 +206,7 @@ static const AnimFunc sAffineAnimFuncs[] =
 
 static const AnimCmdFunc sAnimCmdFuncs[] =
 {
+    AnimCmd_palette,
     AnimCmd_loop,
     AnimCmd_jump,
     AnimCmd_end,
@@ -960,12 +962,29 @@ void ContinueAnim(struct Sprite *sprite)
         s16 funcIndex;
         sprite->animCmdIndex++;
         type = sprite->anims[sprite->animNum][sprite->animCmdIndex].type;
-        funcIndex = 3;
+        funcIndex = 4;
         if (type < 0)
-            funcIndex = type + 3;
+            funcIndex = type + 4;
         sAnimCmdFuncs[funcIndex](sprite);
     }
 }
+//MARK
+void AnimCmd_palette(struct Sprite *sprite) {
+    s16 type;
+    s16 funcIndex;
+    
+    //assign new palette
+    sprite->oam.paletteNum = sprite->anims[sprite->animNum][sprite->animCmdIndex].palette.paletteNum;
+
+    //advance one index in the animation like in ContinueAnim
+    sprite->animCmdIndex++;
+    type = sprite->anims[sprite->animNum][sprite->animCmdIndex].type;
+    funcIndex = 4;
+    if (type < 0)
+        funcIndex = type + 4;
+    sAnimCmdFuncs[funcIndex](sprite);
+}
+
 
 void AnimCmd_frame(struct Sprite *sprite)
 {

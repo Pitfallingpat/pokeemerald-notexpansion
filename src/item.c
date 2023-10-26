@@ -983,6 +983,8 @@ u32 GetItemStatus1Mask(u16 itemId)
             return STATUS1_POISON | STATUS1_TOXIC_POISON;
         case ITEM3_SLEEP:
             return STATUS1_SLEEP;
+		case ITEM3_BRUISE:
+			return STATUS1_BRUISE;
         case ITEM3_STATUS_ALL:
             return STATUS1_ANY;
     }

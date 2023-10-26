@@ -1,3 +1,38 @@
+static const u16 sTangelaFormSpeciesIdTable[] = {
+	SPECIES_TANGELA,
+	SPECIES_TANGELA_REGIONAL,
+	FORM_SPECIES_END,
+};
+static const u16 sTangrowthFormSpeciesIdTable[] = {
+	SPECIES_TANGROWTH,
+	SPECIES_TANGROWTH_REGIONAL,
+	FORM_SPECIES_END,
+};
+static const u16 sRaltsFormSpeciesIdTable[] = {
+	SPECIES_RALTS,
+	SPECIES_RALTS_REGIONAL,
+	FORM_SPECIES_END,
+};
+static const u16 sKirliaFormSpeciesIdTable[] = {
+	SPECIES_KIRLIA,
+	SPECIES_KIRLIA_REGIONAL,
+	FORM_SPECIES_END,
+};
+static const u16 sRegigigasFormSpeciesIdTable[] = {
+	SPECIES_REGIGIGAS,
+	SPECIES_REGIGIGAS_PRIMAL,
+	FORM_SPECIES_END,
+};
+
+static const u16 sFabulaFormSpeciesIdTable[] = {
+	SPECIES_FABULA,
+	SPECIES_FABULA_MESSY,
+	FORM_SPECIES_END,
+};
+
+
+
+
 static const u16 sVenusaurFormSpeciesIdTable[] = {
     SPECIES_VENUSAUR,
     SPECIES_VENUSAUR_MEGA,
@@ -422,6 +457,8 @@ static const u16 sLinooneFormSpeciesIdTable[] = {
 static const u16 sGardevoirFormSpeciesIdTable[] = {
     SPECIES_GARDEVOIR,
     SPECIES_GARDEVOIR_MEGA,
+	SPECIES_GARDEVOIR_REGIONAL,
+	SPECIES_GARDEVOIR_REGIONAL_MEGA,
     FORM_SPECIES_END,
 };
 
@@ -573,12 +610,14 @@ static const u16 sCherrimFormSpeciesIdTable[] = {
 static const u16 sShellosFormSpeciesIdTable[] = {
     SPECIES_SHELLOS,
     SPECIES_SHELLOS_EAST_SEA,
+	SPECIES_SHELLOS_REGIONAL,
     FORM_SPECIES_END,
 };
 
 static const u16 sGastrodonFormSpeciesIdTable[] = {
     SPECIES_GASTRODON,
     SPECIES_GASTRODON_EAST_SEA,
+	SPECIES_GASTRODON_REGIONAL,
     FORM_SPECIES_END,
 };
 
@@ -609,6 +648,8 @@ static const u16 sAbomasnowFormSpeciesIdTable[] = {
 static const u16 sGalladeFormSpeciesIdTable[] = {
     SPECIES_GALLADE,
     SPECIES_GALLADE_MEGA,
+	SPECIES_GALLADE_REGIONAL,
+	SPECIES_GALLADE_REGIONAL_MEGA,
     FORM_SPECIES_END,
 };
 

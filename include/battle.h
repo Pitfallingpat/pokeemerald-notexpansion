@@ -42,6 +42,9 @@
 #define B_ACTION_NOTHING_FAINTED        13 // when choosing an action
 #define B_ACTION_DEBUG                  20
 #define B_ACTION_THROW_BALL             21 // R to throw last used ball
+#define B_WIN_TYPE_SUPER_EFF     24
+#define B_WIN_TYPE_NOT_VERY_EFF  25
+#define B_WIN_TYPE_NO_EFF        26
 #define B_ACTION_NONE                   0xFF
 
 #define BATTLE_BUFFER_LINK_SIZE 0x1000

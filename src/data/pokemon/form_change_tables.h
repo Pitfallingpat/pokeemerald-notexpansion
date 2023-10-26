@@ -1,3 +1,25 @@
+
+static const struct FormChange sRegigigasFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_PRIMAL_REVERSION,   SPECIES_REGIGIGAS_PRIMAL, ITEM_BLUE_ORB},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sGalladeRegionalFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_GALLADE_REGIONAL_MEGA, ITEM_GALLADITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+static const struct FormChange sGardevoirRegionalFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_GARDEVOIR_REGIONAL_MEGA, ITEM_GARDEVOIRITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sFabulaFormChangeTable[] = {
+    {FORM_CHANGE_FAINT,         SPECIES_FABULA},
+    {FORM_CHANGE_END_BATTLE,    SPECIES_FABULA},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+
 static const struct FormChange sVenusaurFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_VENUSAUR_MEGA, ITEM_VENUSAURITE},
     {FORM_CHANGE_TERMINATOR},

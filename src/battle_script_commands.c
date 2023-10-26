@@ -898,6 +898,7 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_PARALYSIS]      = STATUS1_PARALYSIS,
     [MOVE_EFFECT_TOXIC]          = STATUS1_TOXIC_POISON,
     [MOVE_EFFECT_FROSTBITE]      = STATUS1_FROSTBITE,
+	[MOVE_EFFECT_BRUISE] 		 = STATUS1_BRUISE,
     [MOVE_EFFECT_CONFUSION]      = STATUS2_CONFUSION,
     [MOVE_EFFECT_FLINCH]         = STATUS2_FLINCHED,
     [MOVE_EFFECT_UPROAR]         = STATUS2_UPROAR,
@@ -922,6 +923,7 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_PAYDAY]           = BattleScript_MoveEffectPayDay,
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
+	[MOVE_EFFECT_BRUISE] 		   = BattleScript_MoveEffectBruise,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
@@ -3063,6 +3065,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
     {
         switch (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect])
         {
+		case STATUS1_BRUISE:
+            if (CanBeBruised(gEffectBattler, gBattlerAttacker))
+			{
+				statusChanged = TRUE;
+			}
+			break;
+			
         case STATUS1_SLEEP:
             // check active uproar
             if (battlerAbility != ABILITY_SOUNDPROOF)
@@ -3142,7 +3151,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 RESET_RETURN
             }
-            if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE)
+            if ((IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_FIRE) && GetBattlerAbility(gBattlerAttacker) != ABILITY_INFERNO)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -3153,7 +3162,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 RESET_RETURN
             }
 
-            if (!CanBeBurned(gEffectBattler))
+            if (!CanBeBurned(gEffectBattler, gBattlerAttacker))
                 break;
 
             statusChanged = TRUE;
@@ -5592,7 +5601,7 @@ static void Cmd_moveend(void)
                 }
                 // Not strictly a protect effect, but works the same way
                 else if (gProtectStructs[gBattlerTarget].beakBlastCharge
-                         && CanBeBurned(gBattlerAttacker)
+                         && CanBeBurned(gBattlerAttacker, gBattlerAttacker)
                          && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
@@ -6230,6 +6239,22 @@ static void Cmd_moveend(void)
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_LIFEORB_SHELLBELL:
+			//MARK BRUISE   
+			if (IsBattlerAlive(gBattlerAttacker) 
+			 && gBattleMons[gBattlerAttacker].status1 == STATUS1_BRUISE 
+			 && IsMoveMakingContact(gCurrentMove, gBattlerAttacker)
+			 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+			{
+				if (gBattleMons[gBattlerAttacker].type1 == TYPE_FIGHTING || gBattleMons[gBattlerAttacker].type2 == TYPE_FIGHTING){
+					gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
+				}else{
+					gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
+				}
+				BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_BruiseActivates;
+				effect = TRUE;
+			}
+		
             if (ItemBattleEffects(ITEMEFFECT_LIFEORB_SHELLBELL, 0, FALSE))
                 effect = TRUE;
             gBattleScripting.moveendState++;
@@ -9556,6 +9581,7 @@ static void Cmd_various(void)
             case ABILITY_POWER_CONSTRUCT:   case ABILITY_BATTLE_BOND:
             case ABILITY_SCHOOLING:         case ABILITY_COMATOSE:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
+			case ABILITY_FABULOUS:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:
                 break;
             default:
@@ -10118,7 +10144,7 @@ static void Cmd_various(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
             else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_TOXIC_POISON) && CanBePoisoned(gBattlerAttacker, gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 1;
-            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_BURN) && CanBeBurned(gBattlerTarget))
+            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_BURN) && CanBeBurned(gBattlerTarget,gBattlerAttacker))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
             else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && CanBeParalyzed(gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 3;

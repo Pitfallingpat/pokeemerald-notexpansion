@@ -22,7 +22,10 @@
 #define TYPE_DRAGON           16
 #define TYPE_DARK             17
 #define TYPE_FAIRY            18
-#define NUMBER_OF_MON_TYPES   19
+#define TYPE_SOUND			  19
+#define TYPE_LASER			  20
+
+#define NUMBER_OF_MON_TYPES   21
 
 // Pokemon egg groups
 #define EGG_GROUP_NONE          0
@@ -92,7 +95,7 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 24 // Actual probability is SHINY_ODDS/65536
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
@@ -245,6 +248,7 @@
 #define FLAG_THREE_STRIKES                        (1 << 28) // A move with this flag will strike thrice, and may apply its effect on each hit
 #define FLAG_WIND_MOVE                            (1 << 29)
 #define FLAG_SLICING_MOVE                         (1 << 30)
+#define FLAG_TWO_TYPED 							  (1 << 31)
 
 // Split defines.
 #define SPLIT_PHYSICAL  0x0
@@ -362,6 +366,8 @@
 #define SPECIES_FLAG_GENDER_DIFFERENCE  (1 << 8)
 #define SPECIES_FLAG_ALL_PERFECT_IVS    (1 << 9)
 #define SPECIES_FLAG_CANNOT_BE_TRADED   (1 << 10)
+#define SPECIES_FLAG_REGIONAL_FORM 		(1 << 11)
+#define SPECIES_FLAG_SKIP_NAT_DEX 		(1 << 12)
 
 #define LEGENDARY_PERFECT_IV_COUNT 3
 

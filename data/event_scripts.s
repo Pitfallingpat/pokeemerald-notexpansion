@@ -1059,3 +1059,31 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/FreshTown/scripts.inc"
+
+	.include "data/maps/PlayerHouseF1/scripts.inc"
+
+	.include "data/maps/PlayerHouseF0/scripts.inc"
+
+	.include "data/maps/Route1/scripts.inc"
+
+	.include "data/maps/Route2/scripts.inc"
+
+	.include "data/maps/FreshHouse1/scripts.inc"
+
+	.include "data/maps/HistorTown/scripts.inc"
+
+	.include "data/maps/FreshTownCave1/scripts.inc"
+
+	.include "data/maps/ProfessorsLab1/scripts.inc"
+
+	.include "data/maps/ProfessorsLab2/scripts.inc"
+
+	.include "data/maps/HistorySchool/scripts.inc"
+
+	.include "data/maps/HistorTown_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Route3/scripts.inc"
+
+	.include "data/maps/Prospect/scripts.inc"

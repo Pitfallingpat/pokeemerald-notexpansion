@@ -289,6 +289,9 @@ static const u8 sToxicDebrisDescription[] = _("Throws poison spikes if hit.");
 static const u8 sArmorTailDescription[] = _("Protects from priority.");
 static const u8 sEarthEaterDescription[] = _("Eats ground to heal HP.");
 static const u8 sMyceliumMightDescription[] = _("Status moves never fail.");
+static const u8 sUnstoppableDescription[] = _("Ignores Immunity&Abilities.");
+static const u8 sInfernoDescription[] = _("Can burn even Fire Types.");
+static const u8 sFabulousDescription[] = _("Looks great until hit.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -592,6 +595,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_ARMOR_TAIL] = _("Armor Tail"),
     [ABILITY_EARTH_EATER] = _("Earth Eater"),
     [ABILITY_MYCELIUM_MIGHT] = _("Mycelium Might"),
+	[ABILITY_UNSTOPPABLE] = _("Unstoppable"),
+	[ABILITY_INFERNO] = _("Inferno"),
+	[ABILITY_FABULOUS] = _("Fabulous"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -895,6 +901,9 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_ARMOR_TAIL] = _("Armor Tail"),
     [ABILITY_EARTH_EATER] = _("Earth Eater"),
     [ABILITY_MYCELIUM_MIGHT] = _("MceliumMight"),
+	[ABILITY_UNSTOPPABLE] = _("Unstoppable"),
+	[ABILITY_INFERNO] = _("Inferno"),
+	[ABILITY_FABULOUS] = _("Fabulous"),
 };
 #endif
 
@@ -1199,4 +1208,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_ARMOR_TAIL] = sArmorTailDescription,
     [ABILITY_EARTH_EATER] = sEarthEaterDescription,
     [ABILITY_MYCELIUM_MIGHT] = sMyceliumMightDescription,
+	[ABILITY_UNSTOPPABLE] = sUnstoppableDescription,
+	[ABILITY_INFERNO] = sInfernoDescription,
+	[ABILITY_FABULOUS] = sFabulousDescription,
 };
