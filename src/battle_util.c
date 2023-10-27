@@ -10167,8 +10167,8 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
-        if (gBattleMoves[move].type2 != TYPE_NONE)
-            modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        if (gBattleMoves[move].type2 != TYPE_MYSTERY)
+            modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].type2, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
 
     }
     if (recordAbilities)

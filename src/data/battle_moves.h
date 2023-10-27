@@ -5666,7 +5666,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
-
+		.type2= TYPE_GROUND,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,

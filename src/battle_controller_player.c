@@ -1776,8 +1776,9 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     //struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[gActiveBattler][4]);
 
 	txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
-	
-	if (gBattleMoves[move].type2 != TYPE_MYSTERY){
+
+	if (gBattleMoves[move].type2 != TYPE_MYSTERY)
+	{
 		txtPtr = StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type]);	
 		*(txtPtr)++ = CHAR_SLASH;
 		StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type2]);	
