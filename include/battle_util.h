@@ -233,17 +233,17 @@ bool32 IsEntrainmentBannedAbilityAttacker(u16 ability);
 bool32 IsEntrainmentTargetOrSimpleBeamBannedAbility(u16 ability);
 
 
-bool32 CanSleep(u8 battlerId);
-bool32 CanBePoisoned(u8 battlerAttacker, u8 battlerTarget);
-bool32 CanBeBurned(u8 battlerId, u8 battlerAttacker);
-bool32 CanBeBruised(u8 battlerId, u8 battlerAttacker);
-bool32 CanBeParalyzed(u8 battlerId);
-bool32 CanBeFrozen(u8 battlerId);
-bool32 CanGetFrostbite(u8 battlerId);
-bool32 CanBeConfused(u8 battlerId);
-bool32 IsBattlerTerrainAffected(u8 battlerId, u32 terrainFlag);
-u32 GetBattlerFriendshipScore(u8 battlerId);
-u32 CountBattlerStatIncreases(u8 battlerId, bool32 countEvasionAcc);
+bool32 CanSleep(u32 battlerId);
+bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget);
+bool32 CanBeBurned(u32 battlerId, u32 battlerAttacker);
+bool32 CanBeBruised(u32 battlerId, u32 battlerAttacker);
+bool32 CanBeParalyzed(u32 battlerId);
+bool32 CanBeFrozen(u32 battlerId);
+bool32 CanGetFrostbite(u32 battlerId);
+bool32 CanBeConfused(u32 battlerId);
+bool32 IsBattlerTerrainAffected(u32 battlerId, u32 terrainFlag);
+u32 GetBattlerFriendshipScore(u32 battlerId);
+u32 CountBattlerStatIncreases(u32 battlerId, bool32 countEvasionAcc);
 
 bool32 IsMyceliumMightOnField(void);
 bool32 ChangeTypeBasedOnTerrain(u32 battler);

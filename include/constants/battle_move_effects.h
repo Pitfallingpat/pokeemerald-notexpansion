@@ -405,12 +405,12 @@
 #define EFFECT_REVIVAL_BLESSING             401
 #define EFFECT_FROSTBITE_HIT                402
 #define EFFECT_SNOWSCAPE                    403
-#define EFFECT_TWO_TYPED_BURN    			      404
-#define EFFECT_TWO_TYPED_SP_ATK_DOWN	      405
+#define EFFECT_TWO_TYPED_BURN    			404
+#define EFFECT_TWO_TYPED_SP_ATK_DOWN	    405
 #define EFFECT_TWO_TYPED_SP_DEF_DOWN        406
 #define EFFECT_TWO_TYPED_ATTACKER_DEF_DOWN  407
-#define EFFECT_TWO_TYPED_SP_ATK_UP			    408
-#define EFFECT_BRUISE_HIT					          409
+#define EFFECT_TWO_TYPED_SP_ATK_UP			408
+#define EFFECT_BRUISE_HIT					409
 #define EFFECT_SPIN_OUT                     410
 #define EFFECT_MAKE_IT_RAIN                 411
 #define EFFECT_CORROSIVE_GAS                412
@@ -418,8 +418,13 @@
 #define EFFECT_MORTAL_SPIN                  414
 #define EFFECT_GIGATON_HAMMER               415
 #define EFFECT_SALT_CURE                    416
+#define EFFECT_TRIPLE_ARROWS                417
+#define EFFECT_INFERNAL_PARADE              418
+#define EFFECT_TAKE_HEART                   419
+#define EFFECT_AXE_KICK                     420
+#define EFFECT_COLLISION_COURSE             421
 
-#define NUM_BATTLE_MOVE_EFFECTS             417
+#define NUM_BATTLE_MOVE_EFFECTS             422
 
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

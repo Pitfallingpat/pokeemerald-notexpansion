@@ -3,7 +3,7 @@
 
 // Pokemon types
 #define TYPE_NONE             255
-#define TYPE_NORMAL           0
+#define TYPE_NORMAL           9
 #define TYPE_FIGHTING         1
 #define TYPE_FLYING           2
 #define TYPE_POISON           3
@@ -12,7 +12,7 @@
 #define TYPE_BUG              6
 #define TYPE_GHOST            7
 #define TYPE_STEEL            8
-#define TYPE_MYSTERY          9
+#define TYPE_MYSTERY          0
 #define TYPE_FIRE             10
 #define TYPE_WATER            11
 #define TYPE_GRASS            12

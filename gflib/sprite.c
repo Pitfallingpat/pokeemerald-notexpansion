@@ -51,7 +51,6 @@ struct OamDimensions
 static void AnimCmd_palette(struct Sprite *sprite);
 static void UpdateOamCoords(void);
 static void BuildSpritePriorities(void);
-static void SortSprites(void);
 static void CopyMatricesToOamBuffer(void);
 static void AddSpritesToOamBuffer(void);
 

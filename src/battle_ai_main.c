@@ -2656,7 +2656,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
              && !BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_SPDEF))
                 score -= 10;
             break;
-        case EFFECT_PLACEHOLDER:
+			case EFFECT_PLACEHOLDER:
             return 0;   // cannot even select
     } // move effect checks
 
@@ -4479,6 +4479,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
          || BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_SPDEF))
             score += 2;
         break;
+		
     case EFFECT_PSYCHO_SHIFT:
         if (gBattleMons[battlerAtk].status1 & STATUS1_PSN_ANY)
             IncreasePoisonScore(battlerAtk, battlerDef, move, &score);

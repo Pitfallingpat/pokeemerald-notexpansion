@@ -3988,7 +3988,7 @@ static void SetMoveTypeIcons(void)
     {
 		//MARK TWOTYPE TEST
         if (summary->moves[i] != MOVE_NONE){
-            if (gBattleMoves[summary->moves[i]].flags & FLAG_TWO_TYPED){
+            if (gBattleMoves[summary->moves[i]].type2 != TYPE_MYSTERY){
 				//type2 = gBattleMoves[summary->moves[i]].argument;
 				
 				if ((gBattleMoves[summary->moves[i]].type == TYPE_FIGHTING && gBattleMoves[summary->moves[i]].argument == TYPE_FLYING) || (gBattleMoves[summary->moves[i]].argument == TYPE_FIGHTING && gBattleMoves[summary->moves[i]].type == TYPE_FLYING)){

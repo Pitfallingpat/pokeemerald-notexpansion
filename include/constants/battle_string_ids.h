@@ -671,8 +671,9 @@
 #define STRINGID_TARGETISBEINGSALTCURED               669
 #define STRINGID_TARGETISHURTBYSALTCURE               670
 #define STRINGID_UNSTOPPABLEENTERS                    671
+#define STRINGID_PKMNITEMMELTED						  672
 
-#define BATTLESTRINGS_COUNT                           672
+#define BATTLESTRINGS_COUNT                           673
 
 
 // This is the string id that gBattleStringsTable starts with.

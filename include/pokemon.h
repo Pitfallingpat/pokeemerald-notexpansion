@@ -348,6 +348,7 @@ struct BattleMove
     u8 split;
     u16 argument;
     u8 zMoveEffect;
+	u16 type2;
     // Flags
     u32 makesContact:1;
     u32 ignoresProtect:1;

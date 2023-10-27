@@ -6379,7 +6379,7 @@ bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget)
     return TRUE;
 }
 
-bool32 CanBeBruised(u8 battlerId, u8 battlerAttacker){
+bool32 CanBeBruised(u32 battlerId, u32 battlerAttacker){
 	
     u16 ability = GetBattlerAbility(battlerId);
 	
@@ -6394,13 +6394,13 @@ bool32 CanBeBruised(u8 battlerId, u8 battlerAttacker){
 	return TRUE;
 }
 
-bool32 CanBeBurned(u8 battler, u8 battlerAttacker)
+bool32 CanBeBurned(u32 battler, u32 battlerAttacker)
 {
     u16 ability = GetBattlerAbility(battler);
 
-    if ((IS_BATTLER_OF_TYPE(battlerId, TYPE_FIRE) && !(GetBattlerAbility(battlerAttacker) == ABILITY_INFERNO))
+    if ((IS_BATTLER_OF_TYPE(battler, TYPE_FIRE) && !(GetBattlerAbility(battlerAttacker) == ABILITY_INFERNO))
       || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD
-      || gBattleMons[battlerId].status1 & STATUS1_ANY
+      || gBattleMons[battler].status1 & STATUS1_ANY
       || ability == ABILITY_WATER_VEIL
       || ability == ABILITY_WATER_BUBBLE
       || ability == ABILITY_COMATOSE
@@ -10167,7 +10167,7 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
-        if (gBattleMoves[move].flags & FLAG_TWO_TYPED)
+        if (gBattleMoves[move].type2 != TYPE_NONE)
             modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
 
     }
@@ -10181,7 +10181,7 @@ uq4_12_t CalcPartyMonTypeEffectivenessMultiplier(u16 move, u16 speciesDef, u16 a
     uq4_12_t modifier = UQ_4_12(1.0);
     u8 moveType = gBattleMoves[move].type;
 
-    if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
+    if (move != MOVE_STRUGGLE && moveType != TYPE_NONE)
     {
         MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[0], 0, FALSE);
         if (gSpeciesInfo[speciesDef].types[1] != gSpeciesInfo[speciesDef].types[0])

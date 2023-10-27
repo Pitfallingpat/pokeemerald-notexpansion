@@ -1,6 +1,5 @@
 
-﻿
-﻿#define PLACEHOLDER_TWO_FRAME_ANIMATION(name)   \
+#define PLACEHOLDER_TWO_FRAME_ANIMATION(name)   \
 static const union AnimCmd sAnim_##name##_1[] = \
 {                                               \
     ANIMCMD_FRAME(0, 30),                       \
@@ -8,7 +7,6 @@ static const union AnimCmd sAnim_##name##_1[] = \
     ANIMCMD_FRAME(0, 1),                        \
     ANIMCMD_END,                                \
 }
-
 
 static const union AnimCmd sAnim_TangelaRegional_1[] =
 {
