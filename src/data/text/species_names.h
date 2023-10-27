@@ -1,3 +1,4 @@
+
 const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
 	[SPECIES_TANGELA_REGIONAL] = _("Tangela"),
 	[SPECIES_COYULA] = _("Coyula"),
@@ -27,6 +28,7 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
 	[SPECIES_REGIGIGAS_PRIMAL] = _("Regigigas"),
 	[SPECIES_FABULA_MESSY] = _("Fabula"),
 	//
+
     [SPECIES_NONE] = _("??????????"),
     [SPECIES_BULBASAUR] = _("Bulbasaur"),
     [SPECIES_IVYSAUR] = _("Ivysaur"),
