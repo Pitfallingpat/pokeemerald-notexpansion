@@ -1,5 +1,14 @@
 const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
 {
+	[SPECIES_REGIGIGAS] = sRegigigasFormChangeTable,
+	[SPECIES_REGIGIGAS_PRIMAL] = sRegigigasFormChangeTable,
+	[SPECIES_GARDEVOIR_REGIONAL] = sGardevoirRegionalFormChangeTable,
+	[SPECIES_GARDEVOIR_REGIONAL_MEGA] = sGardevoirRegionalFormChangeTable,
+	[SPECIES_GALLADE_REGIONAL] = sGalladeRegionalFormChangeTable,
+	[SPECIES_GALLADE_REGIONAL_MEGA] = sGalladeRegionalFormChangeTable,
+	[SPECIES_FABULA] = sFabulaFormChangeTable,
+	[SPECIES_FABULA_MESSY] = sFabulaFormChangeTable,
+	
     [SPECIES_VENUSAUR] = sVenusaurFormChangeTable,
     [SPECIES_VENUSAUR_MEGA] = sVenusaurFormChangeTable,
     [SPECIES_CHARIZARD] = sCharizardFormChangeTable,

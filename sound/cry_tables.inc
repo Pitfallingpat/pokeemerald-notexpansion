@@ -1439,6 +1439,22 @@ gCryTable::
 	cry Cry_Unown
 	cry Cry_Unown
 .endif
+	@ HACKMON
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
+	cry Cry_Unown
 	@ Megas
 	cry Cry_VenusaurMega
 	cry Cry_CharizardMegaX
@@ -2123,7 +2139,21 @@ gCryTable::
 	@ Basculegion
 	cry Cry_Unown
 .endif
-
+	@ HACKMONFORMS
+	cry Cry_Tangela
+	cry Cry_Ralts
+	cry Cry_Kirlia
+	cry Cry_Gardevoir
+	cry Cry_GardevoirMega
+	cry Cry_Gallade
+	cry Cry_GalladeMega
+	cry Cry_Shellos
+	cry Cry_Gastrodon
+	cry Cry_Tangrowth
+	cry Cry_Regigigas
+	cry Cry_Unown
+	
+	
 	.align 2
 gCryTable_Reverse::
 	cry_reverse Cry_Bulbasaur
@@ -3565,6 +3595,22 @@ gCryTable_Reverse::
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
 .endif
+	@HACKMONREVERSE
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
+	cry_reverse Cry_Unown
 	@ Megas
 	cry_reverse Cry_VenusaurMega
 	cry_reverse Cry_CharizardMegaX
@@ -4195,3 +4241,15 @@ gCryTable_Reverse::
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
 .endif
+	@HACKMONFORMSREVERSE
+	cry_reverse Cry_Tangela
+	cry_reverse Cry_Ralts
+	cry_reverse Cry_Kirlia
+	cry_reverse Cry_Gardevoir
+	cry_reverse Cry_GardevoirMega
+	cry_reverse Cry_Gallade
+	cry_reverse Cry_GalladeMega
+	cry_reverse Cry_Shellos
+	cry_reverse Cry_Gastrodon
+	cry_reverse Cry_Tangrowth
+	cry_reverse Cry_Regigigas

@@ -5399,3 +5399,81 @@ const u8 gEnamorusPokedexText[] = _(
     "Pokémon's love gives rise to the\n"
     "budding of fresh life across the land.");
 #endif
+
+const u8 gCoyulaPokedexText[] = _(
+	"Stray Coyula are mistakenly adopted as pets\n"
+	"due to their shy, friendly appearance. Being\n"
+	"around it helps reduce insomnia and improves\n"
+	"dreams.");
+
+const u8 gWilyotePokedexText[] = _(
+	"Wilyote are tricksters who prank others for\n"
+	"their own enjoyment. Trainers who treat them\n"
+	"Well are rewarded with a lucky leaf which is\n"
+	"said to give better quality sleep.");
+	
+const u8 gDreayolaPokedexText[] = _(
+	"PLACEHOLDER\n"
+	"\n"
+	"\n"
+	"PLACEHOLDER");
+const u8 gCampearPokedexText[] = _(
+	"Campear enjoy eating meals with others, and\n"
+	"will share any food it has gathered. The fire\n"
+	"of its body smells like burning honey.\n"
+	"");
+const u8 gReblrizzPokedexText[] = _(
+	"Popular among teens for their rebellious nature\n"
+	"They love setting things on fire by slamming\n"
+	"their burning arms into things.\n"
+	"");
+const u8 gSmokarchPokedexText[] = _(
+	"Smokarch protect POKéMON habitats by absorbing\n"
+	"wild fires into themselves. They are a favorite\n"
+	"POKéMON among fire fighers and park rangers\n"
+	"alike.");
+const u8 gBotofinPokedexText[] = _(
+	"Its 'legs' are made up of small rings of water,\n"
+	"which allows it to travel on land. Their eyes\n"
+	"are not adapted to being out of the water so\n"
+	"they make use echolocation to compensate.");
+const u8 gSonarinPokedexText[] = _(
+	"It can read a person's intention with sonic\n"
+	"waves, due to this it can get stressed out by\n"
+	"crowds. When distressed they can move at high\n"
+	"speed thanks to their water wheels.");
+const u8 gGladiphonPokedexText[] = _(
+	"Gladiphon's water chariot is capable of moving\n"
+	"at speeds up to 70 mph. It has a great memory\n"
+	"and will remember dangerous attacks it sees\n"
+	"warn others about them when it can.");
+const u8 gGeoboiPokedexText[] = _(
+	"\n"
+	"\n"
+	"\n"
+	"");
+const u8 gGravloonPokedexText[] = _(
+	"\n"
+	"\n"
+	"\n"
+	"");
+const u8 gGolaederPokedexText[] = _(
+	"\n"
+	"\n"
+	"\n"
+	"");
+const u8 gFabulaPokedexText[] = _(
+	"\n"
+	"\n"
+	"\n"
+	"");
+const u8 gCrabominatePokedexText[] = _(
+	"\n"
+	"\n"
+	"\n"
+	"");
+const u8 gRegipyrePokedexText[] = _(
+	"\n"
+	"\n"
+	"\n"
+	"");

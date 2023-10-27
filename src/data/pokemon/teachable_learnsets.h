@@ -1,3 +1,137 @@
+
+
+static const u16 sTangelaRegionalTeachableLearnset[] = {
+    MOVE_ATTRACT,
+    MOVE_FACADE,
+    MOVE_FRUSTRATION,
+    MOVE_HIDDEN_POWER,
+    MOVE_HYPER_BEAM,
+    MOVE_PROTECT,
+    MOVE_REFLECT,
+    MOVE_REST,
+    MOVE_RETURN,
+    MOVE_ROCK_SMASH,
+    MOVE_SECRET_POWER,
+    MOVE_SHOCK_WAVE,
+    MOVE_THIEF,
+    MOVE_TOXIC,
+    MOVE_BODY_SLAM,
+    MOVE_DOUBLE_EDGE,
+    MOVE_ENDURE,
+    MOVE_MIMIC,
+    MOVE_PSYCH_UP,
+    MOVE_SLEEP_TALK,
+    MOVE_SNORE,
+    MOVE_SUBSTITUTE,
+    MOVE_SWAGGER,
+    MOVE_SWORDS_DANCE,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sTangrowthRegionalTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sCoyulaTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sWilyoteTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sDreayolaTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sCampearTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sReblrizzTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sSmokarchTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sBotofinTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sSonarinTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sGladiphonTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sGeoboiTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sGravloonTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sGolaederTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sFabulaTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sCrabominateTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sRegipyreTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sRaltsRegionalTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sKirliaRegionalTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sGardevoirRegionalTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+static const u16 sGalladeRegionalTeachableLearnset[] = {
+	MOVE_HIDDEN_POWER,
+	MOVE_SECRET_POWER,
+	MOVE_UNAVAILABLE,
+};
+
+
+//
+
 static const u16 sBulbasaurTeachableLearnset[] = {
     MOVE_ATTRACT,
     MOVE_BULLET_SEED,

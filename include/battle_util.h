@@ -232,16 +232,19 @@ bool32 IsGastroAcidBannedAbility(u16 ability);
 bool32 IsEntrainmentBannedAbilityAttacker(u16 ability);
 bool32 IsEntrainmentTargetOrSimpleBeamBannedAbility(u16 ability);
 
-bool32 CanSleep(u32 battler);
-bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget);
-bool32 CanBeBurned(u32 battler);
-bool32 CanBeParalyzed(u32 battler);
-bool32 CanBeFrozen(u32 battler);
-bool32 CanGetFrostbite(u32 battler);
-bool32 CanBeConfused(u32 battler);
-bool32 IsBattlerTerrainAffected(u32 battler, u32 terrainFlag);
-u32 GetBattlerFriendshipScore(u32 battler);
-u32 CountBattlerStatIncreases(u32 battler, bool32 countEvasionAcc);
+
+bool32 CanSleep(u8 battlerId);
+bool32 CanBePoisoned(u8 battlerAttacker, u8 battlerTarget);
+bool32 CanBeBurned(u8 battlerId, u8 battlerAttacker);
+bool32 CanBeBruised(u8 battlerId, u8 battlerAttacker);
+bool32 CanBeParalyzed(u8 battlerId);
+bool32 CanBeFrozen(u8 battlerId);
+bool32 CanGetFrostbite(u8 battlerId);
+bool32 CanBeConfused(u8 battlerId);
+bool32 IsBattlerTerrainAffected(u8 battlerId, u32 terrainFlag);
+u32 GetBattlerFriendshipScore(u8 battlerId);
+u32 CountBattlerStatIncreases(u8 battlerId, bool32 countEvasionAcc);
+
 bool32 IsMyceliumMightOnField(void);
 bool32 ChangeTypeBasedOnTerrain(u32 battler);
 void RemoveConfusionStatus(u32 battler);

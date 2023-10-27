@@ -425,6 +425,15 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRevivalBlessing         @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_FROSTBITE_HIT
 	.4byte BattleScript_EffectSnow                    @ EFFECT_SNOWSCAPE
+
+	.4byte BattleScript_EffectTwoTypeBurn		      @ EFFECT_TWO_TYPED_BURN
+	.4byte BattleScript_EffectTwoTypeSpAtkDown		  @ EFFECT_TWO_TYPED_SP_ATK_DOWN
+	.4byte BattleScript_EffectTwoTypeSpDefDown		  @	EFFECT_TWO_TYPED_SP_DEF_DOWN
+	.4byte BattleScript_EffectTwoTypeAttackerDefDown  @	EFFECT_TWO_TYPED_ATTACKER_DEF_DOWN
+	.4byte BattleScript_EffectTwoTypeSpAtkUp		  @	EFFECT_TWO_TYPED_SP_ATK_UP
+	.4byte BattleScript_EffectBruiseHit;			  @ EFFECT_BRUISE
+	
+
 	.4byte BattleScript_EffectTripleArrows            @ EFFECT_TRIPLE_ARROWS
 	.4byte BattleScript_EffectInfernalParade          @ EFFECT_INFERNAL_PARADE
 	.4byte BattleScript_EffectTakeHeart               @ EFFECT_TAKE_HEART
@@ -3366,6 +3375,10 @@ BattleScript_EffectBurnHit::
 	setmoveeffect MOVE_EFFECT_BURN
 	goto BattleScript_EffectHit
 
+BattleScript_EffectBruiseHit::
+	setmoveeffect MOVE_EFFECT_BRUISE
+	goto BattleScript_EffectHit
+
 BattleScript_EffectFrostbiteHit::
 	setmoveeffect MOVE_EFFECT_FROSTBITE
 	goto BattleScript_EffectHit
@@ -5577,7 +5590,6 @@ BattleScript_EffectWillOWisp::
 	ppreduce
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_BURN, BattleScript_AlreadyBurned
-	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_WATER_BUBBLE, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
@@ -5589,6 +5601,15 @@ BattleScript_EffectWillOWisp::
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifsafeguard BattleScript_SafeguardProtected
+	jumpifability BS_ATTACKER, ABILITY_INFERNO, BattleScript_InfernoFireCheck
+	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_InfernoFireCheck
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_BURN
+	seteffectprimary
+	goto BattleScript_MoveEnd
+
+BattleScript_InfernoFireCheck::
 	attackanimation
 	waitanimation
 	setmoveeffect MOVE_EFFECT_BURN
@@ -8236,6 +8257,12 @@ BattleScript_MoveEffectBurn::
 	printfromtable gGotBurnedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
+	
+BattleScript_MoveEffectBruise::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gGotBurnedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
 
 BattleScript_MoveEffectFrostbite::
 	statusanimation BS_EFFECT_BATTLER
@@ -9228,6 +9255,14 @@ BattleScript_ImposterActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_FabulousActivates::
+	call BattleScript_TargetFormChangeWithString
+	waitanimation
+	printstring STRINGID_IMPOSTERTRANSFORM
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+
 BattleScript_HurtAttacker:
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
@@ -9242,8 +9277,11 @@ BattleScript_RoughSkinActivates::
 	call BattleScript_HurtAttacker
 	return
 
+BattleScript_BruiseActivates::
+	call BattleScript_HurtAttacker
+	return
+
 BattleScript_RockyHelmetActivates::
-	@ don't play the animation for a fainted mon
 	jumpifabsent BS_TARGET, BattleScript_RockyHelmetActivatesDmg
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
@@ -10386,3 +10424,26 @@ BattleScript_EffectSnow::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
 	setsnow
 	goto BattleScript_MoveWeatherChange
+
+//NEW
+
+BattleScript_EffectTwoTypeBurn::
+	setmoveeffect MOVE_EFFECT_BURN
+	goto BattleScript_EffectHit
+	
+	
+BattleScript_EffectTwoTypeSpAtkDown::		
+	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_1
+	goto BattleScript_EffectHit
+ 
+BattleScript_EffectTwoTypeSpDefDown::	
+	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_1
+	goto BattleScript_EffectHit
+	 
+BattleScript_EffectTwoTypeAttackerDefDown::
+	setmoveeffect MOVE_EFFECT_DEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+
+BattleScript_EffectTwoTypeSpAtkUp::
+	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit

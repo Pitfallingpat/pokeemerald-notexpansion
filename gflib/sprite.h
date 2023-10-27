@@ -67,6 +67,12 @@ struct AnimJumpCmd
     u32 target:6;
 };
 
+struct AnimPaletteCmd
+{
+    u32 type:16;
+    u32 paletteNum:6;
+};
+
 // The first halfword of this union specifies the type of command.
 // If it -2, then it is a jump command. If it is -1, then it is the end of the script.
 // Otherwise, it is the imageValue for a frame command.
@@ -74,6 +80,7 @@ union AnimCmd
 {
     s16 type;
     struct AnimFrameCmd frame;
+	struct AnimPaletteCmd palette;
     struct AnimLoopCmd loop;
     struct AnimJumpCmd jump;
 };
@@ -86,6 +93,8 @@ union AnimCmd
     {.jump = {.type = -2, .target = _target}}
 #define ANIMCMD_END \
     {.type = -1}
+#define ANIMCMD_PALETTE(_paletteNum) \
+    {.palette = {.type = -4, .paletteNum = _paletteNum}}
 
 struct AffineAnimFrameCmd
 {

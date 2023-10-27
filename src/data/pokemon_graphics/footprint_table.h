@@ -1,6 +1,23 @@
 const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
 {
     [SPECIES_NONE] = gMonFootprint_Bulbasaur,
+		
+	[SPECIES_COYULA] = gMonFootprint_Coyula,
+	[SPECIES_WILYOTE] = gMonFootprint_Wilyote,
+	[SPECIES_DREAYOLA] = gMonFootprint_Dreayola,
+	[SPECIES_CAMPEAR] = gMonFootprint_Campear,
+	[SPECIES_REBLRIZZ] = gMonFootprint_Reblrizz,
+	[SPECIES_SMOKARCH] = gMonFootprint_Smokarch,
+	[SPECIES_BOTOFIN] = gMonFootprint_Botofin,
+	[SPECIES_SONARIN] = gMonFootprint_Sonarin,
+	[SPECIES_GLADIPHON]= gMonFootprint_Gladiphon,
+	[SPECIES_GEOBOI] = gMonFootprint_Geoboi,
+	[SPECIES_GRAVLOON] = gMonFootprint_Gravloon,
+	[SPECIES_GOLAEDER] = gMonFootprint_Golaeder,
+	[SPECIES_FABULA] = gMonFootprint_Fabula,
+	[SPECIES_CRABOMINATE] = gMonFootprint_Crabominate,
+	[SPECIES_REGIPYRE] = gMonFootprint_Regipyre,
+	
     [SPECIES_BULBASAUR] = gMonFootprint_Bulbasaur,
     [SPECIES_IVYSAUR] = gMonFootprint_Ivysaur,
     [SPECIES_VENUSAUR] = gMonFootprint_Venusaur,
