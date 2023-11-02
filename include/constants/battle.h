@@ -115,8 +115,8 @@
 #define STATUS1_TOXIC_POISON     (1 << 7)
 #define STATUS1_TOXIC_COUNTER    (1 << 8 | 1 << 9 | 1 << 10 | 1 << 11)
 #define STATUS1_TOXIC_TURN(num)  ((num) << 8)
-#define STATUS1_FROSTBITE        (1 << 12)
-#define STATUS1_BRUISE			 (1 << 13)
+#define STATUS1_BRUISE			 (1 << 12)
+#define STATUS1_FROSTBITE        (1 << 13)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
 #define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_BRUISE)
 
@@ -313,7 +313,6 @@
 #define MOVE_EFFECT_PARALYSIS           5
 #define MOVE_EFFECT_TOXIC               6
 #define MOVE_EFFECT_FROSTBITE           7
-
 #define MOVE_EFFECT_BRUISE				8
 #define PRIMARY_STATUS_MOVE_EFFECT      MOVE_EFFECT_BRUISE // All above move effects apply primary status
 #define MOVE_EFFECT_CONFUSION           9

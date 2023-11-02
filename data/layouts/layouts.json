@@ -4550,6 +4550,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Prospect/border.bin",
       "blockdata_filepath": "data/layouts/Prospect/map.bin"
+    },
+    {
+      "id": "LAYOUT_HISTOR_TOWN_MART",
+      "name": "HistorTown_Mart_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/HistorTown_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/HistorTown_Mart/map.bin"
     }
   ]
 }

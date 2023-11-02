@@ -1087,3 +1087,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route3/scripts.inc"
 
 	.include "data/maps/Prospect/scripts.inc"
+	
+	.include "data/maps/HistorTown_Mart/scripts.inc"

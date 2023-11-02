@@ -3076,7 +3076,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (gBattleScripting.moveEffect == MOVE_EFFECT_POISON
              || gBattleScripting.moveEffect == MOVE_EFFECT_TOXIC
              || gBattleScripting.moveEffect == MOVE_EFFECT_PARALYSIS
-             || gBattleScripting.moveEffect == MOVE_EFFECT_BURN)
+             || gBattleScripting.moveEffect == MOVE_EFFECT_BURN
+			 || gBattleScripting.moveEffect == MOVE_EFFECT_BRUISE)
              {
                 gBattleStruct->synchronizeMoveEffect = gBattleScripting.moveEffect;
                 gHitMarker |= HITMARKER_SYNCHRONISE_EFFECT;
@@ -9501,6 +9502,9 @@ static void Cmd_various(void)
         case STATUS1_BURN:
             gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
             break;
+		case STATUS1_BRUISE:
+            gBattleScripting.moveEffect = MOVE_EFFECT_BRUISE;
+            break;
         case STATUS1_FREEZE:
             gBattleScripting.moveEffect = MOVE_EFFECT_FREEZE;
             break;
@@ -9686,6 +9690,7 @@ static void Cmd_various(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
             else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_FROSTBITE) && CanBeFrozen(gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 5;
+			//TODO PSYCHO SHIFT FOR BRUISE
             else
             {
                 gBattlescriptCurrInstr = cmd->failInstr;
@@ -15100,7 +15105,7 @@ static void Cmd_handleballthrow(void)
 
         if (gBattleMons[gBattlerTarget].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
             odds *= 2;
-        if (gBattleMons[gBattlerTarget].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE))
+        if (gBattleMons[gBattlerTarget].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_BRUISE))
             odds = (odds * 15) / 10;
 
         if (gBattleResults.catchAttempts[gLastUsedItem - FIRST_BALL] < 255)

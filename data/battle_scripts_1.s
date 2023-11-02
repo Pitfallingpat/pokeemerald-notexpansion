@@ -425,15 +425,12 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRevivalBlessing         @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_FROSTBITE_HIT
 	.4byte BattleScript_EffectSnow                    @ EFFECT_SNOWSCAPE
-
 	.4byte BattleScript_EffectTwoTypeBurn		      @ EFFECT_TWO_TYPED_BURN
 	.4byte BattleScript_EffectTwoTypeSpAtkDown		  @ EFFECT_TWO_TYPED_SP_ATK_DOWN
 	.4byte BattleScript_EffectTwoTypeSpDefDown		  @	EFFECT_TWO_TYPED_SP_DEF_DOWN
 	.4byte BattleScript_EffectTwoTypeAttackerDefDown  @	EFFECT_TWO_TYPED_ATTACKER_DEF_DOWN
 	.4byte BattleScript_EffectTwoTypeSpAtkUp		  @	EFFECT_TWO_TYPED_SP_ATK_UP
-	.4byte BattleScript_EffectBruiseHit;			  @ EFFECT_BRUISE
-	
-
+	.4byte BattleScript_EffectBruiseHit 			  @ EFFECT_BRUISE_HIT
 	.4byte BattleScript_EffectTripleArrows            @ EFFECT_TRIPLE_ARROWS
 	.4byte BattleScript_EffectInfernalParade          @ EFFECT_INFERNAL_PARADE
 	.4byte BattleScript_EffectTakeHeart               @ EFFECT_TAKE_HEART
@@ -3378,6 +3375,7 @@ BattleScript_EffectBurnHit::
 BattleScript_EffectBruiseHit::
 	setmoveeffect MOVE_EFFECT_BRUISE
 	goto BattleScript_EffectHit
+
 
 BattleScript_EffectFrostbiteHit::
 	setmoveeffect MOVE_EFFECT_FROSTBITE

@@ -2,7 +2,7 @@
   "id": "MAP_PROFESSORS_LAB2",
   "name": "ProfessorsLab2",
   "layout": "LAYOUT_PROFESSORS_LAB2",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_BIRCH_LAB",
   "region_map_section": "MAPSEC_FRESH_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -19,6 +19,13 @@
   "warp_events": [
     {
       "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_PROFESSORS_LAB1",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 10,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_PROFESSORS_LAB1",

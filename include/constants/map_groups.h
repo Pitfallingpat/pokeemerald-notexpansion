@@ -24,6 +24,7 @@
 // gMapGroup_Histortown
 #define MAP_HISTORY_SCHOOL             (0 | (2 << 8))
 #define MAP_HISTOR_TOWN_POKEMON_CENTER (1 | (2 << 8))
+#define MAP_HISTOR_TOWN_MART           (2 | (2 << 8))
 
 // gMapGroup_Prospect
 
