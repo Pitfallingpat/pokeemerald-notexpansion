@@ -30,6 +30,7 @@
 #include "util.h"
 #include "window.h"
 #include "constants/battle_anim.h"
+#include "constants/battle_move_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
@@ -1658,6 +1659,7 @@ static void MoveSelectionDisplayMoveNames(u32 battler)
 
 static void MoveSelectionDisplayPpString(u32 battler)
 {
+	
 	 //MARK TYPE MATCHUP HOOK
     struct ChooseMoveStruct *moveInfo;
 	u16 mModifier;
@@ -1681,16 +1683,26 @@ static void MoveSelectionDisplayPpString(u32 battler)
 	move = moveInfo->moves[gMoveSelectionCursor[battler]];
     move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
 	
-	
-	
-	mModifier = (CalcTypeEffectivenessMultiplier(
-		move,
-		gBattleMoves[move].type,
-		battler,
-		targetMon,
-		gBattleMons[targetMon].ability,
-		FALSE));
-	
+	if (gBattleMoves[move].effect == EFFECT_HIDDEN_POWER){
+
+		mModifier = (CalcTypeEffectivenessMultiplier(
+			move,
+			(gBattleMons[battler].personality % 19) + 2,
+			battler,
+			targetMon,
+			gBattleMons[targetMon].ability,
+			FALSE));
+	}
+	else
+	{
+		mModifier = (CalcTypeEffectivenessMultiplier(
+			move,
+			gBattleMoves[move].type,
+			battler,
+			targetMon,
+			gBattleMons[targetMon].ability,
+			FALSE));
+	}
 	txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
 	
 	*(txtPtr)++ = CHAR_SPACE;
@@ -1760,7 +1772,6 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
 
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
-	
 	//MARK TWO TYPED MOVE IN BATTLE
 	
     struct ChooseMoveStruct *moveInfo;
@@ -1776,20 +1787,27 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     //struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[gActiveBattler][4]);
 
 	txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
-
-	if (gBattleMoves[move].type2 != TYPE_MYSTERY)
-	{
-		txtPtr = StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type]);	
-		*(txtPtr)++ = CHAR_SLASH;
-		StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type2]);	
+	
+	if (gBattleMoves[move].effect == EFFECT_HIDDEN_POWER){
 		
+			txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+			StringCopy(txtPtr, gTypeNames[(gBattleMons[battler].personality % 19) + 2]);	
 	}
 	else{
-		txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-		//*(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
-		//*(txtPtr)++ = EXT_CTRL_CODE_FONT;
-		//*(txtPtr)++ = FONT_NORMAL;
-		StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type]);	
+		if (gBattleMoves[move].type2 != TYPE_MYSTERY)
+		{
+			txtPtr = StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type]);	
+			*(txtPtr)++ = CHAR_SLASH;
+			StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type2]);	
+			
+		}
+		else{
+			txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+			//*(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
+			//*(txtPtr)++ = EXT_CTRL_CODE_FONT;
+			//*(txtPtr)++ = FONT_NORMAL;
+			StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type]);	
+		}
 	}
 	BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 

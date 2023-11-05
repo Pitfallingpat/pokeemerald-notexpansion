@@ -818,6 +818,8 @@ static const struct OamData sOamData_MoveTypes =
     ANIMCMD_FRAME(type * 8, 0, FALSE, FALSE),           \
     ANIMCMD_END                                         \
 }
+
+static const union AnimCmd sSpriteAnim_TypeMystery[]    = TYPE_ANIM(TYPE_MYSTERY );
 static const union AnimCmd sSpriteAnim_TypeNormal[]     = TYPE_ANIM(TYPE_NORMAL  );
 static const union AnimCmd sSpriteAnim_TypeFighting[]   = TYPE_ANIM(TYPE_FIGHTING);
 static const union AnimCmd sSpriteAnim_TypeFlying[]     = TYPE_ANIM(TYPE_FLYING  );
@@ -827,7 +829,6 @@ static const union AnimCmd sSpriteAnim_TypeRock[]       = TYPE_ANIM(TYPE_ROCK   
 static const union AnimCmd sSpriteAnim_TypeBug[]        = TYPE_ANIM(TYPE_BUG     );
 static const union AnimCmd sSpriteAnim_TypeGhost[]      = TYPE_ANIM(TYPE_GHOST   );
 static const union AnimCmd sSpriteAnim_TypeSteel[]      = TYPE_ANIM(TYPE_STEEL   );
-static const union AnimCmd sSpriteAnim_TypeMystery[]    = TYPE_ANIM(TYPE_MYSTERY );
 static const union AnimCmd sSpriteAnim_TypeFire[]       = TYPE_ANIM(TYPE_FIRE    );
 static const union AnimCmd sSpriteAnim_TypeWater[]      = TYPE_ANIM(TYPE_WATER   );
 static const union AnimCmd sSpriteAnim_TypeGrass[]      = TYPE_ANIM(TYPE_GRASS   );
@@ -903,7 +904,8 @@ static const union AnimCmd sSpriteAnim_TypeFireSound[]      = DOUBLE_TYPE_ANIM(T
 //16 dual type combos as of last update
 #define NUMBER_OF_DUAL_MOVES 16
 static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_DUAL_MOVES + NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] = {
-    sSpriteAnim_TypeNormal,
+    sSpriteAnim_TypeMystery,
+	sSpriteAnim_TypeNormal,
     sSpriteAnim_TypeFighting,
     sSpriteAnim_TypeFlying,
     sSpriteAnim_TypePoison,
@@ -912,7 +914,6 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_DUAL_MOVE
     sSpriteAnim_TypeBug,
     sSpriteAnim_TypeGhost,
     sSpriteAnim_TypeSteel,
-    sSpriteAnim_TypeMystery,
     sSpriteAnim_TypeFire,
     sSpriteAnim_TypeWater,
     sSpriteAnim_TypeGrass,
@@ -929,7 +930,7 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_DUAL_MOVE
     sSpriteAnim_CategoryCute,
     sSpriteAnim_CategorySmart,
     sSpriteAnim_CategoryTough,
-	
+
 	sSpriteAnim_TypeFlyingFighting,
 	sSpriteAnim_TypeWaterGround, 
 	
@@ -987,27 +988,27 @@ static const struct SpriteTemplate sSpriteTemplate_MoveTypes =
 
 static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT + NUMBER_OF_DUAL_MOVES] =
 {
-    [TYPE_NORMAL] = 13,
-    [TYPE_FIGHTING] = 13,
-    [TYPE_FLYING] = 14,
-    [TYPE_POISON] = 14,
-    [TYPE_GROUND] = 13,
-    [TYPE_ROCK] = 13,
-    [TYPE_BUG] = 15,
-    [TYPE_GHOST] = 14,
-    [TYPE_STEEL] = 13,
     [TYPE_MYSTERY] = 15,
-    [TYPE_FIRE] = 13,
-    [TYPE_WATER] = 14,
-    [TYPE_GRASS] = 15,
-    [TYPE_ELECTRIC] = 13,
-    [TYPE_PSYCHIC] = 14,
-    [TYPE_ICE] = 14,
-    [TYPE_DRAGON] = 15,
-    [TYPE_DARK] = 13,
-    [TYPE_FAIRY] = 14,
-	[TYPE_SOUND] = 13,
-	[TYPE_LASER] = 14,
+    [TYPE_NORMAL] = PAL_TYPE_NORMAL,
+    [TYPE_FIGHTING] = PAL_TYPE_FIGHTING,
+    [TYPE_FLYING] = PAL_TYPE_FLYING,
+    [TYPE_POISON] = PAL_TYPE_POISON,
+    [TYPE_GROUND] = PAL_TYPE_GROUND,
+    [TYPE_ROCK] = PAL_TYPE_ROCK,
+    [TYPE_BUG] = PAL_TYPE_BUG,
+    [TYPE_GHOST] = PAL_TYPE_GHOST,
+    [TYPE_STEEL] = PAL_TYPE_STEEL,
+    [TYPE_FIRE] = PAL_TYPE_FIRE,
+    [TYPE_WATER] = PAL_TYPE_WATER,
+    [TYPE_GRASS] = PAL_TYPE_GRASS,
+    [TYPE_ELECTRIC] = PAL_TYPE_ELECTRIC,
+    [TYPE_PSYCHIC] = PAL_TYPE_PSYCHIC,
+    [TYPE_ICE] = PAL_TYPE_ICE,
+    [TYPE_DRAGON] = PAL_TYPE_DRAGON,
+    [TYPE_DARK] = PAL_TYPE_DARK,
+    [TYPE_FAIRY] = PAL_TYPE_FAIRY,
+	[TYPE_SOUND] = PAL_TYPE_SOUND,
+	[TYPE_LASER] = PAL_TYPE_LASER,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = 13,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = 14,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = 14,
@@ -3982,6 +3983,8 @@ static void SetMoveTypeIcons(void)
 	//u16 move;
 	
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
+    //struct Pokemon *mon = &sMonSummaryScreen->currentMon;
+	//struct BoxPokemon *boxMon = mon->box;
 	//move = gBattleMoves[summary->moves[i]].type;
 	//type1 = gBattleMoves[move].type;
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -4041,7 +4044,14 @@ static void SetMoveTypeIcons(void)
 				}
 			}
 			else{
-				SetTypeSpritePosAndPal(gBattleMoves[summary->moves[i]].type, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+				
+				if (gBattleMoves[summary->moves[i]].effect == EFFECT_HIDDEN_POWER){
+					
+					SetTypeSpritePosAndPal(0, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+				}
+				else {
+					SetTypeSpritePosAndPal(gBattleMoves[summary->moves[i]].type, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+				}
 			}
 		}
 		else{

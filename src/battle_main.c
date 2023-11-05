@@ -311,7 +311,8 @@ static const s8 sCenterToCornerVecXs[8] ={-32, -16, -16, -32, -32};
 
 const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
 {
-    [TYPE_NORMAL] = _("Normal"),
+    [TYPE_MYSTERY] = _("???"),
+	[TYPE_NORMAL] = _("Normal"),
     [TYPE_FIGHTING] = _("Fight"),
     [TYPE_FLYING] = _("Flying"),
     [TYPE_POISON] = _("Poison"),
@@ -320,7 +321,6 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_BUG] = _("Bug"),
     [TYPE_GHOST] = _("Ghost"),
     [TYPE_STEEL] = _("Steel"),
-    [TYPE_MYSTERY] = _("???"),
     [TYPE_FIRE] = _("Fire"),
     [TYPE_WATER] = _("Water"),
     [TYPE_GRASS] = _("Grass"),
@@ -5619,16 +5619,18 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     }
     else if (gBattleMoves[move].effect == EFFECT_HIDDEN_POWER)
     {
+		/*
         u8 typeBits  = ((gBattleMons[battlerAtk].hpIV & 1) << 0)
                      | ((gBattleMons[battlerAtk].attackIV & 1) << 1)
                      | ((gBattleMons[battlerAtk].defenseIV & 1) << 2)
                      | ((gBattleMons[battlerAtk].speedIV & 1) << 3)
                      | ((gBattleMons[battlerAtk].spAttackIV & 1) << 4)
                      | ((gBattleMons[battlerAtk].spDefenseIV & 1) << 5);
-
+		*/
         // Subtract 4 instead of 1 below because 3 types are excluded (TYPE_NORMAL and TYPE_MYSTERY and TYPE_FAIRY)
         // The final + 1 skips past Normal, and the following conditional skips TYPE_MYSTERY
-        gBattleStruct->dynamicMoveType = ((NUMBER_OF_MON_TYPES - 4) * typeBits) / 63 + 1;
+       
+		gBattleStruct->dynamicMoveType = (gBattleMons[battlerAtk].personality % 19) + 2;
         //if (gBattleStruct->dynamicMoveType >= TYPE_MYSTERY)
         //    gBattleStruct->dynamicMoveType++;
         gBattleStruct->dynamicMoveType |= F_DYNAMIC_TYPE_1 | F_DYNAMIC_TYPE_2;

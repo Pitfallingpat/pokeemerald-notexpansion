@@ -8789,22 +8789,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         #endif
         break;
-    case EFFECT_HIDDEN_POWER:
-    {
-        #if B_HIDDEN_POWER_DMG < GEN_6
-        u8 powerBits;
-
-        powerBits = ((gBattleMons[battlerAtk].hpIV & 2) >> 1)
-                | ((gBattleMons[battlerAtk].attackIV & 2) << 0)
-                | ((gBattleMons[battlerAtk].defenseIV & 2) << 1)
-                | ((gBattleMons[battlerAtk].speedIV & 2) << 2)
-                | ((gBattleMons[battlerAtk].spAttackIV & 2) << 3)
-                | ((gBattleMons[battlerAtk].spDefenseIV & 2) << 4);
-
-        basePower = (40 * powerBits) / 63 + 30;
-        #endif
-        break;
-    }
     case EFFECT_GRAV_APPLE:
         if (gFieldStatuses & STATUS_FIELD_GRAVITY)
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
