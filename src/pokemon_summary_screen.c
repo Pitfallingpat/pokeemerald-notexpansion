@@ -3983,7 +3983,7 @@ static void SetMoveTypeIcons(void)
 	//u16 move;
 	
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
-    //struct Pokemon *mon = &sMonSummaryScreen->currentMon;
+    struct Pokemon *mon = &sMonSummaryScreen->currentMon;
 	//struct BoxPokemon *boxMon = mon->box;
 	//move = gBattleMoves[summary->moves[i]].type;
 	//type1 = gBattleMoves[move].type;
@@ -4047,7 +4047,8 @@ static void SetMoveTypeIcons(void)
 				
 				if (gBattleMoves[summary->moves[i]].effect == EFFECT_HIDDEN_POWER){
 					
-					SetTypeSpritePosAndPal(0, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+					SetTypeSpritePosAndPal((GetMonData(mon, MON_DATA_PERSONALITY, 0) % 19) + 2, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+					//SetTypeSpritePosAndPal(0, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
 				else {
 					SetTypeSpritePosAndPal(gBattleMoves[summary->moves[i]].type, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);

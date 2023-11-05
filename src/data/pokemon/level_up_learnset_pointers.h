@@ -9,6 +9,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_REBLRIZZ] = sReblrizzLevelUpLearnset,
 	[SPECIES_SMOKARCH] = sSmokarchLevelUpLearnset,
 	[SPECIES_BOTOFIN] = sBotofinLevelUpLearnset,
+	[SPECIES_SONARIN] = sSonarinLevelUpLearnset,
 	[SPECIES_GLADIPHON] = sGladiphonLevelUpLearnset,
 	[SPECIES_GEOBOI] = sGeoboiLevelUpLearnset,
 	[SPECIES_GRAVLOON] = sGravloonLevelUpLearnset,

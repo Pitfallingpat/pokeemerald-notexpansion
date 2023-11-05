@@ -9,6 +9,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
 	[SPECIES_REBLRIZZ] = sReblrizzTeachableLearnset,
 	[SPECIES_SMOKARCH] = sSmokarchTeachableLearnset,
 	[SPECIES_BOTOFIN] = sBotofinTeachableLearnset,
+	[SPECIES_SONARIN] = sSonarinTeachableLearnset,
 	[SPECIES_GLADIPHON] = sGladiphonTeachableLearnset,
 	[SPECIES_GEOBOI] = sGeoboiTeachableLearnset,
 	[SPECIES_GRAVLOON] = sGravloonTeachableLearnset,
