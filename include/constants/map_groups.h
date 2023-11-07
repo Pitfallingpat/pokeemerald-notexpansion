@@ -6,12 +6,13 @@
 //
 
 // gMapGroup_Overworld
-#define MAP_FRESH_TOWN  (0 | (0 << 8))
-#define MAP_ROUTE1      (1 | (0 << 8))
-#define MAP_ROUTE2      (2 | (0 << 8))
-#define MAP_HISTOR_TOWN (3 | (0 << 8))
-#define MAP_ROUTE3      (4 | (0 << 8))
-#define MAP_PROSPECT    (5 | (0 << 8))
+#define MAP_FRESH_TOWN    (0 | (0 << 8))
+#define MAP_ROUTE1        (1 | (0 << 8))
+#define MAP_ROUTE2        (2 | (0 << 8))
+#define MAP_HISTOR_TOWN   (3 | (0 << 8))
+#define MAP_ROUTE3        (4 | (0 << 8))
+#define MAP_PROSPECT      (5 | (0 << 8))
+#define MAP_PROSPECT_MINE (6 | (0 << 8))
 
 // gMapGroup_Freshtown
 #define MAP_PLAYER_HOUSE_F1  (0 | (1 << 8))
