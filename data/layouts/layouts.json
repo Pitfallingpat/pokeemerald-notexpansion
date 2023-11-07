@@ -4545,7 +4545,7 @@
       "id": "LAYOUT_PROSPECT",
       "name": "Prospect_Layout",
       "width": 50,
-      "height": 50,
+      "height": 52,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Prospect/border.bin",
@@ -4560,6 +4560,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/HistorTown_Mart/border.bin",
       "blockdata_filepath": "data/layouts/HistorTown_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROSPECT_MINE",
+      "name": "ProspectMine_Layout",
+      "width": 50,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/ProspectMine/border.bin",
+      "blockdata_filepath": "data/layouts/ProspectMine/map.bin"
     }
   ]
 }

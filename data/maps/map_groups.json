@@ -45,7 +45,8 @@
     "Route2",
     "HistorTown",
     "Route3",
-    "Prospect"
+    "Prospect",
+    "ProspectMine"
   ],
   "gMapGroup_Freshtown": [
     "PlayerHouseF1",
