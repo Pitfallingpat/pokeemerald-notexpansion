@@ -23,9 +23,11 @@
 #define MAP_PROFESSORS_LAB2  (5 | (1 << 8))
 
 // gMapGroup_Histortown
-#define MAP_HISTORY_SCHOOL             (0 | (2 << 8))
-#define MAP_HISTOR_TOWN_POKEMON_CENTER (1 | (2 << 8))
-#define MAP_HISTOR_TOWN_MART           (2 | (2 << 8))
+#define MAP_HISTORY_SCHOOL                     (0 | (2 << 8))
+#define MAP_HISTOR_TOWN_POKEMON_CENTER         (1 | (2 << 8))
+#define MAP_HISTOR_TOWN_MART                   (2 | (2 << 8))
+#define MAP_HISTOR_TOWN_RIVAL_HOUSE            (3 | (2 << 8))
+#define MAP_HISTOR_TOWN_RIVAL_HOUSE_RIVAL_ROOM (4 | (2 << 8))
 
 // gMapGroup_Prospect
 

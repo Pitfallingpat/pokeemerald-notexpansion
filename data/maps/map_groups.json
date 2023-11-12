@@ -59,7 +59,9 @@
   "gMapGroup_Histortown": [
     "HistorySchool",
     "HistorTown_PokemonCenter",
-    "HistorTown_Mart"
+    "HistorTown_Mart",
+    "HistorTown_Rival_House",
+    "HistorTown_Rival_House_RivalRoom"
   ],
   "gMapGroup_Prospect": [
 

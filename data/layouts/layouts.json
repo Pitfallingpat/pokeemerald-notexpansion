@@ -4424,8 +4424,8 @@
     {
       "id": "LAYOUT_PLAYER_HOUSE_F1",
       "name": "PlayerHouseF1_Layout",
-      "width": 14,
-      "height": 13,
+      "width": 15,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/PlayerHouseF1/border.bin",
@@ -4570,6 +4570,26 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ProspectMine/border.bin",
       "blockdata_filepath": "data/layouts/ProspectMine/map.bin"
+    },
+    {
+      "id": "LAYOUT_HISTOR_TOWN_RIVAL_HOUSE",
+      "name": "HistorTown_Rival_House_Layout",
+      "width": 21,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/HistorTown_Rival_House/border.bin",
+      "blockdata_filepath": "data/layouts/HistorTown_Rival_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_HISTOR_TOWN_RIVAL_HOUSE_RIVAL_ROOM",
+      "name": "HistorTown_Rival_House_RivalRoom_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/HistorTown_Rival_House_RivalRoom/border.bin",
+      "blockdata_filepath": "data/layouts/HistorTown_Rival_House_RivalRoom/map.bin"
     }
   ]
 }

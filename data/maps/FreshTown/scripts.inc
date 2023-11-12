@@ -37,7 +37,8 @@ FreshTown_EventScript_Professor_Cave::
 //Dialogue
 
 FreshTown_Prof_Cave_Text_1:
-	.string "Hmm, where should I go today?$"
+	.string "Hmm...\n"
+	.string "I feel like I'm forgetting something...$"
 	end
 
 FreshTown_Prof_Cave_Text_2:
@@ -46,23 +47,23 @@ FreshTown_Prof_Cave_Text_2:
 	end
 
 FreshTown_Prof_Cave_Text_3:
-	.string "Oh! Right! Today is the day I was\n"
-	.string	"Going to give you your first POKéMON.$"
+	.string "Oh! That's right!\p"
+	.string	"Today is the day I was going to give\n"
+	.string	"you your first POKéMON!$"
 	end
 	
 FreshTown_Prof_Cave_Text_4:
-	.string "I happen to have them on me now.\n"
-	.string	"How about a POKéMON battle to start\p"
-	.string "your adventure? There are plenty of \n"
-	.string "Zubat in this cave, one should be \p"
-	.string "a good first opponent.$"
+	.string "I just so happen to have them with me.\p"
+	.string	"How about battling a wild POKéMON\n"
+	.string "before departing on your adventure?\p"
+	.string "There are plenty of ZUBAT in here,\n"
+	.string "so one should be easy to defeat.$"
 	end
 
 FreshTown_Prof_Cave_Text_5:
-	.string "That was a good battle! I'd like to\n"
-	.string	"talk with you more about POKéMON,\p"
-	.string "but the Zubat will be distracting.\n"
-	.string "We should go back to my lab first.$"
+	.string "That was a good battle!\p"
+	.string	"Let's head on back to my LAB before\n"
+	.string "the ZUBAT start getting restless.$"
 	end
 
 
@@ -74,11 +75,24 @@ FreshTown_EventScript_Checkpoint_Girl::
 	end
 
 FreshTown_Checkpoint_Girl_Text:
-	.string "It's dangerous to go outside of town\n"
-	.string "without a POKéMON of your own.\p"
-	.string "I heard you are getting a POKéMON of\n"
-	.string "your own today! How exciting!$"
+	.string "It's scary to leave town without\n"
+	.string "a POKéMON of your own.\p"
+	.string "My mommy said it's your turn to get\n"
+	.string "one today! So cool!$"
+	
+FreshTown_EventScript_Rock_Boy::
+	lock
+	faceplayer
+	msgbox FreshTown_Rock_Boy_Text, MSGBOX_DEFAULT
+	release
+	end
 
+FreshTown_Rock_Boy_Text:
+	.string "Have you heard of a POKéMON called\n"
+	.string "GEODUDE?\p"
+	.string "PROF. CONIFER recently discovered a\n"
+	.string "BUG POKéMON that looks like it!$"
+	
 FreshTown_EventScript_Checkpoint_Azuril::
 	lock
 	faceplayer
@@ -110,7 +124,7 @@ FreshTown_EventScript_Professors_Lab_Sign::
 	end
 
 FreshTown_Sign_Professors_Sign_Text:
-	.string "PROF.CONIFER's LAB.$"
+	.string "PROF. CONIFER's LAB.$"
 	
 	
 FreshTown_EventScript_Fresh_Cave_sign::
