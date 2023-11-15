@@ -1096,3 +1096,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/HistorTown_Rival_House/scripts.inc"
 
 	.include "data/maps/HistorTown_Rival_House_RivalRoom/scripts.inc"
+
+	.include "data/maps/ProspectMineF1/scripts.inc"
+
+	.include "data/maps/ProspectMineF2/scripts.inc"
+
+	.include "data/maps/ProspectMineF2b/scripts.inc"

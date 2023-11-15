@@ -4,6 +4,7 @@
     "gMapGroup_Freshtown",
     "gMapGroup_Histortown",
     "gMapGroup_Prospect",
+    "gMapGroup_Caves",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -65,6 +66,11 @@
   ],
   "gMapGroup_Prospect": [
 
+  ],
+  "gMapGroup_Caves": [
+    "ProspectMineF1",
+    "ProspectMineF2",
+    "ProspectMineF2b"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

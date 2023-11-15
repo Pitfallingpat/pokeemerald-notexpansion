@@ -218,7 +218,8 @@
 #define MAPSEC_FRESH_TOWN					0xD6
 #define MAPSEC_HISTOR_TOWN					0xD7
 #define MAPSEC_PROSPECT						0xD8
-#define MAPSEC_NONE                         0xD9
+#define MAPSEC_PROSPECT_MINE				0xD9
+#define MAPSEC_NONE                         0xDA
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

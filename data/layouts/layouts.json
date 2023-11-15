@@ -4590,6 +4590,36 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/HistorTown_Rival_House_RivalRoom/border.bin",
       "blockdata_filepath": "data/layouts/HistorTown_Rival_House_RivalRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROSPECT_MINE_F1",
+      "name": "ProspectMineF1_Layout",
+      "width": 40,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ProspectMineF1/border.bin",
+      "blockdata_filepath": "data/layouts/ProspectMineF1/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROSPECT_MINE_F2",
+      "name": "ProspectMineF2_Layout",
+      "width": 14,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ProspectMineF2/border.bin",
+      "blockdata_filepath": "data/layouts/ProspectMineF2/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROSPECT_MINE_F2B",
+      "name": "ProspectMineF2b_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ProspectMineF2b/border.bin",
+      "blockdata_filepath": "data/layouts/ProspectMineF2b/map.bin"
     }
   ]
 }
