@@ -118,6 +118,37 @@ FreshTown_Power_Of_Science_Text:
 	.string "decomp teams and the RHH we are\p"
 	.string "able to experience living with\n"
 	.string "so many unique POKéMON.$"
+	
+FreshTown_EventScript_Old_Expert_Woman::
+	lock
+	faceplayer
+	msgbox FreshTown_Old_Expert_Woman_Text, MSGBOX_DEFAULT
+	release
+	end
+
+FreshTown_Old_Expert_Woman_Text:
+	.string "When I was young, I traveled to\n"
+	.string "many different regions!\p"
+	.string "I met all kinds of people and POKéMON,\n"
+	.string "until I settled down and had a family.\p"
+	.string "Fufufu, {PLAYER}...\p"
+	.string "I can see that spark in your eyes,\n"
+	.string "it's the same spark I had back then!$"
+	
+FreshTown_EventScript_Father_Of_Azurill_Girl::
+	lock
+	faceplayer
+	msgbox FreshTown_Father_Of_Azurill_Girl_Text, MSGBOX_DEFAULT
+	release
+	end
+
+FreshTown_Father_Of_Azurill_Girl_Text:
+	.string "Placeholder\n"
+	.string "Placeholder!\p"
+	.string "Placeholder\n"
+	.string "Placeholder.\p"
+	.string "Placeholder\n"
+	.string "Placeholder!$"
 
 FreshTown_EventScript_Professors_Lab_Sign::
 	msgbox FreshTown_Sign_Professors_Sign_Text, MSGBOX_SIGN
