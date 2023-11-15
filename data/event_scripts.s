@@ -1102,3 +1102,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ProspectMineF2/scripts.inc"
 
 	.include "data/maps/ProspectMineF2b/scripts.inc"
+
+	.include "data/maps/Prospect_PokemonCenter/scripts.inc"
+
+	.include "data/maps/Prospect_Mart/scripts.inc"

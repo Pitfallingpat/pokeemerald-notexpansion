@@ -30,6 +30,8 @@
 #define MAP_HISTOR_TOWN_RIVAL_HOUSE_RIVAL_ROOM (4 | (2 << 8))
 
 // gMapGroup_Prospect
+#define MAP_PROSPECT_POKEMON_CENTER (0 | (3 << 8))
+#define MAP_PROSPECT_MART           (1 | (3 << 8))
 
 // gMapGroup_Caves
 #define MAP_PROSPECT_MINE_F1  (0 | (4 << 8))

@@ -235,7 +235,20 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 15,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_PROSPECT_POKEMON_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_PROSPECT_MART",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

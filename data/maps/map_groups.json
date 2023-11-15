@@ -65,7 +65,8 @@
     "HistorTown_Rival_House_RivalRoom"
   ],
   "gMapGroup_Prospect": [
-
+    "Prospect_PokemonCenter",
+    "Prospect_Mart"
   ],
   "gMapGroup_Caves": [
     "ProspectMineF1",

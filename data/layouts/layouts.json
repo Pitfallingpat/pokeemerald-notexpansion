@@ -4620,6 +4620,26 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ProspectMineF2b/border.bin",
       "blockdata_filepath": "data/layouts/ProspectMineF2b/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROSPECT_POKEMON_CENTER",
+      "name": "Prospect_PokemonCenter_Layout",
+      "width": 20,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Prospect_PokemonCenter/border.bin",
+      "blockdata_filepath": "data/layouts/Prospect_PokemonCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROSPECT_MART",
+      "name": "Prospect_Mart_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Prospect_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Prospect_Mart/map.bin"
     }
   ]
 }
