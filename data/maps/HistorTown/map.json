@@ -15,20 +15,20 @@
   "connections": [
     {
       "map": "MAP_ROUTE2",
-      "offset": 8,
+      "offset": 22,
       "direction": "right"
     },
     {
       "map": "MAP_ROUTE3",
-      "offset": -2,
+      "offset": 12,
       "direction": "left"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 18,
-      "y": 7,
+      "x": 14,
+      "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 3,
@@ -41,7 +41,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ROOFTOP_SALE_WOMAN",
       "x": 31,
-      "y": 13,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 34,
-      "y": 5,
+      "x": 30,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -67,7 +67,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
       "x": 7,
-      "y": 15,
+      "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -80,7 +80,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 8,
-      "y": 17,
+      "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -93,7 +93,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY_3",
       "x": 6,
-      "y": 17,
+      "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -106,9 +106,22 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 22,
-      "y": 20,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -120,28 +133,28 @@
   "warp_events": [
     {
       "x": 33,
-      "y": 13,
+      "y": 27,
       "elevation": 0,
       "dest_map": "MAP_HISTOR_TOWN_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
       "x": 14,
-      "y": 15,
+      "y": 29,
       "elevation": 0,
       "dest_map": "MAP_HISTORY_SCHOOL",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
-      "y": 13,
+      "y": 27,
       "elevation": 0,
       "dest_map": "MAP_HISTOR_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 28,
-      "y": 6,
+      "x": 25,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_HISTOR_TOWN_RIVAL_HOUSE",
       "dest_warp_id": "0"
@@ -154,7 +167,7 @@
     {
       "type": "sign",
       "x": 25,
-      "y": 14,
+      "y": 28,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HistorTown_EventScript_HistorTown_sign"
@@ -162,7 +175,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 15,
+      "y": 29,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HistorTown_EventScript_HistorSchool_sign"

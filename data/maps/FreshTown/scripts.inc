@@ -115,8 +115,8 @@ FreshTown_EventScript_Power_Of_Science_Man::
 FreshTown_Power_Of_Science_Text:
 	.string "The power of science is staggering!\p"
 	.string "Thanks to the hard work of the\n"
-	.string "decomp teams and the RHH we are\p"
-	.string "able to experience living with\n"
+	.string "decomp teams and the RHH we are\l"
+	.string "able to experience living with\l"
 	.string "so many unique POKéMON.$"
 	
 FreshTown_EventScript_Old_Expert_Woman::

@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_HISTOR_TOWN",
-      "offset": 2,
+      "offset": -12,
       "direction": "right"
     },
     {
