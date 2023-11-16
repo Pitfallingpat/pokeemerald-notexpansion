@@ -7,6 +7,6 @@ FreshTown_EventScript_Prospect_Welcome_Sign::
 	end
 
 FreshTown_Prospect_Welcome_Sign_Text:
-	.string "Welcome to Prospect.\n"
-	.string "Oldest City in Divoror.$"
+	.string "Welcome to PROSPECT!\n"
+	.string "The oldest mining city in Divoro.$"
 	

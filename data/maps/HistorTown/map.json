@@ -157,7 +157,7 @@
       "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "HistorTown_EventScript_HistorTown_sign"
     },
     {
       "type": "sign",
@@ -165,7 +165,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "HistorTown_EventScript_HistorSchool_sign"
     }
   ]
 }
