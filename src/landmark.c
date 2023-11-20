@@ -57,7 +57,7 @@ static const u8 LandmarkName_MirageTower[] = _("MIRAGE TOWER");
 static const u8 LandmarkName_AlteringCave[] = _("ALTERING CAVE");
 static const u8 LandmarkName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 LandmarkName_TrainerHill[] = _("TRAINER HILL");
-
+/*
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
 static const struct Landmark Landmark_PetalburgWoods = {LandmarkName_PetalburgWoods, -1};
 static const struct Landmark Landmark_MrBrineysCottage = {LandmarkName_MrBrineysCottage, FLAG_LANDMARK_MR_BRINEY_HOUSE};
@@ -98,8 +98,10 @@ static const struct Landmark Landmark_SkyPillar = {LandmarkName_SkyPillar, FLAG_
 static const struct Landmark Landmark_MirageTower = {LandmarkName_MirageTower, FLAG_LANDMARK_MIRAGE_TOWER};
 static const struct Landmark Landmark_AlteringCave = {LandmarkName_AlteringCave, FLAG_LANDMARK_ALTERING_CAVE};
 static const struct Landmark Landmark_DesertUnderpass = {LandmarkName_DesertUnderpass, FLAG_LANDMARK_DESERT_UNDERPASS};
+*/
 static const struct Landmark Landmark_TrainerHill = {LandmarkName_TrainerHill, FLAG_LANDMARK_TRAINER_HILL};
 
+/*
 static const struct Landmark *const Landmarks_Route103_2[]  =
 {
     &Landmark_AlteringCave,
@@ -335,55 +337,9 @@ static const struct Landmark *const Landmarks_MtChimney_2[]  =
     &Landmark_JaggedPass,
     NULL,
 };
-
+*/
 static const struct LandmarkList sLandmarkLists[] =
 {
-    {MAPSEC_ROUTE_103, 2, Landmarks_Route103_2},
-    {MAPSEC_ROUTE_104, 0, Landmarks_Route104_0},
-    {MAPSEC_ROUTE_104, 1, Landmarks_Route104_1},
-    {MAPSEC_ROUTE_105, 0, Landmarks_Route105_0},
-    {MAPSEC_ROUTE_106, 1, Landmarks_Route106_1},
-    {MAPSEC_ROUTE_108, 0, Landmarks_Route108_0},
-    {MAPSEC_ROUTE_109, 0, Landmarks_Route109_0},
-    {MAPSEC_ROUTE_110, 0, Landmarks_Route110_0},
-    {MAPSEC_ROUTE_110, 1, Landmarks_Route110_1},
-    {MAPSEC_ROUTE_110, 2, Landmarks_Route110_2},
-    {MAPSEC_ROUTE_111, 0, Landmarks_Route111_0},
-    {MAPSEC_ROUTE_111, 1, Landmarks_Route111_1},
-    {MAPSEC_ROUTE_111, 2, Landmarks_Route111_2},
-    {MAPSEC_ROUTE_111, 3, Landmarks_Route111_3},
-    {MAPSEC_ROUTE_111, 4, Landmarks_Route111_4},
-    {MAPSEC_ROUTE_112, 0, Landmarks_Route112_0},
-    {MAPSEC_ROUTE_112, 1, Landmarks_Route112_1},
-    {MAPSEC_ROUTE_113, 1, Landmarks_Route113_1},
-    {MAPSEC_ROUTE_114, 1, Landmarks_Route114_1},
-    {MAPSEC_ROUTE_114, 2, Landmarks_Route114_2},
-    {MAPSEC_ROUTE_114, 3, Landmarks_MeteorFalls},
-    {MAPSEC_ROUTE_115, 0, Landmarks_MeteorFalls},
-    {MAPSEC_ROUTE_115, 1, Landmarks_MeteorFalls},
-    {MAPSEC_ROUTE_116, 1, Landmarks_Route116_1},
-    {MAPSEC_ROUTE_116, 2, Landmarks_Route116_2},
-    {MAPSEC_ROUTE_117, 2, Landmarks_Route117_2},
-    {MAPSEC_ROUTE_119, 1, Landmarks_Route119_1},
-    {MAPSEC_ROUTE_120, 0, Landmarks_Route120_0},
-    {MAPSEC_ROUTE_120, 2, Landmarks_Route120_2},
-    {MAPSEC_ROUTE_121, 2, Landmarks_Route121_2},
-    {MAPSEC_ROUTE_122, 0, Landmarks_Route122_0},
-    {MAPSEC_ROUTE_123, 0, Landmarks_Route123_0},
-    {MAPSEC_ROUTE_122, 1, Landmarks_Route122_0},
-    {MAPSEC_ROUTE_124, 7, Landmarks_Route124_7},
-    {MAPSEC_ROUTE_125, 2, Landmarks_Route125_2},
-    {MAPSEC_ROUTE_128, 1, Landmarks_Route128_1},
-    {MAPSEC_ROUTE_131, 1, Landmarks_Route131_1},
-    {MAPSEC_ROUTE_132, 0, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_132, 1, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_133, 0, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_133, 1, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_133, 2, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_134, 0, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_134, 1, Landmarks_OceanCurrent},
-    {MAPSEC_ROUTE_134, 2, Landmarks_Route134_2},
-    {MAPSEC_MT_CHIMNEY, 2, Landmarks_MtChimney_2},
     {MAPSEC_NONE, 0, NULL},
 };
 

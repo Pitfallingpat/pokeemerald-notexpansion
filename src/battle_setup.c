@@ -256,6 +256,8 @@ static const struct TrainerBattleParameter sTrainerBContinueScriptBattleParams[]
 
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
 {
+	[REMATCH_SAWYER] = REMATCH(TRAINER_SAWYER_1,TRAINER_SAWYER_1,TRAINER_SAWYER_1,TRAINER_SAWYER_1,TRAINER_SAWYER_1, NONE),
+	/*
     [REMATCH_ROSE] = REMATCH(TRAINER_ROSE_1, TRAINER_ROSE_2, TRAINER_ROSE_3, TRAINER_ROSE_4, TRAINER_ROSE_5, ROUTE118),
     [REMATCH_ANDRES] = REMATCH(TRAINER_ANDRES_1, TRAINER_ANDRES_2, TRAINER_ANDRES_3, TRAINER_ANDRES_4, TRAINER_ANDRES_5, ROUTE105),
     [REMATCH_DUSTY] = REMATCH(TRAINER_DUSTY_1, TRAINER_DUSTY_2, TRAINER_DUSTY_3, TRAINER_DUSTY_4, TRAINER_DUSTY_5, ROUTE111),
@@ -334,6 +336,7 @@ const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
     [REMATCH_GLACIA] = REMATCH(TRAINER_GLACIA, TRAINER_GLACIA, TRAINER_GLACIA, TRAINER_GLACIA, TRAINER_GLACIA, EVER_GRANDE_CITY),
     [REMATCH_DRAKE] = REMATCH(TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, EVER_GRANDE_CITY),
     [REMATCH_WALLACE] = REMATCH(TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, EVER_GRANDE_CITY),
+*/
 };
 
 static const u16 sBadgeFlags[NUM_BADGES] =
@@ -755,8 +758,8 @@ u8 BattleSetup_GetTerrainId(void)
         if (MetatileBehavior_IsBridgeOverWater(tileBehavior) == TRUE)
             return BATTLE_TERRAIN_WATER;
     }
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
-        return BATTLE_TERRAIN_SAND;
+    //if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
+    //    return BATTLE_TERRAIN_SAND;
     if (GetSavedWeather() == WEATHER_SANDSTORM)
         return BATTLE_TERRAIN_SAND;
 
@@ -860,7 +863,7 @@ u8 GetTrainerBattleTransition(void)
 
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
-        if (gTrainerBattleOpponent_A == TRAINER_SIDNEY)
+        /*if (gTrainerBattleOpponent_A == TRAINER_SIDNEY)
             return B_TRANSITION_SIDNEY;
         if (gTrainerBattleOpponent_A == TRAINER_PHOEBE)
             return B_TRANSITION_PHOEBE;
@@ -868,7 +871,9 @@ u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_GLACIA;
         if (gTrainerBattleOpponent_A == TRAINER_DRAKE)
             return B_TRANSITION_DRAKE;
+		*/
         return B_TRANSITION_CHAMPION;
+		
     }
 
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
@@ -1632,8 +1637,8 @@ static bool32 IsRematchForbidden(s32 rematchTableId)
 {
     if (rematchTableId >= REMATCH_ELITE_FOUR_ENTRIES)
         return TRUE;
-    else if (rematchTableId == REMATCH_WALLY_VR)
-        return !FlagGet(FLAG_DEFEATED_WALLY_VICTORY_ROAD);
+    //else if (rematchTableId == REMATCH_WALLY_VR)
+    //    return !FlagGet(FLAG_DEFEATED_WALLY_VICTORY_ROAD);
     else
         return FALSE;
 }
@@ -1683,8 +1688,10 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
 
 void UpdateRematchIfDefeated(s32 rematchTableId)
 {
+	
     if (HasTrainerBeenFought(gRematchTable[rematchTableId].trainerIds[0]) == TRUE)
         SetRematchIdForTrainer(gRematchTable, rematchTableId);
+	
 }
 
 static bool32 DoesSomeoneWantRematchIn_(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)

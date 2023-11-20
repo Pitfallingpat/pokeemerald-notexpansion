@@ -34,6 +34,10 @@ EWRAM_DATA static u8 sRoamerLocation[2] = {0};
 //         from that map when it lands there.
 static const u8 sRoamerLocations[][6] =
 {
+	{ MAP_NUM(ROUTE1), MAP_NUM(ROUTE2), MAP_NUM(ROUTE3), ___, ___, ___},
+	{ MAP_NUM(ROUTE2), MAP_NUM(ROUTE1), MAP_NUM(ROUTE3), ___, ___, ___},
+	{ MAP_NUM(ROUTE3), MAP_NUM(ROUTE2), MAP_NUM(ROUTE1), ___, ___, ___},
+	/*
     { MAP_NUM(ROUTE110), MAP_NUM(ROUTE111), MAP_NUM(ROUTE117), MAP_NUM(ROUTE118), MAP_NUM(ROUTE134), ___ },
     { MAP_NUM(ROUTE111), MAP_NUM(ROUTE110), MAP_NUM(ROUTE117), MAP_NUM(ROUTE118), ___, ___ },
     { MAP_NUM(ROUTE117), MAP_NUM(ROUTE111), MAP_NUM(ROUTE110), MAP_NUM(ROUTE118), ___, ___ },
@@ -54,6 +58,7 @@ static const u8 sRoamerLocations[][6] =
     { MAP_NUM(ROUTE132), MAP_NUM(ROUTE131), MAP_NUM(ROUTE133), ___, ___, ___ },
     { MAP_NUM(ROUTE133), MAP_NUM(ROUTE132), MAP_NUM(ROUTE134), ___, ___, ___ },
     { MAP_NUM(ROUTE134), MAP_NUM(ROUTE133), MAP_NUM(ROUTE110), ___, ___, ___ },
+	*/
     { ___, ___, ___, ___, ___, ___ },
 };
 

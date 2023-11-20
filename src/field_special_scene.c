@@ -280,9 +280,11 @@ void EndTruckSequence(u8 taskId)
 
 bool8 TrySetPortholeWarpDestination(void)
 {
+	return FALSE;
+	/*
     s8 mapGroup, mapNum;
     s16 x, y;
-
+	
     if (GetSSTidalLocation(&mapGroup, &mapNum, &x, &y) != SS_TIDAL_LOCATION_CURRENTS)
     {
         return FALSE;
@@ -292,6 +294,7 @@ bool8 TrySetPortholeWarpDestination(void)
         SetWarpDestination(mapGroup, mapNum, WARP_ID_NONE, x, y);
         return TRUE;
     }
+	*/
 }
 
 void Task_HandlePorthole(u8 taskId)

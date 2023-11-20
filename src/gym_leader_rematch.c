@@ -31,6 +31,7 @@ static const u16 GymLeaderRematches_BeforeNewMauville[] = {
 
 void UpdateGymLeaderRematch(void)
 {
+	/*
     if (FlagGet(FLAG_SYS_GAME_CLEAR) && (Random() % 100) <= 30)
     {
         if (FlagGet(FLAG_WATTSON_REMATCH_AVAILABLE))
@@ -38,6 +39,7 @@ void UpdateGymLeaderRematch(void)
         else
             UpdateGymLeaderRematchFromArray(GymLeaderRematches_BeforeNewMauville, ARRAY_COUNT(GymLeaderRematches_BeforeNewMauville), 1);
     }
+	*/
 }
 
 static void UpdateGymLeaderRematchFromArray(const u16 *data, size_t size, u32 maxRematch)
