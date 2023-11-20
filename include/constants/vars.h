@@ -126,6 +126,9 @@
 #define VAR_LITTLEROOT_TOWN_STATE                        0x406A
 #define VAR_BIRCH_LAB_STATE                              0x406B
 #define VAR_OLDALE_RIVAL_STATE                           0x406C
+
+//above variables are part of the base game that were too annoying to remove
+
 #define VAR_UNUSED_0x406D                                0x406D
 #define VAR_UNUSED_0x406E                                0x406E
 #define VAR_UNUSED_0x406F                                0x406F
