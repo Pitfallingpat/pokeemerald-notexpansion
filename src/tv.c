@@ -2669,7 +2669,7 @@ static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
         return FALSE;
     }
 	*/
-    return TRUE;
+    return FALSE;
 }
 
 static bool8 IsAddingPokeNewsDisallowed(u8 newsKind)
@@ -3365,10 +3365,11 @@ u8 CheckForPlayersHouseNews(void)
 }
 
 void GetMomOrDadStringForTVMessage(void)
-{
-	/*
+{    
+	
     // If the player is checking the TV in their house it will only refer to their Mom.
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
+    /*
+	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
     {
         if (gSaveBlock2Ptr->playerGender == MALE)
         {
@@ -3387,6 +3388,7 @@ void GetMomOrDadStringForTVMessage(void)
             }
         }
     }
+	*/
     if (VarGet(VAR_TEMP_3) == 1)
     {
         StringCopy(gStringVar1, gText_Mom);
@@ -3419,7 +3421,6 @@ void GetMomOrDadStringForTVMessage(void)
             VarSet(VAR_TEMP_3, 2);
         }
     }
-	*/
 }
 
 void HideBattleTowerReporter(void)
