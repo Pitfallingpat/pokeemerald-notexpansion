@@ -264,6 +264,7 @@ u16 GetRecordedCyclingRoadResults(void)
 
 void UpdateCyclingRoadState(void)
 {
+	/*
     if (gLastUsedWarp.mapNum == MAP_NUM(ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE) && gLastUsedWarp.mapGroup == MAP_GROUP(ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE))
         return;
 
@@ -272,6 +273,7 @@ void UpdateCyclingRoadState(void)
         VarSet(VAR_CYCLING_CHALLENGE_STATE, 0);
         Overworld_SetSavedMusic(MUS_DUMMY);
     }
+	*/
 }
 
 void SetSSTidalFlag(void)
@@ -293,7 +295,7 @@ bool32 CountSSTidalStep(u16 delta)
 
     return TRUE;
 }
-
+/*
 u8 GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
 {
     u16 *varCruiseStepCount = GetVarPointer(VAR_CRUISE_STEP_COUNT);
@@ -350,9 +352,12 @@ u8 GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
     *y = 20;
     return SS_TIDAL_LOCATION_CURRENTS;
 }
+*/
 
 bool32 ShouldDoWallyCall(void)
 {
+	return FALSE;
+	/*
     if (FlagGet(FLAG_ENABLE_FIRST_WALLY_POKENAV_CALL))
     {
         switch (gMapHeader.mapType)
@@ -374,10 +379,12 @@ bool32 ShouldDoWallyCall(void)
     }
 
     return TRUE;
+	*/
 }
 
 bool32 ShouldDoScottFortreeCall(void)
 {
+	/*
     if (FlagGet(FLAG_SCOTT_CALL_FORTREE_GYM))
     {
         switch (gMapHeader.mapType)
@@ -397,12 +404,13 @@ bool32 ShouldDoScottFortreeCall(void)
     {
         return FALSE;
     }
-
-    return TRUE;
+*/
+    return FALSE;
 }
 
 bool32 ShouldDoScottBattleFrontierCall(void)
 {
+	/*
     if (FlagGet(FLAG_SCOTT_CALL_BATTLE_FRONTIER))
     {
         switch (gMapHeader.mapType)
@@ -422,12 +430,13 @@ bool32 ShouldDoScottBattleFrontierCall(void)
     {
         return FALSE;
     }
-
-    return TRUE;
+*/
+    return FALSE;
 }
 
 bool32 ShouldDoRoxanneCall(void)
 {
+	/*
     if (FlagGet(FLAG_ENABLE_ROXANNE_FIRST_CALL))
     {
         switch (gMapHeader.mapType)
@@ -447,12 +456,14 @@ bool32 ShouldDoRoxanneCall(void)
     {
         return FALSE;
     }
-
-    return TRUE;
+*/
+    //return TRUE;
+	return FALSE;
 }
 
 bool32 ShouldDoRivalRayquazaCall(void)
 {
+	/*
     if (FlagGet(FLAG_DEFEATED_MAGMA_SPACE_CENTER))
     {
         switch (gMapHeader.mapType)
@@ -474,6 +485,8 @@ bool32 ShouldDoRivalRayquazaCall(void)
     }
 
     return TRUE;
+	*/
+	return FALSE;
 }
 
 u8 GetLinkPartnerNames(void)
@@ -927,10 +940,12 @@ u8 GetBattleOutcome(void)
 
 void CableCarWarp(void)
 {
+	/*
     if (gSpecialVar_0x8004 != 0)
         SetWarpDestination(MAP_GROUP(ROUTE112_CABLE_CAR_STATION), MAP_NUM(ROUTE112_CABLE_CAR_STATION), WARP_ID_NONE, 6, 4);
     else
         SetWarpDestination(MAP_GROUP(MT_CHIMNEY_CABLE_CAR_STATION), MAP_NUM(MT_CHIMNEY_CABLE_CAR_STATION), WARP_ID_NONE, 6, 4);
+	*/
 }
 
 void SetHiddenItemFlag(void)
@@ -1179,18 +1194,22 @@ void EndLotteryCornerComputerEffect(void)
 
 void SetTrickHouseNuggetFlag(void)
 {
+	/*
     u16 *specVar = &gSpecialVar_0x8004;
     u16 flag = FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET;
     *specVar = flag;
     FlagSet(flag);
+	*/
 }
 
 void ResetTrickHouseNuggetFlag(void)
 {
+	/*
     u16 *specVar = &gSpecialVar_0x8004;
     u16 flag = FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET;
     *specVar = flag;
     FlagClear(flag);
+	*/
 }
 
 bool8 CheckLeadMonCool(void)
@@ -1333,45 +1352,49 @@ u16 GetSlotMachineId(void)
 
 bool8 FoundAbandonedShipRoom1Key(void)
 {
+	/*
     u16 *specVar = &gSpecialVar_0x8004;
     u16 flag = FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_1_KEY;
     *specVar = flag;
     if (!FlagGet(flag))
         return FALSE;
-
+	*/
     return TRUE;
 }
 
 bool8 FoundAbandonedShipRoom2Key(void)
 {
+	/*
     u16 *specVar = &gSpecialVar_0x8004;
     u16 flag = FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_2_KEY;
     *specVar = flag;
     if (!FlagGet(flag))
         return FALSE;
-
+	*/
     return TRUE;
 }
 
 bool8 FoundAbandonedShipRoom4Key(void)
 {
+	/*
     u16 *specVar = &gSpecialVar_0x8004;
     u16 flag = FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY;
     *specVar = flag;
     if (!FlagGet(flag))
         return FALSE;
-
+	*/
     return TRUE;
 }
 
 bool8 FoundAbandonedShipRoom6Key(void)
 {
+	/*
     u16 *specVar = &gSpecialVar_0x8004;
     u16 flag = FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_6_KEY;
     *specVar = flag;
     if (!FlagGet(flag))
         return FALSE;
-
+	*/
     return TRUE;
 }
 
@@ -1403,6 +1426,7 @@ bool8 Special_AreLeadMonEVsMaxedOut(void)
 
 u8 TryUpdateRusturfTunnelState(void)
 {
+	/*
     if (!FlagGet(FLAG_RUSTURF_TUNNEL_OPENED)
         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(RUSTURF_TUNNEL)
         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(RUSTURF_TUNNEL))
@@ -1417,7 +1441,7 @@ u8 TryUpdateRusturfTunnelState(void)
             VarSet(VAR_RUSTURF_TUNNEL_STATE, 5);
             return TRUE;
         }
-    }
+    }*/
     return FALSE;
 }
 
@@ -1519,7 +1543,8 @@ static void StopCameraShake(u8 taskId)
 
 bool8 FoundBlackGlasses(void)
 {
-    return FlagGet(FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES);
+	return TRUE;
+    //return FlagGet(FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES);
 }
 
 void SetRoute119Weather(void)
@@ -1752,6 +1777,7 @@ static const u16 sElevatorWindowTiles_Descending[ELEVATOR_WINDOW_HEIGHT][ELEVATO
 
 void SetDeptStoreFloor(void)
 {
+	/*
     u8 deptStoreFloor;
     switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
     {
@@ -1778,13 +1804,14 @@ void SetDeptStoreFloor(void)
         break;
     }
     VarSet(VAR_DEPT_STORE_FLOOR, deptStoreFloor);
+	*/
 }
 
 u16 GetDeptStoreDefaultFloorChoice(void)
 {
     sLilycoveDeptStore_NeverRead = 0;
     sLilycoveDeptStore_DefaultFloorChoice = 0;
-
+	/*
     if (gSaveBlock1Ptr->dynamicWarp.mapGroup == MAP_GROUP(LILYCOVE_CITY_DEPARTMENT_STORE_1F))
     {
         switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
@@ -1811,7 +1838,7 @@ u16 GetDeptStoreDefaultFloorChoice(void)
             break;
         }
     }
-
+	*/
     return sLilycoveDeptStore_DefaultFloorChoice;
 }
 
@@ -2015,22 +2042,8 @@ bool8 UsedPokemonCenterWarp(void)
 {
     static const u16 sPokemonCenters[] =
     {
-        MAP_OLDALE_TOWN_POKEMON_CENTER_1F,
-        MAP_DEWFORD_TOWN_POKEMON_CENTER_1F,
-        MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F,
-        MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F,
-        MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F,
-        MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F,
-        MAP_PETALBURG_CITY_POKEMON_CENTER_1F,
-        MAP_SLATEPORT_CITY_POKEMON_CENTER_1F,
-        MAP_MAUVILLE_CITY_POKEMON_CENTER_1F,
-        MAP_RUSTBORO_CITY_POKEMON_CENTER_1F,
-        MAP_FORTREE_CITY_POKEMON_CENTER_1F,
-        MAP_LILYCOVE_CITY_POKEMON_CENTER_1F,
-        MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F,
-        MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_1F,
-        MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F,
-        MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F,
+		MAP_HISTOR_TOWN_POKEMON_CENTER,
+        MAP_PROSPECT_POKEMON_CENTER,
         MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F,
         MAP_UNION_ROOM,
         MAP_UNDEFINED
@@ -3379,6 +3392,7 @@ bool8 IsDestinationBoxFull(void)
 
 void CreateAbnormalWeatherEvent(void)
 {
+	/*
     u16 randomValue = Random();
     VarSet(VAR_ABNORMAL_WEATHER_STEP_COUNTER, 0);
 
@@ -3400,12 +3414,14 @@ void CreateAbnormalWeatherEvent(void)
         randomValue = Random();
         VarSet(VAR_ABNORMAL_WEATHER_LOCATION, (randomValue % MARINE_CAVE_LOCATIONS) + MARINE_CAVE_LOCATIONS_START);
     }
+	*/
 }
 
 // Saves the map name for the current abnormal weather location in gStringVar1, then
 // returns TRUE if the weather is for Kyogre, and FALSE if it's for Groudon.
 bool32 GetAbnormalWeatherMapNameAndType(void)
 {
+	/*
     static const u8 sAbnormalWeatherMapNumbers[] = {
         MAP_NUM(ROUTE114),
         MAP_NUM(ROUTE114),
@@ -3424,19 +3440,22 @@ bool32 GetAbnormalWeatherMapNameAndType(void)
         MAP_NUM(ROUTE129),
         MAP_NUM(ROUTE129)
     };
-
+	
     u16 abnormalWeather = VarGet(VAR_ABNORMAL_WEATHER_LOCATION);
 
     GetMapName(gStringVar1, sAbnormalWeatherMapNumbers[abnormalWeather - 1], 0);
-
+	
     if (abnormalWeather < MARINE_CAVE_LOCATIONS_START)
         return FALSE;
     else
         return TRUE;
+	*/
+	return FALSE;
 }
 
 bool8 AbnormalWeatherHasExpired(void)
 {
+	/*
     // Duplicate array.
     static const u8 sAbnormalWeatherMapNumbers[] =
     {
@@ -3514,6 +3533,8 @@ bool8 AbnormalWeatherHasExpired(void)
         VarSet(VAR_ABNORMAL_WEATHER_STEP_COUNTER, steps);
         return FALSE;
     }
+	*/
+	return FALSE;
 }
 
 void Unused_SetWeatherSunny(void)
@@ -3526,17 +3547,6 @@ u32 GetMartEmployeeObjectEventId(void)
 {
     static const u8 sPokeMarts[][3] =
     {
-        { MAP_GROUP(OLDALE_TOWN_MART),     MAP_NUM(OLDALE_TOWN_MART),     LOCALID_OLDALE_MART_CLERK },
-        { MAP_GROUP(LAVARIDGE_TOWN_MART),  MAP_NUM(LAVARIDGE_TOWN_MART),  LOCALID_LAVARIDGE_MART_CLERK },
-        { MAP_GROUP(FALLARBOR_TOWN_MART),  MAP_NUM(FALLARBOR_TOWN_MART),  LOCALID_FALLARBOR_MART_CLERK },
-        { MAP_GROUP(VERDANTURF_TOWN_MART), MAP_NUM(VERDANTURF_TOWN_MART), LOCALID_VERDANTURF_MART_CLERK },
-        { MAP_GROUP(PETALBURG_CITY_MART),  MAP_NUM(PETALBURG_CITY_MART),  LOCALID_PETALBURG_MART_CLERK },
-        { MAP_GROUP(SLATEPORT_CITY_MART),  MAP_NUM(SLATEPORT_CITY_MART),  LOCALID_SLATEPORT_MART_CLERK },
-        { MAP_GROUP(MAUVILLE_CITY_MART),   MAP_NUM(MAUVILLE_CITY_MART),   LOCALID_MAUVILLE_MART_CLERK },
-        { MAP_GROUP(RUSTBORO_CITY_MART),   MAP_NUM(RUSTBORO_CITY_MART),   LOCALID_RUSTBORO_MART_CLERK },
-        { MAP_GROUP(FORTREE_CITY_MART),    MAP_NUM(FORTREE_CITY_MART),    LOCALID_FORTREE_MART_CLERK },
-        { MAP_GROUP(MOSSDEEP_CITY_MART),   MAP_NUM(MOSSDEEP_CITY_MART),   LOCALID_MOSSDEEP_MART_CLERK },
-        { MAP_GROUP(SOOTOPOLIS_CITY_MART), MAP_NUM(SOOTOPOLIS_CITY_MART), LOCALID_SOOTOPOLIS_MART_CLERK },
         { MAP_GROUP(BATTLE_FRONTIER_MART), MAP_NUM(BATTLE_FRONTIER_MART), LOCALID_BATTLE_FRONTIER_MART_CLERK }
     };
 
@@ -3817,30 +3827,16 @@ void GetBattlePyramidHint(void)
 // Used to avoid a potential softlock if the player respawns on Dewford with no way off
 void ResetHealLocationFromDewford(void)
 {
-    if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(DEWFORD_TOWN) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(DEWFORD_TOWN))
-        SetLastHealLocationWarp(HEAL_LOCATION_PETALBURG_CITY);
+    //if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(DEWFORD_TOWN) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(DEWFORD_TOWN))
+    //    SetLastHealLocationWarp(HEAL_LOCATION_PETALBURG_CITY);
 }
 
 bool8 InPokemonCenter(void)
 {
     static const u16 sPokemonCenters[] =
     {
-        MAP_OLDALE_TOWN_POKEMON_CENTER_1F,
-        MAP_DEWFORD_TOWN_POKEMON_CENTER_1F,
-        MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F,
-        MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F,
-        MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F,
-        MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F,
-        MAP_PETALBURG_CITY_POKEMON_CENTER_1F,
-        MAP_SLATEPORT_CITY_POKEMON_CENTER_1F,
-        MAP_MAUVILLE_CITY_POKEMON_CENTER_1F,
-        MAP_RUSTBORO_CITY_POKEMON_CENTER_1F,
-        MAP_FORTREE_CITY_POKEMON_CENTER_1F,
-        MAP_LILYCOVE_CITY_POKEMON_CENTER_1F,
-        MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F,
-        MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_1F,
-        MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F,
-        MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F,
+		MAP_HISTOR_TOWN_POKEMON_CENTER,
+        MAP_PROSPECT_POKEMON_CENTER,
         MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F,
         MAP_BATTLE_COLOSSEUM_2P,
         MAP_TRADE_CENTER,
@@ -3920,6 +3916,7 @@ void TryLoseFansFromPlayTimeAfterLinkBattle(void)
 
 void UpdateTrainerFanClubGameClear(void)
 {
+	
     if (!GET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS))
     {
         SetPlayerGotFirstFans();
@@ -3946,7 +3943,7 @@ u8 TryGainNewFanFromCounter(u8 incrementId)
         [FANCOUNTER_FINISHED_CONTEST]  = 2,
         [FANCOUNTER_USED_BATTLE_TOWER] = 1
     };
-
+	
     if (VarGet(VAR_LILYCOVE_FAN_CLUB_STATE) == 2)
     {
         if (GET_TRAINER_FAN_CLUB_COUNTER + sCounterIncrements[incrementId] > 19)
@@ -3966,7 +3963,7 @@ u8 TryGainNewFanFromCounter(u8 incrementId)
             INCR_TRAINER_FAN_CLUB_COUNTER(sCounterIncrements[incrementId]);
         }
     }
-
+	
     return GET_TRAINER_FAN_CLUB_COUNTER;
 }
 

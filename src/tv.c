@@ -199,31 +199,31 @@ static const struct {
         .species = SPECIES_SEEDOT,
         .moves = {MOVE_BIDE, MOVE_HARDEN, MOVE_LEECH_SEED},
         .level = 3,
-        .location = MAP_NUM(ROUTE102)
+        .location = MAP_NUM(NONE)
     },
     {
         .species = SPECIES_NUZLEAF,
         .moves = {MOVE_HARDEN, MOVE_GROWTH, MOVE_NATURE_POWER, MOVE_LEECH_SEED},
         .level = 15,
-        .location = MAP_NUM(ROUTE114),
+        .location = MAP_NUM(NONE),
     },
     {
         .species = SPECIES_SEEDOT,
         .moves = {MOVE_HARDEN, MOVE_GROWTH, MOVE_NATURE_POWER, MOVE_LEECH_SEED},
         .level = 13,
-        .location = MAP_NUM(ROUTE117),
+        .location = MAP_NUM(NONE),
     },
     {
         .species = SPECIES_SEEDOT,
         .moves = {MOVE_GIGA_DRAIN, MOVE_FRUSTRATION, MOVE_SOLAR_BEAM, MOVE_LEECH_SEED},
         .level = 25,
-        .location = MAP_NUM(ROUTE120),
+        .location = MAP_NUM(NONE),
     },
     {
         .species = SPECIES_SKITTY,
         .moves = {MOVE_GROWL, MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_ATTRACT},
         .level = 8,
-        .location = MAP_NUM(ROUTE116),
+        .location = MAP_NUM(NONE),
     }
 };
 
@@ -836,8 +836,8 @@ void UpdateTVScreensOnMap(int width, int height)
         break;
 //  case PLAYERS_HOUSE_TV_NONE:
     default:
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LILYCOVE_CITY_COVE_LILY_MOTEL_1F)
-         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(LILYCOVE_CITY_COVE_LILY_MOTEL_1F))
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(NONE)
+         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(NONE))
         {
             // NPC in Lilycove Hotel is always watching TV
             SetTVMetatilesOnMap(width, height, METATILE_Building_TV_On);
@@ -2653,6 +2653,7 @@ bool8 IsPokeNewsActive(u8 newsKind)
 // For any other type of PokeNews this is always TRUE.
 static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
 {
+	/*
     switch (newsKind)
     {
     case POKENEWS_SLATEPORT:
@@ -2667,6 +2668,7 @@ static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
             return TRUE;
         return FALSE;
     }
+	*/
     return TRUE;
 }
 
@@ -3334,6 +3336,7 @@ u32 GetPlayerIDAsU32(void)
 
 u8 CheckForPlayersHouseNews(void)
 {
+	/*
     // Check if not in Littleroot house map group
     if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
         return PLAYERS_HOUSE_TV_NONE;
@@ -3357,10 +3360,13 @@ u8 CheckForPlayersHouseNews(void)
         return PLAYERS_HOUSE_TV_MOVIE;
 
     return PLAYERS_HOUSE_TV_LATI;
+	*/
+	return PLAYERS_HOUSE_TV_NONE;
 }
 
 void GetMomOrDadStringForTVMessage(void)
 {
+	/*
     // If the player is checking the TV in their house it will only refer to their Mom.
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
     {
@@ -3413,6 +3419,7 @@ void GetMomOrDadStringForTVMessage(void)
             VarSet(VAR_TEMP_3, 2);
         }
     }
+	*/
 }
 
 void HideBattleTowerReporter(void)
@@ -5536,11 +5543,11 @@ static void DoTVShowTodaysRivalTrainer(void)
         case MAPSEC_DYNAMIC:
             switch (show->rivalTrainer.mapLayoutId)
             {
-            case LAYOUT_SS_TIDAL_CORRIDOR:
-            case LAYOUT_SS_TIDAL_LOWER_DECK:
-            case LAYOUT_SS_TIDAL_ROOMS:
-                sTVShowState = 10;
-                break;
+            //case LAYOUT_SS_TIDAL_CORRIDOR:
+            //case LAYOUT_SS_TIDAL_LOWER_DECK:
+            //case LAYOUT_SS_TIDAL_ROOMS:
+            //    sTVShowState = 10;
+            //    break;
             default:
                 sTVShowState = 9;
                 break;
@@ -5695,17 +5702,17 @@ static void DoTVShowHoennTreasureInvestigators(void)
         StringCopy(gStringVar1, ItemId_GetName(show->treasureInvestigators.item));
         if (show->treasureInvestigators.location == MAPSEC_DYNAMIC)
         {
-            switch (show->treasureInvestigators.mapLayoutId)
-            {
-            case LAYOUT_SS_TIDAL_CORRIDOR:
-            case LAYOUT_SS_TIDAL_LOWER_DECK:
-            case LAYOUT_SS_TIDAL_ROOMS:
-                sTVShowState = 2;
-                break;
-            default:
+            //switch (show->treasureInvestigators.mapLayoutId)
+            //{
+            //case LAYOUT_SS_TIDAL_CORRIDOR:
+            //case LAYOUT_SS_TIDAL_LOWER_DECK:
+            //case LAYOUT_SS_TIDAL_ROOMS:
+            //    sTVShowState = 2;
+            //    break;
+            //default:
                 sTVShowState = 1;
-                break;
-            }
+            //    break;
+            //}
         }
         else
         {

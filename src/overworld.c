@@ -388,7 +388,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_USE_FLASH);
-    RunScriptImmediately(EventScript_ResetMrBriney);
+    //RunScriptImmediately(EventScript_ResetMrBriney);
 }
 
 void Overworld_ResetStateAfterDigEscRope(void)
@@ -1033,6 +1033,7 @@ static u8 GetObjectEventLoadFlag(void)
 
 static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
 {
+	/*
     if (!FlagGet(FLAG_SYS_WEATHER_CTRL))
         return FALSE;
     if (warp->mapGroup == 0)
@@ -1061,11 +1062,13 @@ static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
             }
         }
     }
+	*/
     return FALSE;
 }
 
 static bool16 NoMusicInSotopolisWithLegendaries(struct WarpData *warp)
 {
+	/*
     if (VarGet(VAR_SKY_PILLAR_STATE) != 1)
         return FALSE;
     else if (warp->mapGroup != MAP_GROUP(SOOTOPOLIS_CITY))
@@ -1073,11 +1076,13 @@ static bool16 NoMusicInSotopolisWithLegendaries(struct WarpData *warp)
     else if (warp->mapNum == MAP_NUM(SOOTOPOLIS_CITY))
         return TRUE;
     else
+		*/
         return FALSE;
 }
 
 static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
 {
+	/*
     if (VarGet(VAR_WEATHER_INSTITUTE_STATE))
         return FALSE;
     else if (warp->mapGroup != MAP_GROUP(ROUTE119_WEATHER_INSTITUTE_1F))
@@ -1085,12 +1090,13 @@ static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
     else if (warp->mapNum == MAP_NUM(ROUTE119_WEATHER_INSTITUTE_1F)
      || warp->mapNum == MAP_NUM(ROUTE119_WEATHER_INSTITUTE_2F))
         return TRUE;
-    else
+    else*/
         return FALSE;
 }
 
 static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
 {
+	/*
     if (VarGet(VAR_MOSSDEEP_CITY_STATE) == 0)
         return FALSE;
     else if (VarGet(VAR_MOSSDEEP_CITY_STATE) > 2)
@@ -1100,6 +1106,7 @@ static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
     else if (warp->mapNum == MAP_NUM(MOSSDEEP_CITY_SPACE_CENTER_1F)
      || warp->mapNum == MAP_NUM(MOSSDEEP_CITY_SPACE_CENTER_2F))
         return TRUE;
+		*/
     return FALSE;
 }
 
@@ -1122,13 +1129,16 @@ u16 GetCurrLocationDefaultMusic(void)
     u16 music;
 
     // Play the desert music only when the sandstorm is active on Route 111.
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111)
+    /*
+	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111)
      && GetSavedWeather() == WEATHER_SANDSTORM)
         return MUS_DESERT;
-
+	*/
     music = GetLocationMusic(&gSaveBlock1Ptr->location);
-    if (music != MUS_ROUTE118)
+    return music;
+	/*
+	if (music != MUS_ROUTE118)
     {
         return music;
     }
@@ -1139,12 +1149,15 @@ u16 GetCurrLocationDefaultMusic(void)
         else
             return MUS_ROUTE119;
     }
+	*/
 }
 
 u16 GetWarpDestinationMusic(void)
 {
     u16 music = GetLocationMusic(&sWarpDestination);
-    if (music != MUS_ROUTE118)
+    return music;
+	/*
+	if (music != MUS_ROUTE118)
     {
         return music;
     }
@@ -1156,6 +1169,7 @@ u16 GetWarpDestinationMusic(void)
         else
             return MUS_ROUTE119;
     }
+	*/
 }
 
 void Overworld_ResetMapMusic(void)
@@ -1243,6 +1257,7 @@ void TryFadeOutOldMapMusic(void)
     u16 warpMusic = GetWarpDestinationMusic();
     if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
     {
+		/*
         if (currentMusic == MUS_SURF
             && VarGet(VAR_SKY_PILLAR_STATE) == 2
             && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SOOTOPOLIS_CITY)
@@ -1252,6 +1267,7 @@ void TryFadeOutOldMapMusic(void)
             && sWarpDestination.x == 29
             && sWarpDestination.y == 53)
             return;
+		*/
         FadeOutMapMusic(GetMapMusicFadeoutSpeed());
     }
 }
@@ -1340,6 +1356,8 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
 
 static void ChooseAmbientCrySpecies(void)
 {
+	sAmbientCrySpecies = GetLocalWildMon(&sIsAmbientCryWaterMon);
+	/*
     if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE130)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE130))
      && !IsMirageIslandPresent())
@@ -1353,6 +1371,7 @@ static void ChooseAmbientCrySpecies(void)
     {
         sAmbientCrySpecies = GetLocalWildMon(&sIsAmbientCryWaterMon);
     }
+	*/
 }
 
 u8 GetMapTypeByGroupAndId(s8 mapGroup, s8 mapNum)

@@ -60,6 +60,7 @@ static void DoBrailleRegisteelEffect(void);
 
 bool8 ShouldDoBrailleDigEffect(void)
 {
+	/*
     if (!FlagGet(FLAG_SYS_BRAILLE_DIG)
      && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SEALED_CHAMBER_OUTER_ROOM)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEALED_CHAMBER_OUTER_ROOM)))
@@ -71,7 +72,7 @@ bool8 ShouldDoBrailleDigEffect(void)
         if (gSaveBlock1Ptr->pos.x == 11 && gSaveBlock1Ptr->pos.y == 3)
             return TRUE;
     }
-
+	*/
     return FALSE;
 }
 
@@ -166,6 +167,8 @@ static void Task_SealedChamberShakingEffect(u8 taskId)
 
 bool8 ShouldDoBrailleRegirockEffect(void)
 {
+	return FALSE;
+	/*
     if (!FlagGet(FLAG_SYS_REGIROCK_PUZZLE_COMPLETED)
         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DESERT_RUINS)
         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DESERT_RUINS))
@@ -188,6 +191,7 @@ bool8 ShouldDoBrailleRegirockEffect(void)
     }
 
     return FALSE;
+	*/
 }
 
 void SetUpPuzzleEffectRegirock(void)
@@ -218,6 +222,7 @@ static void DoBrailleRegirockEffect(void)
 
 bool8 ShouldDoBrailleRegisteelEffect(void)
 {
+	/*
     if (!FlagGet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ANCIENT_TOMB) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ANCIENT_TOMB)))
     {
         if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 25)
@@ -225,7 +230,7 @@ bool8 ShouldDoBrailleRegisteelEffect(void)
             sIsRegisteelPuzzle = TRUE;
             return TRUE;
         }
-    }
+    }*/
     return FALSE;
 }
 
@@ -282,6 +287,7 @@ bool8 FldEff_UsePuzzleEffect(void)
 // step on every space on the perimeter of the cave (and only those spaces) then return to the back wall.
 bool8 ShouldDoBrailleRegicePuzzle(void)
 {
+	/*
     u8 i;
 
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ISLAND_CAVE)
@@ -338,6 +344,6 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
         FlagSet(FLAG_TEMP_REGICE_PUZZLE_FAILED);
         FlagClear(FLAG_TEMP_REGICE_PUZZLE_STARTED);
     }
-
+	*/
     return FALSE;
 }
