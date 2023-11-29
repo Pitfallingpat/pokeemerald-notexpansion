@@ -1,6 +1,6 @@
 {
-  "map_sections": [	
-	{
+  "map_sections": [
+    {
       "map_section": "MAPSEC_LITTLEROOT_TOWN",
       "name": "LITTLEROOT TOWN",
       "x": 4,
@@ -112,7 +112,7 @@
       "width": 1,
       "height": 1
     },
-	{
+    {
       "map_section": "MAPSEC_FRESH_TOWN",
       "name": "FRESH TOWN",
       "x": 0,
@@ -120,7 +120,7 @@
       "width": 1,
       "height": 1
     },
-	{
+    {
       "map_section": "MAPSEC_HISTOR_TOWN",
       "name": "HISTOR TOWN",
       "x": 0,
@@ -128,7 +128,7 @@
       "width": 1,
       "height": 1
     },
-	{
+    {
       "map_section": "MAPSEC_PROSPECT",
       "name": "PROSPECT",
       "x": 0,
@@ -136,7 +136,7 @@
       "width": 1,
       "height": 1
     },
-	{
+    {
       "map_section": "MAPSEC_PROSPECT_MINE",
       "name": "PROSPECT MINE",
       "x": 0,
