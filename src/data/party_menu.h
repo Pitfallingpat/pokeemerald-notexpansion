@@ -1060,6 +1060,12 @@ static const union AnimCmd sSpriteAnim_StatusFrostbite[] =
     ANIMCMD_END
 };
 
+static const union AnimCmd sSpriteAnim_StatusBruise[] =
+{
+    ANIMCMD_FRAME(32, 0),
+    ANIMCMD_END
+};
+
 static const union AnimCmd *const sSpriteTemplate_StatusCondition[] =
 {
     sSpriteAnim_StatusPoison,
@@ -1069,7 +1075,8 @@ static const union AnimCmd *const sSpriteTemplate_StatusCondition[] =
     sSpriteAnim_StatusBurn,
     sSpriteAnim_StatusPokerus,
     sSpriteAnim_StatusFaint,
-    sSpriteAnim_StatusFrostbite
+    sSpriteAnim_StatusFrostbite,
+	sSpriteAnim_StatusBruise
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet_StatusIcons =

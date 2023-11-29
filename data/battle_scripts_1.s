@@ -430,12 +430,12 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTwoTypeSpDefDown		  @	EFFECT_TWO_TYPED_SP_DEF_DOWN
 	.4byte BattleScript_EffectTwoTypeAttackerDefDown  @	EFFECT_TWO_TYPED_ATTACKER_DEF_DOWN
 	.4byte BattleScript_EffectTwoTypeSpAtkUp		  @	EFFECT_TWO_TYPED_SP_ATK_UP
-	.4byte BattleScript_EffectBruiseHit 			  @ EFFECT_BRUISE_HIT
 	.4byte BattleScript_EffectTripleArrows            @ EFFECT_TRIPLE_ARROWS
 	.4byte BattleScript_EffectInfernalParade          @ EFFECT_INFERNAL_PARADE
 	.4byte BattleScript_EffectTakeHeart               @ EFFECT_TAKE_HEART
 	.4byte BattleScript_EffectAxeKick                 @ EFFECT_AXE_KICK
 	.4byte BattleScript_EffectHit                     @ EFFECT_COLLISION_COURSE
+	.4byte BattleScript_EffectBruiseHit 			  @ EFFECT_BRUISE_HIT
 	.4byte BattleScript_EffectSpinOut                 @ EFFECT_SPIN_OUT
 	.4byte BattleScript_EffectMakeItRain              @ EFFECT_MAKE_IT_RAIN
 	.4byte BattleScript_EffectCorrosiveGas            @ EFFECT_CORROSIVE_GAS
@@ -3375,7 +3375,6 @@ BattleScript_EffectBurnHit::
 BattleScript_EffectBruiseHit::
 	setmoveeffect MOVE_EFFECT_BRUISE
 	goto BattleScript_EffectHit
-
 
 BattleScript_EffectFrostbiteHit::
 	setmoveeffect MOVE_EFFECT_FROSTBITE
@@ -10422,8 +10421,6 @@ BattleScript_EffectSnow::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
 	setsnow
 	goto BattleScript_MoveWeatherChange
-
-//NEW
 
 BattleScript_EffectTwoTypeBurn::
 	setmoveeffect MOVE_EFFECT_BURN

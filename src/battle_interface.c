@@ -610,7 +610,7 @@ enum
     PAL_STATUS_SLP,
     PAL_STATUS_FRZ,
     PAL_STATUS_BRN,
-	PAL_STATUS_BRS,
+	PAL_STATUS_BRS
 };
 
 static const u16 sStatusIconColors[] =
@@ -620,7 +620,7 @@ static const u16 sStatusIconColors[] =
     [PAL_STATUS_SLP] = RGB(20, 20, 17),
     [PAL_STATUS_FRZ] = RGB(17, 22, 28),
     [PAL_STATUS_BRN] = RGB(28, 14, 10),
-	[PAL_STATUS_BRS] = RGB(17, 17, 20),
+	[PAL_STATUS_BRS] = RGB(17, 17, 20)
 };
 
 static const struct WindowTemplate sHealthboxWindowTemplate = {
