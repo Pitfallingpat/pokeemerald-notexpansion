@@ -8,6 +8,14 @@ static const struct TrainerMon sParty_Sawyer1[] = {
     }
 };
 
+static const struct TrainerMon sParty_Joshua[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_RATTATA_ALOLAN,
+    }
+};
+
+
 static const struct TrainerMon sParty_Red[] = {
     {
     .lvl = 5,

@@ -40,8 +40,8 @@
     "ProspectMineF1",
     "ProspectMineF2",
     "ProspectMineF2b",
-	"ArtisanCave_1F",
-	"ArtisanCave_B1F"
+    "ArtisanCave_1F",
+    "ArtisanCave_B1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -1,3 +1,41 @@
+
+Route3_Text_JosuhaIntro:
+	.string "My ALOLAN RATTATA is cooler than\n"
+	.string "JOEY's purple RATTATA!\p"
+	.string "I'll prove it to you!$"
+
+Route3_Text_JoshuaDefeated:
+	.string "No way, I lost?!$"
+
+Route3_Text_JoshuaPostBattle:
+	.string "Aw man, I can't tell JOEY about this...\p"
+	.string "Huh? Who's JOEY?\p"
+	.string "He's my penpal from JOHTO.\p"
+	.string "Says his RATTATA is the 'top\n"
+	.string "percentage' of all RATTATA.\p"
+	.string "I don't know what that means, but\n"
+	.string "my ALOLAN RATTATA is way cooler.$"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route102_Text_CalvinIntro:
 	.string "If you have POKéMON with you, then\n"
 	.string "you're an official POKéMON TRAINER!\l"

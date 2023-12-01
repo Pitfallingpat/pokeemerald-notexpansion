@@ -16,7 +16,7 @@
 #define TRAINER_EVERETT                     12
 #define TRAINER_NOLAND                      13
 #define TRAINER_PHILLIP                     14
-#define TRAINER_UNUSED_15                   15
+#define TRAINER_JOSHUA                      15
 #define TRAINER_UNUSED_16                   16
 #define TRAINER_UNUSED_17                   17
 #define TRAINER_UNUSED_18                   18

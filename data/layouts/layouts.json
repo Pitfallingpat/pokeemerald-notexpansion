@@ -31,7 +31,7 @@
       "border_filepath": "data/layouts/LittlerootTown/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown/map.bin"
     },
-	{
+    {
       "id": "LAYOUT_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
       "name": "LittlerootTown_BrendansHouse_1F_Layout",
       "width": 11,
@@ -191,7 +191,7 @@
       "border_filepath": "data/layouts/SecretBase_Tree1/border.bin",
       "blockdata_filepath": "data/layouts/SecretBase_Tree1/map.bin"
     },
-	{
+    {
       "id": "LAYOUT_POKEMON_CENTER_1F",
       "name": "PokemonCenter_1F_Layout",
       "width": 14,
@@ -211,7 +211,7 @@
       "border_filepath": "data/layouts/PokemonCenter_2F/border.bin",
       "blockdata_filepath": "data/layouts/PokemonCenter_2F/map.bin"
     },
-	{
+    {
       "id": "LAYOUT_MART",
       "name": "Mart_Layout",
       "width": 11,
@@ -221,7 +221,7 @@
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin"
     },
-	{
+    {
       "id": "LAYOUT_SOUTHERN_ISLAND_EXTERIOR",
       "name": "SouthernIsland_Exterior_Layout",
       "width": 33,
