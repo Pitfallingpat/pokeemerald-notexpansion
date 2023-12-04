@@ -32,7 +32,17 @@ Route3_Trainer_Eyes_Girl_Text:
 	
 	
 	
-	Route3_EventScript_Joshua::
+Route3_EventScript_Joshua::
 	trainerbattle_single TRAINER_JOSHUA, Route3_Text_JosuhaIntro, Route3_Text_JoshuaDefeated
 	msgbox Route3_Text_JoshuaPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Route3_EventScript_Jake::
+	trainerbattle_single TRAINER_JAKE, Route3_Text_JakeIntro, Route3_Text_JakeDefeated
+	msgbox Route3_Text_JakePostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+Route3_EventScript_Jenny::
+	trainerbattle_single TRAINER_JENNY, Route3_Text_JennyIntro, Route3_Text_JennyDefeated
+	msgbox Route3_Text_JennyPostBattle, MSGBOX_AUTOCLOSE
 	end
