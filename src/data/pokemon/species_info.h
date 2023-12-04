@@ -2684,6 +2684,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_OBLIVIOUS, ABILITY_OWN_TEMPO, ABILITY_REGENERATOR},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+		.flags = SPECIES_FLAG_SKIP_NAT_DEX,
     },
 
     [SPECIES_SLOWBRO] =
@@ -2707,6 +2708,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_OBLIVIOUS, ABILITY_OWN_TEMPO, ABILITY_REGENERATOR},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+		.flags = SPECIES_FLAG_SKIP_NAT_DEX,
     },
 
     [SPECIES_MAGNEMITE] =
@@ -5442,6 +5444,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_OBLIVIOUS, ABILITY_OWN_TEMPO, ABILITY_REGENERATOR},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+		.flags = SPECIES_FLAG_SKIP_NAT_DEX,
     },
 
     [SPECIES_MISDREAVUS] =
@@ -21235,7 +21238,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
-        .flags = SPECIES_FLAG_MEGA_EVOLUTION,
+        .flags = SPECIES_FLAG_MEGA_EVOLUTION | SPECIES_FLAG_SKIP_NAT_DEX,
     },
 
     [SPECIES_GENGAR_MEGA] =
