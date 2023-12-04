@@ -15,6 +15,30 @@ static const struct TrainerMon sParty_Joshua[] = {
     }
 };
 
+static const struct TrainerMon sParty_Jake[] = {
+    {
+    .lvl = 4,
+    .species = SPECIES_KRICKETOT,
+	.moves = {MOVE_TACKLE, MOVE_GROWL, MOVE_BIDE, MOVE_NONE},
+    },
+	{
+    .lvl = 6,
+    .species = SPECIES_KRICKETOT,
+	.moves = {MOVE_TACKLE, MOVE_GROWL, MOVE_BIDE, MOVE_NONE},
+    }
+};
+
+static const struct TrainerMon sParty_Jenny[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_RALTS_REGIONAL,
+    },
+	{
+    .lvl = 6,
+    .species = SPECIES_BUNEARY,
+    }
+};
+
 
 static const struct TrainerMon sParty_Red[] = {
     {

@@ -15,8 +15,34 @@ Route3_Text_JoshuaPostBattle:
 	.string "percentage' of all RATTATA.\p"
 	.string "I don't know what that means, but\n"
 	.string "my ALOLAN RATTATA is way cooler.$"
+	
+	
+Route3_Text_JakeIntro:
+	.string "Hey check out my BUG POKéMON!$"
 
-
+Route3_Text_JakeDefeated:
+	.string "Did you like my BUG POKéMON?$"
+	
+Route3_Text_JakePostBattle:
+	.string "I heard a rumor about a BUG POKéMON\n"
+	.string "that looks like a rock!\p"
+	.string "I wonder where I can find one?$"
+	
+	
+Route3_Text_JennyIntro:
+	.string "This is my first POKéMON battle,\n"
+	.string "so please go easy on me!$"
+	
+Route3_Text_JennyDefeated:
+	.string "Oh no, my POKéMON fainted!$"
+	
+Route3_Text_JennyPostBattle:
+	.string "The RALTS in DIVORO are different\n"
+	.string "from the ones outside of this region.\p"
+	.string "They're shy but sensitive to rhythmic\n"
+	.string "sounds, like songs and music.\p"
+	.string "Whenever I'm listening to a pop song,\n"
+	.string "it will try to sing along.$"
 
 
 
