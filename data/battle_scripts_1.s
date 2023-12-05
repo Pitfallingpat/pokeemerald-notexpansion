@@ -8257,7 +8257,7 @@ BattleScript_MoveEffectBurn::
 	
 BattleScript_MoveEffectBruise::
 	statusanimation BS_EFFECT_BATTLER
-	printfromtable gGotBurnedStringIds
+	printfromtable gGotBruisedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
 
@@ -9259,6 +9259,14 @@ BattleScript_FabulousActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_HurtAttackerBruise:
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNHURTBYBRUISE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	return
 
 BattleScript_HurtAttacker:
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
@@ -9275,7 +9283,7 @@ BattleScript_RoughSkinActivates::
 	return
 
 BattleScript_BruiseActivates::
-	call BattleScript_HurtAttacker
+	call BattleScript_HurtAttackerBruise
 	return
 
 BattleScript_RockyHelmetActivates::
