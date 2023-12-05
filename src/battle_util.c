@@ -9612,9 +9612,18 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
 
 static inline uq4_12_t GetSameTypeAttackBonusModifier(u32 battlerAtk, u32 moveType, u32 move, u32 abilityAtk)
 {
-    if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
-        return UQ_4_12(1.0);
-    return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
+    //if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
+    //    return UQ_4_12(1.0);
+	
+	if (move == MOVE_STRUGGLE || move == MOVE_NONE) {
+		return UQ_4_12(1.0);
+	}
+	if ((IS_BATTLER_OF_TYPE(battlerAtk, gBattleMoves[move].type2) && gBattleMoves[move].type2 != TYPE_MYSTERY)
+		|| IS_BATTLER_OF_TYPE(battlerAtk, moveType)){
+		return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
+	}
+    //return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
+	return UQ_4_12(1.0);
 }
 
 // Utility Umbrella holders take normal damage from what would be rain- and sun-weakened attacks.
@@ -9640,6 +9649,14 @@ static uq4_12_t GetWeatherDamageModifier(u32 battlerAtk, u32 move, u32 moveType,
         return (moveType == TYPE_WATER) ? UQ_4_12(0.5) : UQ_4_12(1.5);
     }
     return UQ_4_12(1.0);
+}
+
+static inline uq4_12_t GetBruisedModifier(u32 battlerDef, u32 move)
+{
+	if (gBattleMons[battlerDef].status1 & STATUS1_BRUISE && IS_MOVE_PHYSICAL(move)){
+		return UQ_4_12(1.5);
+	}
+	return UQ_4_12(1.0);
 }
 
 static inline uq4_12_t GetBurnOrFrostBiteModifier(u32 battlerAtk, u32 move, u32 abilityAtk)
@@ -9906,6 +9923,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
 
     DAMAGE_APPLY_MODIFIER(GetSameTypeAttackBonusModifier(battlerAtk, moveType, move, abilityAtk));
     DAMAGE_APPLY_MODIFIER(typeEffectivenessModifier);
+	DAMAGE_APPLY_MODIFIER(GetBruisedModifier(battlerDef, move));
     DAMAGE_APPLY_MODIFIER(GetBurnOrFrostBiteModifier(battlerAtk, move, abilityAtk));
     DAMAGE_APPLY_MODIFIER(GetZMoveAgainstProtectionModifier(battlerDef));
     DAMAGE_APPLY_MODIFIER(GetOtherModifiers(move, moveType, battlerAtk, battlerDef, isCrit, typeEffectivenessModifier, updateFlags, abilityAtk, abilityDef, holdEffectAtk, holdEffectDef));

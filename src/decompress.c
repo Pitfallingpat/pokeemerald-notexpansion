@@ -114,6 +114,9 @@ void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontP
         DrawSpindaSpots(personality, dest, FALSE);
         DrawSpindaSpots(personality, dest, TRUE);
     }
+	//mark figyurm's custom color code goes here
+	
+	
 }
 
 void Unused_LZDecompressWramIndirect(const void **src, void *dest)
