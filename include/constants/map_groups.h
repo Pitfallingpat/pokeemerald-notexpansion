@@ -13,6 +13,7 @@
 #define MAP_ROUTE3        (4 | (0 << 8))
 #define MAP_PROSPECT      (5 | (0 << 8))
 #define MAP_PROSPECT_MINE (6 | (0 << 8))
+#define MAP_GOLDEN_BRIDGE (7 | (0 << 8))
 
 // gMapGroup_Freshtown
 #define MAP_PLAYER_HOUSE_F1  (0 | (1 << 8))

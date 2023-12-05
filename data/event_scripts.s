@@ -639,3 +639,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Prospect_Mart/scripts.inc"
 
 	.include "data/maps/None/scripts.inc"
+
+	.include "data/maps/GoldenBridge/scripts.inc"

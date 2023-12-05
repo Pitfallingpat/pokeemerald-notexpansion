@@ -1415,7 +1415,7 @@
       "id": "LAYOUT_ROUTE2",
       "name": "Route2_Layout",
       "width": 32,
-      "height": 100,
+      "height": 56,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route2/border.bin",
@@ -1610,6 +1610,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/None/border.bin",
       "blockdata_filepath": "data/layouts/None/map.bin"
+    },
+    {
+      "id": "LAYOUT_GOLDEN_BRIDGE",
+      "name": "GoldenBridge_Layout",
+      "width": 48,
+      "height": 70,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
+      "border_filepath": "data/layouts/GoldenBridge/border.bin",
+      "blockdata_filepath": "data/layouts/GoldenBridge/map.bin"
     }
   ]
 }
