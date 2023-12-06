@@ -28,7 +28,7 @@ FreshTown_EventScript_Professor_Cave::
 	clearflag FLAG_HIDE_FRESHTOWN
 	special HealPlayerParty
 	msgbox FreshTown_Prof_Cave_Text_5, MSGBOX_DEFAULT
-	
+	setvar VAR_FRESHTOWN_INTRO_STATE, 1
 	warp MAP_PROFESSORS_LAB1, 8, 6
 	release
 	end

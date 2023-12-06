@@ -1499,9 +1499,9 @@
 //
 #define FLAG_HIDE_FRESHTOWN                         (SYSTEM_FLAGS + 0x85) 
 #define FLAG_MOMS_GIFT                              (SYSTEM_FLAGS + 0x86) 
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) 
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) 
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) 
+#define FLAG_CHEAT_NO_COLLIDE                       (SYSTEM_FLAGS + 0x87) 
+#define FLAG_CHEAT_NO_ENCOUNTERS                    (SYSTEM_FLAGS + 0x88) 
+#define FLAG_CHEAT_NO_TRAINERS                      (SYSTEM_FLAGS + 0x89) 
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) 
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) 
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) 

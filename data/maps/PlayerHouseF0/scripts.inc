@@ -11,11 +11,13 @@ PlayerHouseF0_Mom::
 end
 
 PlayerHouseF0_Mom_Heal::
+	lock
 	msgbox PlayerHouseF0_Mom_Dia_2, MSGBOX_DEFAULT
 	call Common_EventScript_OutOfCenterPartyHeal
 	incrementgamestat GAME_STAT_RESTED_AT_HOME
 	setrespawn HEAL_LOCATION_FRESH_TOWN
 	msgbox PlayerHouseF0_Mom_Dia_3, MSGBOX_DEFAULT
+	release
 end
 
 PlayerHouseF0_Moms_Gift::
@@ -28,16 +30,21 @@ PlayerHouseF0_Moms_Gift::
 end
 
 PlayerHouseF0_Mom_Dia_1:
-	.string "Placeholder4$"
+	.string "Good morning.$"
 
 PlayerHouseF0_Mom_Dia_2:
-	.string "Placeholder4$"
+	.string "You look tired. How about a quick rest?$"
 	
 PlayerHouseF0_Mom_Dia_3:
-	.string "Placeholder4$"
+	.string "Don't forget to stop by home every now.\n"
+	.string "and again.$"
 
 PlayerHouseF0_Moms_Gift_Dia:
-	.string "PlaceholderGift$"
+	.string "So that is your first POKéMON!\n"
+	.string "It's so cute!\p"
+	.string "I also have a gift for you!$"
 	
 PlayerHouseF0_Moms_Gift_Dia_2:
-	.string "PlaceholderGift$"
+	.string "You use POKEBALLs to capture POKéMON.\n"
+	.string "I hope have many happy POKéMON next\l"
+	.string "time I see you!$"

@@ -129,7 +129,7 @@
 
 //above variables are part of the base game that were too annoying to remove
 
-#define VAR_UNUSED_0x406D                                0x406D
+#define VAR_FRESHTOWN_INTRO_STATE                        0x406D
 #define VAR_UNUSED_0x406E                                0x406E
 #define VAR_UNUSED_0x406F                                0x406F
 #define VAR_UNUSED_0x4070                                0x4070
