@@ -115,8 +115,8 @@ FreshTown_EventScript_Power_Of_Science_Man::
 FreshTown_Power_Of_Science_Text:
 	.string "The power of science is staggering!\p"
 	.string "Thanks to the hard work of the\n"
-	.string "decomp teams and the RHH we are\l"
-	.string "able to experience living with\l"
+	.string "decomp teams and the RHH,\l"
+	.string "we're able to experience living with\l"
 	.string "so many unique POKéMON.$"
 	
 FreshTown_EventScript_Old_Expert_Woman::
@@ -143,19 +143,20 @@ FreshTown_EventScript_Father_Of_Azurill_Girl::
 	end
 
 FreshTown_Father_Of_Azurill_Girl_Text:
-	.string "Placeholder\n"
-	.string "Placeholder!\p"
-	.string "Placeholder\n"
-	.string "Placeholder.\p"
-	.string "Placeholder\n"
-	.string "Placeholder!$"
+	.string "My daughter wanted a POKéMON but she's\n"
+	.string "not ready to be a trainer just yet.\p"
+	.string "So my wife and I decided to catch one\n"
+	.string "as a pet for her instead.\p"
+	.string "We found this really cute AZURILL\n"
+	.string "among some fish POKéMON from the\l"
+	.string "pond, with my trusty OLD ROD no less!$"
 
 FreshTown_EventScript_Professors_Lab_Sign::
 	msgbox FreshTown_Sign_Professors_Sign_Text, MSGBOX_SIGN
 	end
 
 FreshTown_Sign_Professors_Sign_Text:
-	.string "PROF. CONIFER's LAB.$"
+	.string "PROF. CONIFER's LAB$"
 	
 	
 FreshTown_EventScript_Fresh_Cave_sign::
@@ -163,7 +164,7 @@ FreshTown_EventScript_Fresh_Cave_sign::
 	end
 
 FreshTown_Sign_Fresh_Cave_Sign_Text:
-	.string "Fresh Town Cave\n"
+	.string "FRESH TOWN CAVE\n"
 	.string "Beware of wild POKéMON.$"
 
 
@@ -175,6 +176,13 @@ FreshTown_Sign_Freshtown_Text:
 	.string "FRESH TOWN\p"
 	.string "Where new beginnings\n"
 	.string "are always beginning.$"
+	
+FreshTown_EventScript_Player_Home_Sign::
+	msgbox FreshTown_Sign_Player_Home_Sign_Text, MSGBOX_SIGN
+	end
+	
+FreshTown_Sign_Player_Home_Sign_Text:
+	.string "{PLAYER}'s HOUSE$"
 
 Movement_Exclamation:
 	emote_exclamation_mark
