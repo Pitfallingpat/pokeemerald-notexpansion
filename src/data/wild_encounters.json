@@ -233,12 +233,22 @@
               {
                 "min_level": 2,
                 "max_level": 4,
-                "species": "SPECIES_BLIPBUG"
+                "species": "SPECIES_KRICKETOT"
               },
               {
                 "min_level": 2,
                 "max_level": 3,
-                "species": "SPECIES_RATTATA_ALOLAN"
+                "species": "SPECIES_SENTRET"
+              },
+              {
+                "min_level": 2,
+                "max_level": 4,
+                "species": "SPECIES_KRICKETOT"
+              },
+              {
+                "min_level": 2,
+                "max_level": 3,
+                "species": "SPECIES_SENTRET"
               },
               {
                 "min_level": 2,
@@ -262,23 +272,13 @@
               },
               {
                 "min_level": 2,
-                "max_level": 4,
-                "species": "SPECIES_BLIPBUG"
+                "max_level": 3,
+                "species": "SPECIES_SNUBBULL"
               },
               {
                 "min_level": 2,
                 "max_level": 3,
-                "species": "SPECIES_RATTATA_ALOLAN"
-              },
-              {
-                "min_level": 2,
-                "max_level": 4,
-                "species": "SPECIES_BLIPBUG"
-              },
-              {
-                "min_level": 2,
-                "max_level": 4,
-                "species": "SPECIES_RATTATA_ALOLAN"
+                "species": "SPECIES_SNUBBULL"
               }
             ]
           }
@@ -296,23 +296,8 @@
               },
               {
                 "min_level": 3,
-                "max_level": 5,
-                "species": "SPECIES_SENTRET"
-              },
-              {
-                "min_level": 3,
-                "max_level": 5,
-                "species": "SPECIES_RATTATA_ALOLAN"
-              },
-              {
-                "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_ROOKIDEE"
-              },
-              {
-                "min_level": 3,
-                "max_level": 4,
-                "species": "SPECIES_ROOKIDEE"
+                "species": "SPECIES_ZIGZAGOON"
               },
               {
                 "min_level": 3,
@@ -321,8 +306,13 @@
               },
               {
                 "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_BLIPBUG"
+              },
+              {
+                "min_level": 3,
                 "max_level": 5,
-                "species": "SPECIES_SENTRET"
+                "species": "SPECIES_KRICKETOT"
               },
               {
                 "min_level": 3,
@@ -331,23 +321,33 @@
               },
               {
                 "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_BLIPBUG"
+              },
+              {
+                "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_ZIGZAGOON"
+                "species": "SPECIES_BLIPBUG"
+              },
+              {
+                "min_level": 3,
+                "max_level": 4,
+                "species": "SPECIES_CHATOT"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_RALTS_REGIONAL"
+                "species": "SPECIES_CHATOT"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_RALTS_REGIONAL"
+                "species": "SPECIES_CHATOT"
               },
               {
                 "min_level": 3,
                 "max_level": 5,
-                "species": "SPECIES_ZIGZAGOON"
+                "species": "SPECIES_CHATOT"
               }
             ]
           }
@@ -359,24 +359,44 @@
             "encounter_rate": 30,
             "mons": [
               {
-                "min_level": 8,
-                "max_level": 10,
-                "species": "SPECIES_FABULA"
-              },
-              {
-                "min_level": 8,
-                "max_level": 10,
-                "species": "SPECIES_FABULA_MESSY"
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_BUNEARY"
               },
               {
                 "min_level": 4,
                 "max_level": 7,
-                "species": "SPECIES_GEOBOI"
+                "species": "SPECIES_BUNEARY"
               },
               {
                 "min_level": 4,
                 "max_level": 7,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_BUNEARY"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_BUNEARY"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_CHATOT"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_CHATOT"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_VULPIX"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_VULPIX"
               },
               {
                 "min_level": 4,
@@ -386,37 +406,17 @@
               {
                 "min_level": 4,
                 "max_level": 7,
-                "species": "SPECIES_CHATOT"
+                "species": "SPECIES_RALTS_REGIONAL"
               },
               {
                 "min_level": 4,
                 "max_level": 7,
-                "species": "SPECIES_CHATOT"
+                "species": "SPECIES_RALTS_REGIONAL"
               },
               {
                 "min_level": 4,
                 "max_level": 7,
-                "species": "SPECIES_BUNEARY"
-              },
-              {
-                "min_level": 4,
-                "max_level": 7,
-                "species": "SPECIES_VULPIX"
-              },
-              {
-                "min_level": 4,
-                "max_level": 7,
-                "species": "SPECIES_BUNEARY"
-              },
-              {
-                "min_level": 4,
-                "max_level": 7,
-                "species": "SPECIES_BUNEARY"
-              },
-              {
-                "min_level": 4,
-                "max_level": 7,
-                "species": "SPECIES_VULPIX"
+                "species": "SPECIES_RALTS_REGIONAL"
               }
             ]
           }
@@ -861,11 +861,6 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_STARLY"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
                 "species": "SPECIES_GEODUDE"
               },
               {
@@ -877,6 +872,11 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_STARLY"
               },
               {
                 "min_level": 5,
@@ -901,22 +901,22 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_ROOKIDEE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_ROOKIDEE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_ROOKIDEE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_ROOKIDEE"
               }
             ]
           }
