@@ -328,7 +328,7 @@
 #define MOVE_EFFECT_FROSTBITE           7
 
 #define MOVE_EFFECT_BRUISE				8
-#define PRIMARY_STATUS_MOVE_EFFECT      MOVE_EFFECT_FROSTBITE // All above move effects apply primary status
+#define PRIMARY_STATUS_MOVE_EFFECT      MOVE_EFFECT_BRUISE // All above move effects apply primary status
 #define MOVE_EFFECT_FREEZE_OR_FROSTBITE (B_USE_FROSTBITE == TRUE ? MOVE_EFFECT_FROSTBITE : MOVE_EFFECT_FREEZE)
 #define MOVE_EFFECT_CONFUSION           9
 #define MOVE_EFFECT_FLINCH              10

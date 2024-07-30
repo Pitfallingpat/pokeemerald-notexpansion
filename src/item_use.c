@@ -1455,6 +1455,7 @@ static bool32 IsValidLocationForVsSeeker(void)
     u32 i;
     Location validIndoorLocations[] =
     {
+		/*
         { MAP_GROUP(MT_PYRE_SUMMIT),           MAP_NUM(MT_PYRE_SUMMIT) },
         { MAP_GROUP(SAFARI_ZONE_NORTH),        MAP_NUM(SAFARI_ZONE_NORTH) },
         { MAP_GROUP(SAFARI_ZONE_NORTHEAST),    MAP_NUM(SAFARI_ZONE_NORTHEAST) },
@@ -1475,6 +1476,7 @@ static bool32 IsValidLocationForVsSeeker(void)
         { MAP_GROUP(MOSSDEEP_CITY_GYM),        MAP_NUM(MOSSDEEP_CITY_GYM) },
         { MAP_GROUP(SOOTOPOLIS_CITY_GYM_1F),   MAP_NUM(SOOTOPOLIS_CITY_GYM_1F) },
         { MAP_GROUP(SOOTOPOLIS_CITY_GYM_B1F),  MAP_NUM(SOOTOPOLIS_CITY_GYM_B1F) },
+		*/
     };
 
     if (IsMapTypeOutdoors(mapType))

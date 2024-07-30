@@ -1,5 +1,6 @@
 const struct Fusion *const gFusionTablePointers[NUM_SPECIES] =
 {
+	/*
 	[SPECIES_REGIGIGAS] = sRegigigasFormChangeTable,
 	[SPECIES_REGIGIGAS_PRIMAL] = sRegigigasFormChangeTable,
 	[SPECIES_GARDEVOIR_REGIONAL] = sGardevoirRegionalFormChangeTable,
@@ -237,7 +238,7 @@ const struct Fusion *const gFusionTablePointers[NUM_SPECIES] =
     [SPECIES_ENAMORUS] = sEnamorusFormChangeTable,
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusFormChangeTable,
 #endif
-
+*/
 #if P_FAMILY_KYUREM
     [SPECIES_KYUREM] = sKyuremFusionTable,
 #if P_FAMILY_RESHIRAM

@@ -89,11 +89,11 @@ static void CalcZoomScrollParams(s16 scrollX, s16 scrollY, s16 c, s16 d, u16 e, 
 static u16 GetMapSecIdAt(u16 x, u16 y);
 static void RegionMap_SetBG2XAndBG2Y(s16 x, s16 y);
 static void InitMapBasedOnPlayerLocation(void);
-static void RegionMap_InitializeStateBasedOnSSTidalLocation(void);
+//static void RegionMap_InitializeStateBasedOnSSTidalLocation(void);
 static u8 GetMapsecType(u16 mapSecId);
 static u16 CorrectSpecialMapSecId_Internal(u16 mapSecId);
 static u16 GetTerraOrMarineCaveMapSecId(void);
-static void GetMarineCaveCoords(u16 *x, u16 *y);
+//static void GetMarineCaveCoords(u16 *x, u16 *y);
 static bool32 IsPlayerInAquaHideout(u8 mapSecId);
 static void GetPositionOfCursorWithinMapSec(void);
 static bool8 RegionMap_IsMapSecIdInNextRow(u16 y);
@@ -272,6 +272,10 @@ static const u32 sFlyTargetIcons_Gfx[] = INCBIN_U32("graphics/pokenav/region_map
 
 static const u8 sMapHealLocations[][3] =
 {
+	//this needs to contain all maps eventually
+	[MAPSEC_FRESH_TOWN] = {MAP_GROUP(FRESH_TOWN), MAP_NUM(FRESH_TOWN), HEAL_LOCATION_FRESH_TOWN},
+	[MAPSEC_HISTOR_TOWN] = {MAP_GROUP(HISTOR_TOWN), MAP_NUM(HISTOR_TOWN), HEAL_LOCATION_HISTOR_TOWN},
+	
 	/*
     [MAPSEC_LITTLEROOT_TOWN] = {MAP_GROUP(LITTLEROOT_TOWN), MAP_NUM(LITTLEROOT_TOWN), HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F},
     [MAPSEC_OLDALE_TOWN] = {MAP_GROUP(OLDALE_TOWN), MAP_NUM(OLDALE_TOWN), HEAL_LOCATION_OLDALE_TOWN},
@@ -959,7 +963,7 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 x;
     u16 y;
     u16 dimensionScale;
-    u16 xOnMap;
+    //u16 xOnMap;
     struct WarpData *warp;
 	
 	/*
@@ -1046,7 +1050,7 @@ static void InitMapBasedOnPlayerLocation(void)
         break;
     }
 
-    xOnMap = x;
+    //xOnMap = x;
 
     dimensionScale = mapWidth / gRegionMapEntries[sRegionMap->mapSecId].width;
     if (dimensionScale == 0)
@@ -1108,20 +1112,21 @@ static void InitMapBasedOnPlayerLocation(void)
     sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;
 }
 
+/*
 static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 {
     u16 y;
     u16 x;
-    s8 mapGroup;
-    s8 mapNum;
-    u16 dimensionScale;
-    s16 xOnMap;
-    s16 yOnMap;
-    const struct MapHeader *mapHeader;
+//    s8 mapGroup;
+//    s8 mapNum;
+//    u16 dimensionScale;
+//    s16 xOnMap;
+//    s16 yOnMap;
+//    const struct MapHeader *mapHeader;
 
     y = 0;
     x = 0;
-	/*
+	
     switch (GetSSTidalLocation(&mapGroup, &mapNum, &xOnMap, &yOnMap))
     {
     case SS_TIDAL_LOCATION_SLATEPORT:
@@ -1156,12 +1161,12 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
             y = gRegionMapEntries[sRegionMap->mapSecId].height - 1;
         break;
     }
-	*/
+	
     sRegionMap->playerIsInCave = FALSE;
     sRegionMap->cursorPosX = gRegionMapEntries[sRegionMap->mapSecId].x + x + MAPCURSOR_X_MIN;
     sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;
 }
-
+*/
 static u8 GetMapsecType(u16 mapSecId)
 {
     switch (mapSecId)
@@ -1249,6 +1254,7 @@ static u16 GetTerraOrMarineCaveMapSecId(void)
     return sTerraOrMarineCaveMapSecIds[idx];
 }
 
+/*
 static void GetMarineCaveCoords(u16 *x, u16 *y)
 {
     u16 idx;
@@ -1263,11 +1269,13 @@ static void GetMarineCaveCoords(u16 *x, u16 *y)
     *x = sMarineCaveLocationCoords[idx].x + MAPCURSOR_X_MIN;
     *y = sMarineCaveLocationCoords[idx].y + MAPCURSOR_Y_MIN;
 }
+*/
 
 // Probably meant to be an "IsPlayerInIndoorDungeon" function, but in practice it only has the one mapsec
 // Additionally, because the mapsec doesnt exist in Emerald, this function always returns FALSE
 static bool32 IsPlayerInAquaHideout(u8 mapSecId)
 {
+	/*
     u32 i;
 
     for (i = 0; i < ARRAY_COUNT(sMapSecAquaHideoutOld); i++)
@@ -1275,6 +1283,7 @@ static bool32 IsPlayerInAquaHideout(u8 mapSecId)
         if (sMapSecAquaHideoutOld[i] == mapSecId)
             return TRUE;
     }
+	*/
     return FALSE;
 }
 

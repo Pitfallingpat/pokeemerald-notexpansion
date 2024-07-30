@@ -1629,7 +1629,40 @@
 #define SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX   1522
 #define SPECIES_MIMIKYU_TOTEM_BUSTED                    1523
 
-#define SPECIES_EGG SPECIES_MIMIKYU_TOTEM_BUSTED + 1
+#define SPECIES_TANGELA_REGIONAL                        1524
+#define SPECIES_SHELLOS_REGIONAL                        1525
+#define SPECIES_GASTRODON_REGIONAL                      1526
+#define SPECIES_COYULA                                  1527
+#define SPECIES_WILYOTE                                 1528
+#define SPECIES_DREAYOLA                                1529
+#define SPECIES_CAMPEAR                                 1530
+#define SPECIES_REBLRIZZ                                1531
+#define SPECIES_SMOKARCH                                1532
+#define SPECIES_BOTOFIN                                 1533
+#define SPECIES_SONARIN                                 1534
+#define SPECIES_GLADIPHON                               1535
+#define SPECIES_GEOBOI                                  1536
+#define SPECIES_GRAVLOON                                1537
+#define SPECIES_GOLAEDER                                1538
+#define SPECIES_TANGROWTH_REGIONAL                      1539
+#define SPECIES_FABULA                                  1540
+#define SPECIES_FABULA_MESSY                            1541
+#define SPECIES_CRABOMINATE                             1542
+#define SPECIES_REGIPYRE                                1543
+#define SPECIES_REGIGIGAS_PRIMAL                        1544
+#define SPECIES_RALTS_REGIONAL                          1545
+#define SPECIES_KIRLIA_REGIONAL                         1546
+#define SPECIES_GARDEVOIR_REGIONAL                      1547
+#define SPECIES_GARDEVOIR_REGIONAL_MEGA                 1548
+#define SPECIES_GALLADE_REGIONAL					    1549
+#define SPECIES_GALLADE_REGIONAL_MEGA                   1550
+
+
+
+
+
+
+#define SPECIES_EGG SPECIES_GALLADE_REGIONAL_MEGA + 1
 
 #define NUM_SPECIES SPECIES_EGG
 

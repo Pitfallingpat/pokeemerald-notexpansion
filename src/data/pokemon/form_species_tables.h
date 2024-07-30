@@ -656,11 +656,7 @@ static const u16 sGardevoirFormSpeciesIdTable[] = {
 };
 
 #if P_GEN_4_CROSS_EVOS
-static const u16 sGalladeFormSpeciesIdTable[] = {
-    SPECIES_GALLADE,
-    SPECIES_GALLADE_MEGA,
-    FORM_SPECIES_END,
-};
+
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_RALTS
 

@@ -954,6 +954,24 @@ static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_DUAL_MOVE
 	sSpriteAnim_TypeFireSound,   
 };
 
+#define FIGHTING_FLYING   		(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT)
+#define WATER_GROUND    		(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 1
+#define PSYCHIC_LASER			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 2
+#define ICE_LASER 				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 3
+#define GRASS_LASER 			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 4
+#define BUG_LASER 				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 5
+#define ELECTRIC_LASER 			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 6
+#define FAIRY_LASER 			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 7
+#define ROCK_LASER 				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 8
+#define STEEL_LASER				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 9
+
+#define BUG_SOUND				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 10
+#define DARK_SOUND 				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 11
+#define FAIRY_SOUND 			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 12
+#define DRAGON_SOUND 			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 13
+#define ELECTRIC_SOUND 			(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 14
+#define FIRE_SOUND 				(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT) + 15
+
 const struct CompressedSpriteSheet gSpriteSheet_MoveTypes =
 {
     .data = gMoveTypes_Gfx,
@@ -3968,73 +3986,73 @@ static void SetMoveTypeIcons(void)
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     struct Pokemon *mon = &sMonSummaryScreen->currentMon;
 	//struct BoxPokemon *boxMon = mon->box;
-	//move = gBattleMoves[summary->moves[i]].type;
-	//type1 = gBattleMoves[move].type;
+	//move = gMovesInfo[summary->moves[i]].type;
+	//type1 = gMovesInfo[move].type;
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
 		//MARK TWOTYPE TEST
         if (summary->moves[i] != MOVE_NONE){
 
-			if (gBattleMoves[summary->moves[i]].type2 != TYPE_MYSTERY){
-				//type2 = gBattleMoves[summary->moves[i]].argument;
+			if (gMovesInfo[summary->moves[i]].type2 != TYPE_MYSTERY){
+				//type2 = gMovesInfo[summary->moves[i]].argument;
 				
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_FIGHTING && gBattleMoves[summary->moves[i]].type2 == TYPE_FLYING) || (gBattleMoves[summary->moves[i]].type2 == TYPE_FIGHTING && gBattleMoves[summary->moves[i]].type == TYPE_FLYING)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_FIGHTING && gMovesInfo[summary->moves[i]].type2 == TYPE_FLYING) || (gMovesInfo[summary->moves[i]].type2 == TYPE_FIGHTING && gMovesInfo[summary->moves[i]].type == TYPE_FLYING)){
 					SetTypeSpritePosAndPal(FIGHTING_FLYING, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_WATER && gBattleMoves[summary->moves[i]].type2 == TYPE_GROUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_WATER && gBattleMoves[summary->moves[i]].type == TYPE_GROUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_WATER && gMovesInfo[summary->moves[i]].type2 == TYPE_GROUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_WATER && gMovesInfo[summary->moves[i]].type == TYPE_GROUND)){
 					SetTypeSpritePosAndPal(WATER_GROUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
 				//LASER
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_PSYCHIC && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_PSYCHIC && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_PSYCHIC && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_PSYCHIC && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(PSYCHIC_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_ICE && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_ICE && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_ICE && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_ICE && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(ICE_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_BUG && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_BUG && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_BUG && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_BUG && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(BUG_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_ELECTRIC && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_ELECTRIC && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_ELECTRIC && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_ELECTRIC && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(ELECTRIC_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_FAIRY && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_FAIRY && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_FAIRY && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_FAIRY && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(FAIRY_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_STEEL && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_STEEL && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_STEEL && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_STEEL && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(STEEL_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_ROCK && gBattleMoves[summary->moves[i]].type2 == TYPE_LASER) || (gBattleMoves[summary->moves[i]].type2 == TYPE_ROCK && gBattleMoves[summary->moves[i]].type == TYPE_LASER)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_ROCK && gMovesInfo[summary->moves[i]].type2 == TYPE_LASER) || (gMovesInfo[summary->moves[i]].type2 == TYPE_ROCK && gMovesInfo[summary->moves[i]].type == TYPE_LASER)){
 					SetTypeSpritePosAndPal(ROCK_LASER, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
 				//SOUND
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_BUG && gBattleMoves[summary->moves[i]].type2 == TYPE_SOUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_BUG && gBattleMoves[summary->moves[i]].type == TYPE_SOUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_BUG && gMovesInfo[summary->moves[i]].type2 == TYPE_SOUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_BUG && gMovesInfo[summary->moves[i]].type == TYPE_SOUND)){
 					SetTypeSpritePosAndPal(BUG_SOUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_DARK && gBattleMoves[summary->moves[i]].type2 == TYPE_SOUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_DARK && gBattleMoves[summary->moves[i]].type == TYPE_SOUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_DARK && gMovesInfo[summary->moves[i]].type2 == TYPE_SOUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_DARK && gMovesInfo[summary->moves[i]].type == TYPE_SOUND)){
 					SetTypeSpritePosAndPal(DARK_SOUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_FAIRY && gBattleMoves[summary->moves[i]].type2 == TYPE_SOUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_FAIRY && gBattleMoves[summary->moves[i]].type == TYPE_SOUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_FAIRY && gMovesInfo[summary->moves[i]].type2 == TYPE_SOUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_FAIRY && gMovesInfo[summary->moves[i]].type == TYPE_SOUND)){
 					SetTypeSpritePosAndPal(FAIRY_SOUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_DRAGON && gBattleMoves[summary->moves[i]].type2 == TYPE_SOUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_DRAGON && gBattleMoves[summary->moves[i]].type == TYPE_SOUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_DRAGON && gMovesInfo[summary->moves[i]].type2 == TYPE_SOUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_DRAGON && gMovesInfo[summary->moves[i]].type == TYPE_SOUND)){
 					SetTypeSpritePosAndPal(DRAGON_SOUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_ELECTRIC && gBattleMoves[summary->moves[i]].type2 == TYPE_SOUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_ELECTRIC && gBattleMoves[summary->moves[i]].type == TYPE_SOUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_ELECTRIC && gMovesInfo[summary->moves[i]].type2 == TYPE_SOUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_ELECTRIC && gMovesInfo[summary->moves[i]].type == TYPE_SOUND)){
 					SetTypeSpritePosAndPal(ELECTRIC_SOUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
-				if ((gBattleMoves[summary->moves[i]].type == TYPE_FIRE && gBattleMoves[summary->moves[i]].type2 == TYPE_SOUND) || (gBattleMoves[summary->moves[i]].type2 == TYPE_FIRE && gBattleMoves[summary->moves[i]].type == TYPE_SOUND)){
+				if ((gMovesInfo[summary->moves[i]].type == TYPE_FIRE && gMovesInfo[summary->moves[i]].type2 == TYPE_SOUND) || (gMovesInfo[summary->moves[i]].type2 == TYPE_FIRE && gMovesInfo[summary->moves[i]].type == TYPE_SOUND)){
 					SetTypeSpritePosAndPal(FIRE_SOUND, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
 			}
 			else{
 				
-				if (gBattleMoves[summary->moves[i]].effect == EFFECT_HIDDEN_POWER){
+				if (gMovesInfo[summary->moves[i]].effect == EFFECT_HIDDEN_POWER){
 					
 					SetTypeSpritePosAndPal((GetMonData(mon, MON_DATA_PERSONALITY, 0) % 19) + 2, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 					//SetTypeSpritePosAndPal(0, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
 				else {
-					SetTypeSpritePosAndPal(gBattleMoves[summary->moves[i]].type, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
+					SetTypeSpritePosAndPal(gMovesInfo[summary->moves[i]].type, 85, 32 + (i * 16), i + SPRITE_ARR_ID_TYPE);
 				}
 			}
 		}
