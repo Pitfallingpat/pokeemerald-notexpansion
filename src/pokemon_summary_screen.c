@@ -28,7 +28,7 @@
 #include "palette.h"
 #include "pokeball.h"
 #include "pokemon.h"
-#include "pokemon_debug.h"
+#include "pokemon_sprite_visualizer.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
 #include "region_map.h"
@@ -740,9 +740,6 @@ static const u8 sMovesPPLayout[] = _("{PP}{DYNAMIC 0}/{DYNAMIC 1}");
 #define TAG_MON_MARKINGS 30003
 #define TAG_CATEGORY_ICONS 30004
 
-static const u16 sCategoryIcons_Pal[] = INCBIN_U16("graphics/interface/category_icons.gbapal");
-static const u32 sCategoryIcons_Gfx[] = INCBIN_U32("graphics/interface/category_icons.4bpp.lz");
-
 static const struct OamData sOamData_CategoryIcons =
 {
     .size = SPRITE_SIZE(16x16),
@@ -750,16 +747,16 @@ static const struct OamData sOamData_CategoryIcons =
     .priority = 0,
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_CategoryIcons =
+const struct CompressedSpriteSheet gSpriteSheet_CategoryIcons =
 {
-    .data = sCategoryIcons_Gfx,
+    .data = gCategoryIcons_Gfx,
     .size = 16*16*3/2,
     .tag = TAG_CATEGORY_ICONS,
 };
 
-static const struct SpritePalette sSpritePal_CategoryIcons =
+const struct SpritePalette gSpritePal_CategoryIcons =
 {
-    .data = sCategoryIcons_Pal,
+    .data = gCategoryIcons_Pal,
     .tag = TAG_CATEGORY_ICONS
 };
 
@@ -788,7 +785,7 @@ static const union AnimCmd *const sSpriteAnimTable_CategoryIcons[] =
     sSpriteAnim_CategoryIcon2,
 };
 
-static const struct SpriteTemplate sSpriteTemplate_CategoryIcons =
+const struct SpriteTemplate gSpriteTemplate_CategoryIcons =
 {
     .tileTag = TAG_CATEGORY_ICONS,
     .paletteTag = TAG_CATEGORY_ICONS,
@@ -815,143 +812,137 @@ static const struct OamData sOamData_MoveTypes =
     .paletteNum = 0,
     .affineParam = 0,
 };
-
-#define TYPE_ANIM(type)                                 \
-{                                                       \
-    ANIMCMD_FRAME(type * 8, 0, FALSE, FALSE),           \
-    ANIMCMD_END                                         \
-}
-
-static const union AnimCmd sSpriteAnim_TypeMystery[]    = TYPE_ANIM(TYPE_MYSTERY );
-static const union AnimCmd sSpriteAnim_TypeNormal[]     = TYPE_ANIM(TYPE_NORMAL  );
-static const union AnimCmd sSpriteAnim_TypeFighting[]   = TYPE_ANIM(TYPE_FIGHTING);
-static const union AnimCmd sSpriteAnim_TypeFlying[]     = TYPE_ANIM(TYPE_FLYING  );
-static const union AnimCmd sSpriteAnim_TypePoison[]     = TYPE_ANIM(TYPE_POISON  );
-static const union AnimCmd sSpriteAnim_TypeGround[]     = TYPE_ANIM(TYPE_GROUND  );
-static const union AnimCmd sSpriteAnim_TypeRock[]       = TYPE_ANIM(TYPE_ROCK    );
-static const union AnimCmd sSpriteAnim_TypeBug[]        = TYPE_ANIM(TYPE_BUG     );
-static const union AnimCmd sSpriteAnim_TypeGhost[]      = TYPE_ANIM(TYPE_GHOST   );
-static const union AnimCmd sSpriteAnim_TypeSteel[]      = TYPE_ANIM(TYPE_STEEL   );
-static const union AnimCmd sSpriteAnim_TypeFire[]       = TYPE_ANIM(TYPE_FIRE    );
-static const union AnimCmd sSpriteAnim_TypeWater[]      = TYPE_ANIM(TYPE_WATER   );
-static const union AnimCmd sSpriteAnim_TypeGrass[]      = TYPE_ANIM(TYPE_GRASS   );
-static const union AnimCmd sSpriteAnim_TypeElectric[]   = TYPE_ANIM(TYPE_ELECTRIC);
-static const union AnimCmd sSpriteAnim_TypePsychic[]    = TYPE_ANIM(TYPE_PSYCHIC );
-static const union AnimCmd sSpriteAnim_TypeIce[]        = TYPE_ANIM(TYPE_ICE     );
-static const union AnimCmd sSpriteAnim_TypeDragon[]     = TYPE_ANIM(TYPE_DRAGON  );
-static const union AnimCmd sSpriteAnim_TypeDark[]       = TYPE_ANIM(TYPE_DARK    );
-static const union AnimCmd sSpriteAnim_TypeFairy[]      = TYPE_ANIM(TYPE_FAIRY   );
-static const union AnimCmd sSpriteAnim_TypeSound[]      = TYPE_ANIM(TYPE_SOUND   );
-static const union AnimCmd sSpriteAnim_TypeLaser[]      = TYPE_ANIM(TYPE_LASER   );
-
-static const union AnimCmd sSpriteAnim_CategoryCool[]   = TYPE_ANIM(CONTEST_CATEGORY_COOL   + NUMBER_OF_MON_TYPES);
-static const union AnimCmd sSpriteAnim_CategoryBeauty[] = TYPE_ANIM(CONTEST_CATEGORY_BEAUTY + NUMBER_OF_MON_TYPES);
-static const union AnimCmd sSpriteAnim_CategoryCute[]   = TYPE_ANIM(CONTEST_CATEGORY_CUTE   + NUMBER_OF_MON_TYPES);
-static const union AnimCmd sSpriteAnim_CategorySmart[]  = TYPE_ANIM(CONTEST_CATEGORY_SMART  + NUMBER_OF_MON_TYPES);
-static const union AnimCmd sSpriteAnim_CategoryTough[]  = TYPE_ANIM(CONTEST_CATEGORY_TOUGH  + NUMBER_OF_MON_TYPES);
-
-#define PAL_TYPE_NORMAL       13
-#define PAL_TYPE_FIGHTING     13
-#define PAL_TYPE_FLYING       14
-#define PAL_TYPE_POISON       14
-#define PAL_TYPE_GROUND       13
-#define PAL_TYPE_ROCK         13
-#define PAL_TYPE_BUG          15
-#define PAL_TYPE_GHOST        14
-#define PAL_TYPE_STEEL        13
-#define PAL_TYPE_MYSTERY      15
-#define PAL_TYPE_FIRE         13
-#define PAL_TYPE_WATER        14
-#define PAL_TYPE_GRASS        15
-#define PAL_TYPE_ELECTRIC     13
-#define PAL_TYPE_PSYCHIC      14
-#define PAL_TYPE_ICE          14
-#define PAL_TYPE_DRAGON       15
-#define PAL_TYPE_DARK         13
-#define PAL_TYPE_FAIRY        14
-#define PAL_TYPE_SOUND        13
-#define PAL_TYPE_LASER		  14
-
-
-#define DOUBLE_TYPE_ANIM(type1, type2, pal1, pal2)      \
-{                                                       \
-    ANIMCMD_FRAME(type1 * 8, 60, FALSE, FALSE),         \
-    ANIMCMD_PALETTE(pal2),                              \
-    ANIMCMD_FRAME(type2 * 8, 60, FALSE, FALSE),         \
-    ANIMCMD_PALETTE(pal1),                              \
-    ANIMCMD_JUMP(0)                                     \
-}
-
-
-static const union AnimCmd sSpriteAnim_TypeFlyingFighting[] = DOUBLE_TYPE_ANIM(TYPE_FIGHTING, TYPE_FLYING, PAL_TYPE_FIGHTING, PAL_TYPE_FLYING);
-static const union AnimCmd sSpriteAnim_TypeWaterGround[]    = DOUBLE_TYPE_ANIM(TYPE_WATER, TYPE_GROUND, PAL_TYPE_WATER, PAL_TYPE_GROUND); // 14 and 13
-
-//LASER SOUND TWO_TYPE MOVES
-
-static const union AnimCmd sSpriteAnim_TypePsychicLaser[] = DOUBLE_TYPE_ANIM(TYPE_PSYCHIC, TYPE_LASER, PAL_TYPE_PSYCHIC, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeIceLaser[] = DOUBLE_TYPE_ANIM(TYPE_ICE, TYPE_LASER, PAL_TYPE_ICE, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeGrassLaser[] = DOUBLE_TYPE_ANIM(TYPE_GRASS, TYPE_LASER, PAL_TYPE_GRASS, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeBugLaser[] = DOUBLE_TYPE_ANIM(TYPE_BUG, TYPE_LASER, PAL_TYPE_BUG, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeElectricLaser[] = DOUBLE_TYPE_ANIM(TYPE_ELECTRIC, TYPE_LASER, PAL_TYPE_ELECTRIC, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeFairyLaser[] = DOUBLE_TYPE_ANIM(TYPE_FAIRY, TYPE_LASER, PAL_TYPE_FAIRY, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeSteelLaser[] = DOUBLE_TYPE_ANIM(TYPE_STEEL, TYPE_LASER, PAL_TYPE_STEEL, PAL_TYPE_LASER); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeRockLaser[] = DOUBLE_TYPE_ANIM(TYPE_ROCK, TYPE_LASER, PAL_TYPE_ROCK, PAL_TYPE_LASER); // 15 and 13
-
-static const union AnimCmd sSpriteAnim_TypeBugSound[]      = DOUBLE_TYPE_ANIM(TYPE_BUG, TYPE_SOUND, PAL_TYPE_BUG, PAL_TYPE_SOUND); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeDarkSound[]      = DOUBLE_TYPE_ANIM(TYPE_DARK, TYPE_SOUND, PAL_TYPE_DARK, PAL_TYPE_SOUND); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeFairySound[]      = DOUBLE_TYPE_ANIM(TYPE_FAIRY, TYPE_SOUND, PAL_TYPE_FAIRY, PAL_TYPE_SOUND); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeDragonSound[]      = DOUBLE_TYPE_ANIM(TYPE_DRAGON, TYPE_SOUND, PAL_TYPE_DRAGON, PAL_TYPE_SOUND); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeElectricSound[]      = DOUBLE_TYPE_ANIM(TYPE_ELECTRIC, TYPE_SOUND, PAL_TYPE_ELECTRIC, PAL_TYPE_SOUND); // 15 and 13
-static const union AnimCmd sSpriteAnim_TypeFireSound[]      = DOUBLE_TYPE_ANIM(TYPE_FIRE, TYPE_SOUND, PAL_TYPE_FIRE, PAL_TYPE_SOUND); // 15 and 13
-
-//16 dual type combos as of last update
-#define NUMBER_OF_DUAL_MOVES 16
-static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_DUAL_MOVES + NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] = {
-    sSpriteAnim_TypeMystery,
-	sSpriteAnim_TypeNormal,
-    sSpriteAnim_TypeFighting,
-    sSpriteAnim_TypeFlying,
-    sSpriteAnim_TypePoison,
-    sSpriteAnim_TypeGround,
-    sSpriteAnim_TypeRock,
-    sSpriteAnim_TypeBug,
-    sSpriteAnim_TypeGhost,
-    sSpriteAnim_TypeSteel,
-    sSpriteAnim_TypeFire,
-    sSpriteAnim_TypeWater,
-    sSpriteAnim_TypeGrass,
-    sSpriteAnim_TypeElectric,
-    sSpriteAnim_TypePsychic,
-    sSpriteAnim_TypeIce,
-    sSpriteAnim_TypeDragon,
-    sSpriteAnim_TypeDark,
-    sSpriteAnim_TypeFairy,
-	sSpriteAnim_TypeSound,
-	sSpriteAnim_TypeLaser,
-    sSpriteAnim_CategoryCool,
-    sSpriteAnim_CategoryBeauty,
-    sSpriteAnim_CategoryCute,
-    sSpriteAnim_CategorySmart,
-    sSpriteAnim_CategoryTough,
-
-	sSpriteAnim_TypeFlyingFighting,
-	sSpriteAnim_TypeWaterGround, 
-	
-	sSpriteAnim_TypePsychicLaser,
-	sSpriteAnim_TypeIceLaser,
-	sSpriteAnim_TypeGrassLaser,
-	sSpriteAnim_TypeBugLaser,
-	sSpriteAnim_TypeElectricLaser,
-	sSpriteAnim_TypeFairyLaser,
-	sSpriteAnim_TypeSteelLaser, 
-	sSpriteAnim_TypeRockLaser,
-	
-	sSpriteAnim_TypeBugSound,     
-	sSpriteAnim_TypeDarkSound,   
-	sSpriteAnim_TypeFairySound,
-	sSpriteAnim_TypeDragonSound,
-	sSpriteAnim_TypeElectricSound,
-	sSpriteAnim_TypeFireSound,   
+static const union AnimCmd sSpriteAnim_TypeNone[] = {
+    ANIMCMD_FRAME(TYPE_NONE * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeNormal[] = {
+    ANIMCMD_FRAME(TYPE_NORMAL * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeFighting[] = {
+    ANIMCMD_FRAME(TYPE_FIGHTING * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeFlying[] = {
+    ANIMCMD_FRAME(TYPE_FLYING * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypePoison[] = {
+    ANIMCMD_FRAME(TYPE_POISON * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeGround[] = {
+    ANIMCMD_FRAME(TYPE_GROUND * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeRock[] = {
+    ANIMCMD_FRAME(TYPE_ROCK * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeBug[] = {
+    ANIMCMD_FRAME(TYPE_BUG * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeGhost[] = {
+    ANIMCMD_FRAME(TYPE_GHOST * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeSteel[] = {
+    ANIMCMD_FRAME(TYPE_STEEL * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeMystery[] = {
+    ANIMCMD_FRAME(TYPE_MYSTERY * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeFire[] = {
+    ANIMCMD_FRAME(TYPE_FIRE * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeWater[] = {
+    ANIMCMD_FRAME(TYPE_WATER * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeGrass[] = {
+    ANIMCMD_FRAME(TYPE_GRASS * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeElectric[] = {
+    ANIMCMD_FRAME(TYPE_ELECTRIC * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypePsychic[] = {
+    ANIMCMD_FRAME(TYPE_PSYCHIC * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeIce[] = {
+    ANIMCMD_FRAME(TYPE_ICE * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeDragon[] = {
+    ANIMCMD_FRAME(TYPE_DRAGON * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeDark[] = {
+    ANIMCMD_FRAME(TYPE_DARK * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeFairy[] = {
+    ANIMCMD_FRAME(TYPE_FAIRY * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_TypeStellar[] = {
+    ANIMCMD_FRAME(TYPE_STELLAR * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_CategoryCool[] = {
+    ANIMCMD_FRAME((CONTEST_CATEGORY_COOL + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_CategoryBeauty[] = {
+    ANIMCMD_FRAME((CONTEST_CATEGORY_BEAUTY + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_CategoryCute[] = {
+    ANIMCMD_FRAME((CONTEST_CATEGORY_CUTE + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_CategorySmart[] = {
+    ANIMCMD_FRAME((CONTEST_CATEGORY_SMART + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_CategoryTough[] = {
+    ANIMCMD_FRAME((CONTEST_CATEGORY_TOUGH + NUMBER_OF_MON_TYPES) * 8, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd *const sSpriteAnimTable_MoveTypes[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] = {
+    [TYPE_NONE] = sSpriteAnim_TypeNone,
+    [TYPE_NORMAL] = sSpriteAnim_TypeNormal,
+    [TYPE_FIGHTING] = sSpriteAnim_TypeFighting,
+    [TYPE_FLYING] = sSpriteAnim_TypeFlying,
+    [TYPE_POISON] = sSpriteAnim_TypePoison,
+    [TYPE_GROUND] = sSpriteAnim_TypeGround,
+    [TYPE_ROCK] = sSpriteAnim_TypeRock,
+    [TYPE_BUG] = sSpriteAnim_TypeBug,
+    [TYPE_GHOST] = sSpriteAnim_TypeGhost,
+    [TYPE_STEEL] = sSpriteAnim_TypeSteel,
+    [TYPE_MYSTERY] = sSpriteAnim_TypeMystery,
+    [TYPE_FIRE] = sSpriteAnim_TypeFire,
+    [TYPE_WATER] = sSpriteAnim_TypeWater,
+    [TYPE_GRASS] = sSpriteAnim_TypeGrass,
+    [TYPE_ELECTRIC] = sSpriteAnim_TypeElectric,
+    [TYPE_PSYCHIC] = sSpriteAnim_TypePsychic,
+    [TYPE_ICE] = sSpriteAnim_TypeIce,
+    [TYPE_DRAGON] = sSpriteAnim_TypeDragon,
+    [TYPE_DARK] = sSpriteAnim_TypeDark,
+    [TYPE_FAIRY] = sSpriteAnim_TypeFairy,
+    [TYPE_STELLAR] = sSpriteAnim_TypeStellar,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = sSpriteAnim_CategoryCool,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = sSpriteAnim_CategoryBeauty,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = sSpriteAnim_CategoryCute,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = sSpriteAnim_CategorySmart,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = sSpriteAnim_CategoryTough,
 };
 
 #define FIGHTING_FLYING   		(NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT)
@@ -1179,7 +1170,7 @@ static const u16 sMarkings_Pal[] = INCBIN_U16("graphics/summary_screen/markings.
 static u8 ShowCategoryIcon(u32 category)
 {
     if (sMonSummaryScreen->categoryIconSpriteId == 0xFF)
-        sMonSummaryScreen->categoryIconSpriteId = CreateSprite(&sSpriteTemplate_CategoryIcons, 48, 129, 0);
+        sMonSummaryScreen->categoryIconSpriteId = CreateSprite(&gSpriteTemplate_CategoryIcons, 48, 129, 0);
 
     gSprites[sMonSummaryScreen->categoryIconSpriteId].invisible = FALSE;
     StartSpriteAnim(&gSprites[sMonSummaryScreen->categoryIconSpriteId], category);
@@ -1474,8 +1465,8 @@ static bool8 DecompressGraphics(void)
         break;
     case 12:
         LoadCompressedPalette(gMoveTypes_Pal, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
-        LoadCompressedSpriteSheet(&sSpriteSheet_CategoryIcons);
-        LoadSpritePalette(&sSpritePal_CategoryIcons);
+        LoadCompressedSpriteSheet(&gSpriteSheet_CategoryIcons);
+        LoadSpritePalette(&gSpritePal_CategoryIcons);
         sMonSummaryScreen->switchCounter = 0;
         return TRUE;
     }
@@ -1675,10 +1666,10 @@ static void Task_HandleInput(u8 taskId)
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
-    #if DEBUG_POKEMON_MENU == TRUE
+    #if DEBUG_POKEMON_SPRITE_VISUALIZER == TRUE
         else if (JOY_NEW(SELECT_BUTTON) && !gMain.inBattle)
         {
-            sMonSummaryScreen->callback = CB2_Debug_Pokemon;
+            sMonSummaryScreen->callback = CB2_Pokemon_Sprite_Visualizer;
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
             CloseSummaryScreen(taskId);
@@ -2837,12 +2828,25 @@ static void ResetWindows(void)
         sMonSummaryScreen->windowIds[i] = WINDOW_NONE;
 }
 
+static void PrintTextOnWindowWithFont(u8 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 colorId, u32 fontId)
+{
+    AddTextPrinterParameterized4(windowId, fontId, x, y, 0, lineSpacing, sTextColors[colorId], 0, string);
+}
+
 static void PrintTextOnWindow(u8 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 colorId)
 {
-    if (DECAP_ENABLED && DECAP_MIRRORING && !DECAP_SUMMARY)
-        AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, lineSpacing, sTextColors[colorId], 0, MirrorPtr(string));
-    else
-        AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, lineSpacing, sTextColors[colorId], 0, string);
+    PrintTextOnWindowWithFont(windowId, string, x, y, lineSpacing, colorId, FONT_NORMAL);
+}
+
+static void PrintTextOnWindowToFitPx(u8 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 colorId, u32 width)
+{
+    u32 fontId = GetFontIdToFit(string, FONT_NORMAL, 0, width);
+    PrintTextOnWindowWithFont(windowId, string, x, y, lineSpacing, colorId, fontId);
+}
+
+static void PrintTextOnWindowToFit(u8 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 colorId)
+{
+    PrintTextOnWindowToFitPx(windowId, string, x, y, lineSpacing, colorId, WindowWidthPx(windowId));
 }
 
 static void PrintMonInfo(void)
@@ -2859,7 +2863,6 @@ static void PrintMonInfo(void)
 
 static void PrintNotEggInfo(void)
 {
-    u8 strArray[16];
     struct Pokemon *mon = &sMonSummaryScreen->currentMon;
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     u16 dexNum = SpeciesToPokedexNum(summary->species);
@@ -2895,10 +2898,9 @@ static void PrintNotEggInfo(void)
     StringAppend(gStringVar1, gStringVar2);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, gStringVar1, 24, 17, 0, 1);
     GetMonNickname(mon, gStringVar1);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gStringVar1, 0, 1, 0, 1);
-    strArray[0] = CHAR_SLASH;
-    StringCopy(&strArray[1], &GetSpeciesName(summary->species2)[0]);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, strArray, 0, 1, 0, 1);
+    PrintTextOnWindowToFitPx(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gStringVar1, 0, 1, 0, 1, WindowWidthPx(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME) - 9);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, gText_Slash, 0, 1, 0, 1);
+    PrintTextOnWindowToFitPx(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, GetSpeciesName(summary->species2), 6, 1, 0, 1, WindowWidthPx(PSS_LABEL_WINDOW_PORTRAIT_SPECIES) - 9);
     PrintGenderSymbol(mon, summary->species2);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
@@ -3287,7 +3289,7 @@ static void PrintMonTrainerMemo(void)
 static void BufferNatureString(void)
 {
     struct PokemonSummaryScreenData *sumStruct = sMonSummaryScreen;
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, gNatureNamePointers[sumStruct->summary.nature]);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, gNaturesInfo[sumStruct->summary.nature].name);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(5, gText_EmptyString5);
 }
 
@@ -3460,6 +3462,7 @@ static void Task_PrintSkillsPage(u8 taskId)
 static void PrintHeldItemName(void)
 {
     const u8 *text;
+    u32 fontId;
     int x;
 
     if (sMonSummaryScreen->summary.item == ITEM_ENIGMA_BERRY_E_READER
@@ -3478,8 +3481,9 @@ static void PrintHeldItemName(void)
         text = gStringVar1;
     }
 
-    x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 72) + 6;
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_HELD_ITEM), text, x, 1, 0, 0);
+    fontId = GetFontIdToFit(text, FONT_NORMAL, 0, WindowTemplateWidthPx(&sPageSkillsTemplate[PSS_DATA_WINDOW_SKILLS_HELD_ITEM]) - 8);
+    x = GetStringCenterAlignXOffset(fontId, text, 72) + 6;
+    PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_HELD_ITEM), text, x, 1, 0, 0, fontId);
 }
 
 static void PrintRibbonCount(void)
@@ -3502,19 +3506,21 @@ static void PrintRibbonCount(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_RIBBON_COUNT), text, x, 1, 0, 0);
 }
 
-static void BufferStat(u8 *dst, s8 natureMod, u32 stat, u32 strId, u32 n)
+static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
 {
     static const u8 sTextNatureDown[] = _("{COLOR}{08}");
     static const u8 sTextNatureUp[] = _("{COLOR}{05}");
     static const u8 sTextNatureNeutral[] = _("{COLOR}{01}");
     u8 *txtPtr;
 
-    if (natureMod == 0 || !SUMMARY_SCREEN_NATURE_COLORS)
+    if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
         txtPtr = StringCopy(dst, sTextNatureNeutral);
-    else if (natureMod > 0)
+    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp)
         txtPtr = StringCopy(dst, sTextNatureUp);
-    else
+    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
         txtPtr = StringCopy(dst, sTextNatureDown);
+    else
+        txtPtr = StringCopy(dst, sTextNatureNeutral);
 
     ConvertIntToDecimalStringN(txtPtr, stat, STR_CONV_MODE_RIGHT_ALIGN, n);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(strId, dst);
@@ -3526,13 +3532,12 @@ static void BufferLeftColumnStats(void)
     u8 *maxHPString = Alloc(20);
     u8 *attackString = Alloc(20);
     u8 *defenseString = Alloc(20);
-    const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.mintNature];
 
     DynamicPlaceholderTextUtil_Reset();
     BufferStat(currentHPString, 0, sMonSummaryScreen->summary.currentHP, 0, 3);
     BufferStat(maxHPString, 0, sMonSummaryScreen->summary.maxHP, 1, 3);
-    BufferStat(attackString, natureMod[STAT_ATK - 1], sMonSummaryScreen->summary.atk, 2, 7);
-    BufferStat(defenseString, natureMod[STAT_DEF - 1], sMonSummaryScreen->summary.def, 3, 7);
+    BufferStat(attackString, STAT_ATK, sMonSummaryScreen->summary.atk, 2, 7);
+    BufferStat(defenseString, STAT_DEF, sMonSummaryScreen->summary.def, 3, 7);
     DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayout);
 
     Free(currentHPString);
@@ -3548,12 +3553,10 @@ static void PrintLeftColumnStats(void)
 
 static void BufferRightColumnStats(void)
 {
-    const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.mintNature];
-
     DynamicPlaceholderTextUtil_Reset();
-    BufferStat(gStringVar1, natureMod[STAT_SPATK - 1], sMonSummaryScreen->summary.spatk, 0, 3);
-    BufferStat(gStringVar2, natureMod[STAT_SPDEF - 1], sMonSummaryScreen->summary.spdef, 1, 3);
-    BufferStat(gStringVar3, natureMod[STAT_SPEED - 1], sMonSummaryScreen->summary.speed, 2, 3);
+    BufferStat(gStringVar1, STAT_SPATK, sMonSummaryScreen->summary.spatk, 0, 3);
+    BufferStat(gStringVar2, STAT_SPDEF, sMonSummaryScreen->summary.spdef, 1, 3);
+    BufferStat(gStringVar3, STAT_SPEED, sMonSummaryScreen->summary.speed, 2, 3);
     DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
 }
 
@@ -3663,7 +3666,7 @@ static void PrintMoveNameAndPP(u8 moveIndex)
     if (move != 0)
     {
         pp = CalculatePPWithBonus(move, summary->ppBonuses, moveIndex);
-        PrintTextOnWindow(moveNameWindowId, GetMoveName(move), 0, moveIndex * 16 + 1, 0, 1);
+        PrintTextOnWindowToFit(moveNameWindowId, GetMoveName(move), 0, moveIndex * 16 + 1, 0, 1);
         ConvertIntToDecimalStringN(gStringVar1, summary->pp[moveIndex], STR_CONV_MODE_RIGHT_ALIGN, 2);
         ConvertIntToDecimalStringN(gStringVar2, pp, STR_CONV_MODE_RIGHT_ALIGN, 2);
         DynamicPlaceholderTextUtil_Reset();
@@ -3831,9 +3834,9 @@ static void PrintNewMoveDetailsOrCancelText(void)
         u16 move = sMonSummaryScreen->newMove;
 
         if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
-            PrintTextOnWindow(windowId1, GetMoveName(move), 0, 65, 0, 6);
+            PrintTextOnWindowToFit(windowId1, GetMoveName(move), 0, 65, 0, 6);
         else
-            PrintTextOnWindow(windowId1, GetMoveName(move), 0, 65, 0, 5);
+            PrintTextOnWindowToFit(windowId1, GetMoveName(move), 0, 65, 0, 5);
 
         ConvertIntToDecimalStringN(gStringVar1, gMovesInfo[move].pp, STR_CONV_MODE_RIGHT_ALIGN, 2);
         DynamicPlaceholderTextUtil_Reset();
