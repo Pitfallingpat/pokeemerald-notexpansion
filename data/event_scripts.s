@@ -109,6 +109,7 @@ gStdScripts_End::
 	.include "data/maps/LittlerootTown_BrendansHouse_2F/scripts.inc"
 	.include "data/maps/LittlerootTown_MaysHouse_1F/scripts.inc"
 	.include "data/maps/LittlerootTown_MaysHouse_2F/scripts.inc"
+	.include "data/maps/FallarborTown_MoveRelearnersHouse/scripts.inc"
 	.include "data/maps/LittlerootTown/scripts.inc"
 	.include "data/text/mauville_man.inc"
 	.include "data/scripts/shared_secret_base.inc"
@@ -211,6 +212,7 @@ gStdScripts_End::
 	.include "data/scripts/hall_of_fame.inc"
 	.include "data/scripts/config.inc"
 	.include "data/scripts/debug.inc"
+	.include "data/scripts/interview.inc"
 
 EventScript_WhiteOut::
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour

@@ -1813,75 +1813,51 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
 	//MARK TWO TYPED MOVE IN BATTLE
-	
-    //struct ChooseMoveStruct *moveInfo;
+
     u8 *txtPtr;
-    u8 type;
+    u8 type = TYPE_NONE;
     u32 speciesId;
-	u16 move;
     struct Pokemon *mon;
-
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-	
-	move = moveInfo->moves[gMoveSelectionCursor[battler]];
-    move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
 
-	txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
-	
-	if (gMovesInfo[move].effect == EFFECT_HIDDEN_POWER){
-		
-			txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-			StringCopy(txtPtr, gTypesInfo[(gBattleMons[battler].personality % 19) + 2].name);	
-	}
-	else{
-		if (gMovesInfo[move].type2 != TYPE_NONE)
-		{
-			txtPtr = StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type].name);	
-			*(txtPtr)++ = CHAR_SLASH;
-			StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type2].name);	
-			
-		}
-		else{
-			txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-			//*(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
-			//*(txtPtr)++ = EXT_CTRL_CODE_FONT;
-			//*(txtPtr)++ = FONT_NORMAL;
-			StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type].name);	
-		}
-	}
-	BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
+    txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+    *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
+    *(txtPtr)++ = EXT_CTRL_CODE_FONT;
+    *(txtPtr)++ = FONT_NORMAL;
 
-    type = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
-
-    if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_TERA_BLAST)
+    if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_IVY_CUDGEL)
     {
-        if (IsGimmickSelected(battler, GIMMICK_TERA) || GetActiveGimmick(battler) == GIMMICK_TERA)
-            type = GetBattlerTeraType(battler);
-    }
-    else if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_IVY_CUDGEL)
-    {
-        speciesId = gBattleMons[battler].species;
+        mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
+        speciesId = GetMonData(mon, MON_DATA_SPECIES);
 
         if (speciesId == SPECIES_OGERPON_WELLSPRING_MASK || speciesId == SPECIES_OGERPON_WELLSPRING_MASK_TERA
             || speciesId == SPECIES_OGERPON_HEARTHFLAME_MASK || speciesId == SPECIES_OGERPON_HEARTHFLAME_MASK_TERA
             || speciesId == SPECIES_OGERPON_CORNERSTONE_MASK || speciesId == SPECIES_OGERPON_CORNERSTONE_MASK_TERA)
             type = gBattleMons[battler].type2;
+        else
+            type = gMovesInfo[MOVE_IVY_CUDGEL].type;
     }
-    // Max Guard is a Normal-type move
-    else if (gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].category == DAMAGE_CATEGORY_STATUS
-             && (GetActiveGimmick(battler) == GIMMICK_DYNAMAX || IsGimmickSelected(battler, GIMMICK_DYNAMAX)))
-    {
-        type = TYPE_NORMAL;
-    }
-    else if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_TERA_STARSTORM)
-    {
-        if (gBattleMons[battler].species == SPECIES_TERAPAGOS_STELLAR
-        || (IsGimmickSelected(battler, GIMMICK_TERA) && gBattleMons[battler].species == SPECIES_TERAPAGOS_TERASTAL))
-            type = TYPE_STELLAR;
-    }
+    else
+		if (gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].effect == EFFECT_HIDDEN_POWER){
+		
+			txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+			StringCopy(txtPtr, gTypesInfo[(gBattleMons[battler].personality % 19) + 2].name);	
+		}
+		else{
+			if (gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type2 != TYPE_NONE)
+			{
+				txtPtr = StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type].name);	
+				*(txtPtr)++ = CHAR_SLASH;
+				StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type2].name);	
+			}
+			else{
+				txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
+				StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type].name);	
+			}
+		}
+        //type = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
 
-    end = StringCopy(txtPtr, gTypesInfo[type].name);
-    PrependFontIdToFit(txtPtr, end, FONT_NORMAL, WindowWidthPx(B_WIN_MOVE_TYPE) - 25);
+    StringCopy(txtPtr, gTypesInfo[type].name);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 
 }

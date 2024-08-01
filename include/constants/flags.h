@@ -168,8 +168,8 @@
 
 //Above flags are part of the base game that were too annoying to remove
 
-#define FLAG_UNUSED_0x99                     0x99
-#define FLAG_UNUSED_0x9A                     0x9A
+#define FLAG_TERA_ORB_STATE                  0x99
+#define FLAG_TERA_ORB_INFINITE               0x9A
 #define FLAG_UNUSED_0x9B                     0x9B
 #define FLAG_UNUSED_0x9C                     0x9C
 #define FLAG_UNUSED_0x9D                     0x9D

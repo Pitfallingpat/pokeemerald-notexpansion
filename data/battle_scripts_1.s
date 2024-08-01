@@ -19,6 +19,36 @@
 	.include "constants/constants.inc"
 
 	.section script_data, "aw", %progbits
+	
+BattleScript_BruiseActivates::
+	call BattleScript_HurtAttackerBruise
+	return
+	
+BattleScript_HurtAttackerBruise:
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNHURTBYBRUISE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	return
+	
+BattleScript_FabulousActivates::
+	call BattleScript_TargetFormChangeWithString
+	waitanimation
+	printstring STRINGID_IMPOSTERTRANSFORM
+	waitmessage B_WAIT_TIME_LONG
+	end3
+	
+BattleScript_MoveEffectBruise::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gGotBruisedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
+BattleScript_EffectBruiseHit::
+	setmoveeffect MOVE_EFFECT_BRUISE
+	goto BattleScript_EffectHit
 
 BattleScript_DamageToQuarterTargetHP::
 	attackcanceler
@@ -3018,62 +3048,6 @@ BattleScript_AbsorbHealBlock::
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectInfernalParade::
-BattleScript_EffectBurnHit::
-	setmoveeffect MOVE_EFFECT_BURN
-	goto BattleScript_EffectHit
-
-BattleScript_EffectBruiseHit::
-	setmoveeffect MOVE_EFFECT_BRUISE
-	goto BattleScript_EffectHit
-
-BattleScript_EffectFrostbiteHit::
-	setmoveeffect MOVE_EFFECT_FROSTBITE
-	goto BattleScript_EffectHit
-
-BattleScript_EffectSleepHit::
-	setmoveeffect MOVE_EFFECT_SLEEP
-	goto BattleScript_EffectHit
-
-BattleScript_EffectFreezeHit::
-	setmoveeffect MOVE_EFFECT_FREEZE
-	goto BattleScript_EffectHit
-
-BattleScript_EffectParalyzeHit::
-	setmoveeffect MOVE_EFFECT_PARALYSIS
-	goto BattleScript_EffectHit
-
-BattleScript_EffectExplosion_AnimDmgRet:
-	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionAnimRet
-	call BattleScript_PreserveMissedBitDoMoveAnim
-	goto BattleScript_ExplosionDmgRet
-BattleScript_ExplosionAnimRet:
-	attackanimation
-	waitanimation
-BattleScript_ExplosionDmgRet:
-	movevaluescleanup
-	critcalc
-	damagecalc
-	adjustdamage
-	accuracycheck BattleScript_ExplosionMissedRet, ACC_CURR_MOVE
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
-BattleScript_ExplosionAnimEndRet_Return:
-	return
-BattleScript_ExplosionMissedRet:
-	effectivenesssound
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_ExplosionAnimEndRet_Return
-
 BattleScript_EffectExplosion::
 	attackcanceler
 	attackstring
@@ -4938,6 +4912,7 @@ BattleScript_EffectWillOWisp::
 	ppreduce
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_BURN, BattleScript_AlreadyBurned
+	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_WATER_BUBBLE, BattleScript_WaterVeilPrevents
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
@@ -4949,15 +4924,6 @@ BattleScript_EffectWillOWisp::
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifsafeguard BattleScript_SafeguardProtected
-	jumpifability BS_ATTACKER, ABILITY_INFERNO, BattleScript_InfernoFireCheck
-	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_InfernoFireCheck
-	attackanimation
-	waitanimation
-	setmoveeffect MOVE_EFFECT_BURN
-	seteffectprimary
-	goto BattleScript_MoveEnd
-
-BattleScript_InfernoFireCheck::
 	attackanimation
 	waitanimation
 	seteffectprimary MOVE_EFFECT_BURN
@@ -7589,12 +7555,6 @@ BattleScript_MoveEffectBurn::
 	printfromtable gGotBurnedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
-	
-BattleScript_MoveEffectBruise::
-	statusanimation BS_EFFECT_BATTLER
-	printfromtable gGotBruisedStringIds
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_UpdateEffectStatusIconRet
 
 BattleScript_MoveEffectFrostbite::
 	statusanimation BS_EFFECT_BATTLER
@@ -8649,22 +8609,6 @@ BattleScript_ImposterActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
-BattleScript_FabulousActivates::
-	call BattleScript_TargetFormChangeWithString
-	waitanimation
-	printstring STRINGID_IMPOSTERTRANSFORM
-	waitmessage B_WAIT_TIME_LONG
-	end3
-
-BattleScript_HurtAttackerBruise:
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	printstring STRINGID_PKMNHURTBYBRUISE
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_ATTACKER
-	return
-
 BattleScript_HurtAttacker:
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
@@ -8679,11 +8623,8 @@ BattleScript_RoughSkinActivates::
 	call BattleScript_HurtAttacker
 	return
 
-BattleScript_BruiseActivates::
-	call BattleScript_HurtAttackerBruise
-	return
-
 BattleScript_RockyHelmetActivates::
+	@ don't play the animation for a fainted mon
 	jumpifabsent BS_TARGET, BattleScript_RockyHelmetActivatesDmg
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
@@ -10122,24 +10063,3 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setfieldweather ENUM_WEATHER_SNOW
 	goto BattleScript_MoveWeatherChange
-
-BattleScript_EffectTwoTypeBurn::
-	setmoveeffect MOVE_EFFECT_BURN
-	goto BattleScript_EffectHit
-	
-	
-BattleScript_EffectTwoTypeSpAtkDown::		
-	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_1
-	goto BattleScript_EffectHit
- 
-BattleScript_EffectTwoTypeSpDefDown::	
-	setmoveeffect MOVE_EFFECT_SP_DEF_MINUS_1
-	goto BattleScript_EffectHit
-	 
-BattleScript_EffectTwoTypeAttackerDefDown::
-	setmoveeffect MOVE_EFFECT_DEF_MINUS_1 | MOVE_EFFECT_AFFECTS_USER
-	goto BattleScript_EffectHit
-
-BattleScript_EffectTwoTypeSpAtkUp::
-	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
-	goto BattleScript_EffectHit

@@ -6570,7 +6570,7 @@ bool32 CanBeSlept(u32 battler, u32 ability)
     return TRUE;
 }
 
-bool32 CanBeBruised(u32 battlerId, u32 battlerAttacker){
+bool32 CanBeBruised(u32 battlerId){
 	
     u16 ability = GetBattlerAbility(battlerId);
 	

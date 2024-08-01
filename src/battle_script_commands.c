@@ -2850,7 +2850,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
         switch (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect])
         {
 		case STATUS1_BRUISE:
-            if (CanBeBruised(gEffectBattler, gBattlerAttacker))
+            if (CanBeBruised(gEffectBattler))
 			{
 				statusChanged = TRUE;
 			}
