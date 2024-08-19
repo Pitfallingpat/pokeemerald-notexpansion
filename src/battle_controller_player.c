@@ -1725,9 +1725,13 @@ static void MoveSelectionDisplayPpString(u32 battler)
 	
 	if (gMovesInfo[move].effect == EFFECT_HIDDEN_POWER){
 
+		u8 hiddenPowerValue = (gBattleMons[battler].personality % 19) + 2;
+		if (hiddenPowerValue > TYPE_MYSTERY)
+			hiddenPowerValue++;
+	
 		mModifier = (CalcTypeEffectivenessMultiplier(
 			move,
-			(gBattleMons[battler].personality % 19) + 2,
+			hiddenPowerValue,
 			battler,
 			targetMon,
 			gBattleMons[targetMon].ability,
@@ -1846,7 +1850,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
 		else{
 			if (gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type2 != TYPE_NONE)
 			{
-				txtPtr = StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type].name);	
+				txtPtr = StringCopy(gDisplayedStringBattle, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type].name);	
 				*(txtPtr)++ = CHAR_SLASH;
 				StringCopy(txtPtr, gTypesInfo[gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type2].name);	
 			}
@@ -1857,7 +1861,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
 		}
         //type = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
 
-    StringCopy(txtPtr, gTypesInfo[type].name);
+    //StringCopy(txtPtr, gTypesInfo[type].name);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 
 }

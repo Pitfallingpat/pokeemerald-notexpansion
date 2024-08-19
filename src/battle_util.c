@@ -9918,7 +9918,7 @@ static inline uq4_12_t GetSameTypeAttackBonusModifier(u32 battlerAtk, u32 moveTy
 	if (move == MOVE_STRUGGLE || move == MOVE_NONE) {
 		return UQ_4_12(1.0);
 	}
-	if ((IS_BATTLER_OF_TYPE(battlerAtk, gMovesInfo[move].type2) && gMovesInfo[move].type2 != TYPE_MYSTERY)
+	if ((IS_BATTLER_OF_TYPE(battlerAtk, gMovesInfo[move].type2) && gMovesInfo[move].type2 != TYPE_NONE)
 		|| IS_BATTLER_OF_TYPE(battlerAtk, moveType)){
 		return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
 	}
@@ -10562,7 +10562,7 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
-        if (gMovesInfo[move].type2 != TYPE_MYSTERY)
+        if (gMovesInfo[move].type2 != TYPE_NONE)
             modifier = CalcTypeEffectivenessMultiplierInternal(move, gMovesInfo[move].type2, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
     }
     if (recordAbilities)
